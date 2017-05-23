@@ -1,0 +1,14 @@
+img {
+    width: 120px;
+    height: 120px;
+    border: 5px solid black;
+    padding: 10px; 
+}
+
+img:nth-child(even) {
+    background-color: orangered;
+}
+
+img:nth-child(odd) {
+    background-color: lightblue;
+}

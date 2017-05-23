@@ -1,0 +1,35 @@
+Michaels-MacBook-Pro-2:dojoassignments Michael$ ls -R
+iOS		netCore		ruby
+mean		python		webfundamentals
+
+./iOS:
+about.txt
+
+./mean:
+about.txt
+
+./netCore:
+about.txt
+
+./python:
+about.txt
+
+./ruby:
+about.txt
+
+./webfundamentals:
+about.txt	css		git		html		javascript
+
+./webfundamentals/css:
+about.txt
+
+./webfundamentals/git:
+about.txt
+
+./webfundamentals/html:
+Untitled-1.html			indentation.html
+about.txt			indentationPractice.html
+formInputExamples.html		indentationPractice2.html
+
+./webfundamentals/javascript:
+about.txt
