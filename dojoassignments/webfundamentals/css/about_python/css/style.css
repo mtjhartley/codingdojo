@@ -1,0 +1,189 @@
+#wrapper {
+    width: 970px;
+}
+
+#top_content {
+    background-color: #0059b3;
+    padding-bottom: 10px;
+}
+
+
+#header #python_logo, #search_bar {
+    display: inline-block;
+}
+
+#python_logo {
+    margin-top: 10px;
+    position: relative;
+    width: 400px;
+    height: 90px;
+} 
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+#header p {
+    position: absolute;
+    right: 330px;
+    top: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+#header a {
+    color:yellow;
+}
+#search_bar {
+    background-color: grey;
+    padding: 10px;
+    border-radius: 5px;
+    vertical-align: top;
+    margin-top: 30px;
+    margin-left: 360px;
+    /*position: absolute;
+    right:320px;
+    top: 30px;*/
+    box-shadow: 5px 3px 3px black;
+}
+button {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+#nav_bar {
+    width: 900px;
+    text-align: center;
+    background-color: cornflowerblue;
+    margin-left: 30px;
+    padding: 10px 0px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 3px 3px black;
+}
+
+
+#nav_bar li {
+    display: inline;
+    padding: 0px 35px;
+    font-size: 20px;
+}
+#nav_bar li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+#side_bar li {
+    text-decoration: underline;
+    margin-left: 120px;
+    margin-bottom: 8px;
+    text-align: center;
+    list-style-position: inside;
+}
+
+#side_bar a {
+    color: white;
+}
+
+#side_bar, #main_text {
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+}
+
+#main_text {
+    width: 500px;
+    text-align: center;
+    margin-left: 100px;
+    font-size: 12px;
+
+}
+
+#main_text h4 {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    font-style: italic;
+    color: #e4d422;
+    font-size: 16px;
+}
+
+#main_text h3 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 16px;
+
+}
+
+
+#getting_started {
+    margin-left: 80px;
+}
+
+.middle_block {
+    background-color: white;
+    display: inline-block;
+    width: 400px;
+    height: 220px;
+    vertical-align: top;
+    text-align: center;
+}
+
+.middle_block p {
+    padding: 0px 15px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.middle_block ul {
+    text-decoration: none;
+    margin-top: 4px;
+    list-style-type: square;
+}
+
+.middle_block a {
+    text-decoration: none;
+}
+
+.middle_block h5 {
+    font-size: 16px;
+    margin-bottom: 4px;
+    margin-top: 8px;
+    border-top: 3px solid cornflowerblue;
+}
+
+#applications {
+    margin-left: 20px;
+}
+
+#footer {
+    background: 0059b3; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#0059b3,cornflowerblue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0059b3,cornflowerblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient#0059b3, cornflowerblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0059b3, cornflowerblue); /* Standard syntax */
+    text-align: center;
+    color: lightblue;
+}
+
+#footer h6 {
+    margin-top: 6px;
+    padding-bottom: 6px;
+}
+.footer_link:first-child {
+    margin-top:0px;
+}
+
+.footer_link {
+    display: inline-block;
+    padding-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: lightblue;
+    text-decoration: none;
+
+}
+
+

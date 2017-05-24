@@ -1,0 +1,252 @@
+* {
+    padding: 0;
+    margin: 0;
+    /*reset css for all elements*/
+}
+
+#wrapper {
+    width: 970px;
+    font-family: sans-serif;
+}
+#wrapper #globe, h1 {
+    display:inline-block;
+}
+
+#wrapper #globe {
+    width:100px;
+    position: absolute;
+    top: 10px;
+}
+
+#wrapper h1 {
+    vertical-align: top;
+    margin-top: 35px;
+    font-size: 50px;
+    position: relative;
+    margin-left: 100px;
+    color: #404040;
+}
+
+.blue_span {
+    color: cornflowerblue;
+}
+
+.blue_span #whole_body {
+    font-size: 18px;
+}
+.red_span {
+    color: red;
+}
+
+#wrapper h2 {
+    background-color: #0059b3;
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 26px;
+
+    background: blue; /* For browsers that do not support gradients */
+    background-color: #0059b3;
+    background: -webkit-linear-gradient(#0059b3, cornflowerblue, #0059b3); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#0059b3, cornflowerblue, #0059b3); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#0059b3, cornflowerblue, #0059b3); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#0059b3, cornflowerblue, #0059b3); /* Standard syntax */
+}
+
+#whole_body {
+    background-color: #f2f2f2;
+    background: -webkit-linear-gradient(#f2f2f2, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f2f2f2, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f2f2f2, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f2f2f2, white); /* Standard syntax */
+}
+
+.in_body {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#side_bar {
+    width: 200px;
+    height: 400px;
+    padding-top: 20px;
+    padding-left: 10px;
+    position: relative;
+}
+
+#side_bar p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#side_bar p:nth-child(2) {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#side_bar ul {
+    border-bottom: 10px;
+}
+#side_bar ul li {
+    padding: 10px;
+    margin-top: 7px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px black;
+}
+
+#side_bar ul li a {
+    text-decoration: none;
+    color: white;
+}
+#side_bar ul li:first-child {
+    background-color: #0059b3
+}
+
+#side_bar ul li:last-child {
+    background-color: orange;
+}
+
+#advertisement {
+    background-image: url("../images/ad_background.png");
+    height: 280px;
+}
+
+#advertisement #ninja {
+    width: 80px;
+    margin-left: 55px;
+    margin-bottom: 30px;
+
+}
+
+#advertisement p {
+    color: snow;
+    margin-top: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 22px;
+}
+
+#advertisement a {
+    color: white;
+    background-color: cyan;
+    margin-left: 25px;
+    margin-top: 30px;
+    padding: 6px 24px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px black;
+    text-decoration: none;
+}
+
+
+#main_content {
+    margin-left: 50px;
+}
+#left_side, #right_side{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 8px;
+}
+
+#right_side {
+    margin-left: 460px;
+}
+
+#right_side #img, ul {
+    display: inline-block;
+}
+
+#right_side ul {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.list_small {
+    font-size: 8px;
+    color:darkgray;
+}
+
+#phone_number {
+    font-size: 20px;
+    color: turquoise;
+    font-weight: bold;
+}
+#top_bar {
+    border-bottom: 1px solid gray;
+}
+#top_bar a {
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+#home_icon {
+    width: 20px;
+}
+
+#phone_icon {
+    width: 40px;
+}
+
+#paragraph_content {
+    width: 700px;
+    font-size: 14px;
+}
+
+#paragraph_content h4 {
+    font-size: 18px;
+}
+
+#paragraph_content ul, ol {
+    margin-top: 8px;
+    margin-left: 40px;
+}
+
+#paragraph_content li {
+    margin-top: 3px;
+}
+
+#client_server_image {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    display: block;
+}
+
+#footer {
+    width: 690px;
+    display: inline-block;
+    margin-top: 15px;
+    border-top: 3px solid cornflowerblue;
+    border-left: 3px solid cornflowerblue;
+    border-right: 3px solid cornflowerblue;
+}
+
+#big_3_frameworks, #footer_text {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+#big_3_frameworks {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+#footer_text {
+    width: 500px;
+    font-size: 12px;
+}
+
+#footer_text p {
+    margin-top: 5px;
+}
+
+.content_link {
+    color: turquoise;
+    text-decoration: none;
+}
+

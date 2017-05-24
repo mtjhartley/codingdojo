@@ -1,0 +1,77 @@
+a {
+    color: cyan;
+}
+
+#wrapper div {
+    border-radius: 10px;
+}
+#wrapper {
+    width: 950px;
+    background-color: darkblue;
+    padding: 15px;
+}
+
+#header {
+    height: 75px;
+    background-color: red;
+    margin-bottom: 10px;
+}
+
+#header h1 {
+    color: snow;
+    margin-top: 10px;
+    padding-top: 16px;
+    padding-left: 14px;
+}
+
+#nav_menu {
+    height: 300px;
+    width: 200px;
+    background-color: teal;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+}
+
+#navbar_menu_list {
+    margin-top: -15px;
+}
+
+#list_in_list {
+    list-style-type: none;
+    /* this is to correct a form validation error that occurs when nesting a list in a list*/
+}
+
+#nav_menu ul li{
+    color:cyan;
+}
+
+#main_content {
+    height: 400px;
+    width: 700px;
+    background-color: black;
+    padding-left: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    overflow: auto;
+}
+
+#main_content h2, p, li {
+    color: snow;
+}
+
+#main_content li {
+    margin-top: 3px;
+}
+
+#footer {
+    height: 50px;
+    width: 950px;
+    background-color: gray;
+    margin-top: 10px;
+}
+
+#footer p {
+    padding-top: 16px;
+    padding-left: 20px;
+}

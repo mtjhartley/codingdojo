@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>The Internet</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="wrapper">
+            <!--header "div" but h1/h2 are sufficient-->
+            <img src="images/globe.png" alt="Globe" id="globe">
+            <h1>The Inter<span class="blue_span">net</span></h1>
+            <h2>The World Wide Web</h2>
+            <!--header ends -->
+            <div id="whole_body">
+                <div id="side_bar" class="in_body">
+                    <p>So, what's an <span class="red_span">Internet?</span></p>
+                    <p>An <span class="blue_span">inter</span>connected 
+                    <span class="blue_span">Net</span>work of computers all around the world!</p>
+                    <ul>
+                        <li><a href="#">WATCH A VIDEO</a></li>
+                        <li><a href="#">MORE RESOURCES</a></li>
+                    </ul>
+                    <div id="advertisement">
+                        <p>Reinvent your career in just 14 weeks</p>
+                        <img src="images/ninja.png" alt="ninja" id="ninja">
+                        <a href="#">Learn More >></a>
+                    </div>
+                </div>
+
+                <div id="main_content" class="in_body">
+                    <div id="top_bar">
+                        <div id="left_side">
+                            <img src="images/home.png" alt="home" id="home_icon">
+                            <a href="#">DNS</a>
+                        </div>
+                        <div id="right_side">
+                            <img src="images/phone.png" alt="phone icon" id="phone_icon">
+                            <ul>
+                                <li class="list_small">Mon - Fri 9 a.m. - 5 p.m. (EST)</li>
+                                <li id="phone_number">855.967.3787</li>
+                                <li class="list_small">International + 1.617.963.0555</li>
+                            </ul>
+                        </div>
+                    </div> <!--top_bar ends here-->
+                    <div id="paragraph_content">
+                        <h4><span class="blue_span">Clients and Servers</span></h4>
+                        <p>Computers connected to the <a href="#" class="content_link">Web</a> are called clients and servers.</p>
+                        <ul>
+                            <li> <a href="#" class="content_link">Clients</a> are the typical Web user's Internet-connected devices
+                                (for example, your computer connected to your Wi-Fi, or your
+                                phone connected to your mobile network) and <a href="#" class="content_link">Web-accessing software</a>
+                                available on those devices (usually a web browser like Firefox or Chrome).
+                            </li>
+                            <li><a href="#" class="content_link">Servers</a> are computers that store <a href="#" class="content_link">webpages</a>, <a href="#" class="content_link">sites</a>, or <a href="#" class="content_link">apps</a>. When a clients
+                                device wants to access a webpage, a copy of the webpage is downloaded from
+                                the server onto the client machine to be displayed in the user's web browser.
+                            </li>
+                        </ul>
+                        <img src="images/client_server.jpg" alt="client server" id="client_server_image">
+                        <h4><span class="blue_span">So What Actually Happens?</span></h4>
+                        <ol>
+                            <li>The browser goes to the <a href="#" class="content_link">DNS server</a> and finds the real address of the <a href="#" class="content_link">server</a> 
+                                that the website lives on.</li>
+                            <li>The browser sends an <a href="#" class="content_link">HTTP request</a> message to the server asking it to send
+                                a copy of the website to the client.</li>
+                            <li>If the server approves the client's request, the server sents the client a
+                                <a href="#" class="content_link">"200 OK" message</a>, which means "Permission granted!" Here you go!, and then
+                                starts sending the website's files to the browser as a series of small chunks.</li>
+                            <li>The browser assembles the small chunks into a complete website and displays it to you!</li>
+                        </ol>
+                    </div> <!--div paragraph_content ends here-->
+                    <div id="footer">
+                        <img src="images/html.png" alt="big 3 frameworks" id="big_3_frameworks">
+                        <div id="footer_text">
+                            <h4><span class="blue_span">The Big 3 - HTML, CSS, JavaScript</span></h4>
+                            <p>While the server can process information in many different languages,
+                                the files that they serve to the client are always going to be some
+                                combination of HTML, CSS, and JavaScript!</p>
+                            <p>Learn more about the Big 3 <a href="#" class="content_link">here!</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- whole_body ends here-->
+
+
+
+        </div><!-- Wrapper ends here -->
+    
+    </body>
+</html>
