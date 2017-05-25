@@ -9,6 +9,7 @@
     width: 970px;
     padding: 10px;
     background-color: lightgray;
+    margin: 0 auto;
 }
 
 #header {
@@ -76,8 +77,8 @@
 }
 
 .left_content_paragraph {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
 }
 
@@ -106,8 +107,8 @@
 }
 
 .right_content_paragraph {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
 }
 
