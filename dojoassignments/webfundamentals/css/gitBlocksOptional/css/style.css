@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, sans-serif;
+    letter-spacing: 1.5px;
+}
+
+#wrapper {
+    width: 970px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+#header {
+    background-color: #44aaaa;
+    height: 60px;
+    width: 920px;
+    margin: 0 auto;
+}
+
+#header #github_logo, h1 {
+    display: inline-block;
+    vertical-align: top;
+
+}
+
+#header #github_logo {
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#header h1 {
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.nav_bar_link {
+    color: snow;
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+#header :nth-child(3) {
+    margin-left: 60px;
+}
+
+#main_content {
+    background-color: #ffee88;
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+#left_content {
+    background-color: #005555;
+    height: 500px;
+    width: 250px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+#left_content p, h4{
+    color: snow;
+
+}
+
+.left_content_header {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.left_content_paragraph {
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 14px;
+}
+
+#right_content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.row_1_block {
+    height: 160px;
+    background-color: #005555;
+    width: 160px;
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 45px;
+    vertical-align: top;
+}
+
+#right_content h5, p {
+    color: snow;
+}
+
+.right_content_header {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.right_content_paragraph {
+    padding-left: 14px;
+    padding-right: 14px;
+    font-size: 14px;
+}
+
+.row_2_block {
+    height: 140px;
+    background-color: #005555;
+    width: 264px;
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 45px;
+    vertical-align: top;
+    margin-top: 30px;
+}
+
+.row_3_block {
+    height: 140px;
+    background-color: #005555;
+    width: 580px;
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 45px;
+    vertical-align: top;
+    margin-top: 30px;
+}
+
+#main_content a {
+    color: turquoise;
+    text-decoration: none;
+}
+
+
+#footer {
+    background-color: #11ddcc;
+    width: 930px;
+    margin: 0 auto;
+    height: 60px;
+    vertical-align: top;
+    text-align: center;
+}
+
+#footer p {
+    padding: 20px;
+    color: black;
+}
+#footer a {
+    text-decoration: underline;
+    color: purple;
+}
+

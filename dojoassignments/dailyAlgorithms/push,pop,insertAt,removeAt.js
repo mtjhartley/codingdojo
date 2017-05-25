@@ -27,6 +27,14 @@ function removeAt(arr, index) {
 	console.log(arr);
 }
 
+function reverseArr(arr) {
+	for (var i = 0; i < arr.length/2; i++) {
+		var temp = arr[i]
+		arr[i] = arr[arr.length - (i+1)]
+		arr[arr.length - (i + 1)] = temp;
+	}
+	console.log(arr);
+}
 
 function removeNeg(arr) {
 	for (var x=0; x <arr.length; x++) {
