@@ -27,10 +27,18 @@ function removeAt(arr, index) {
 	console.log(arr);
 }
 
-var myArr = [1,2,3]
 
-pushVal(myArr,4) // [1, 2, 3, 4]
-popVal(myArr) // [1, 2, 3]
-insertAt(myArr, 3, 3.5) // [1, 2, 3, 3.5]
-insertAt(myArr, 1, 1.5) // [1, 1.5, 2, 3, 3.5]
-removeAt(myArr, 2) // [1, 1.5, 3, 3.5]
+function removeNeg(arr) {
+	for (var x=0; x <arr.length; x++) {
+		if (arr[x] < 0) {
+			removeAt(arr, x);
+		}
+	}
+	console.log(arr);
+}
+
+var myArr = [1,2,-3,4]
+
+console.log(myArr)
+
+removeNeg(myArr)
