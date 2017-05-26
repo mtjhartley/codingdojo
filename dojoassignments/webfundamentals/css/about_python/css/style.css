@@ -1,5 +1,6 @@
 #wrapper {
     width: 970px;
+    margin:
 }
 
 #top_content {
@@ -21,7 +22,7 @@
 
 ::-webkit-input-placeholder {
    text-align: center;
-}
+} /*for search bar */
 
 #header p {
     position: absolute;
