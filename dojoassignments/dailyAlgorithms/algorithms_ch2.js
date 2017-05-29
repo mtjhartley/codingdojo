@@ -146,6 +146,124 @@ console.log(messyMath(4))
 console.log(messyMath(8))
 console.log(messyMath(15))
 
+function twelveBarBlues() {
+	var count = 1
+	while (count <= 12) {
+		console.log(count)
+		console.log("chick")
+		console.log("boom")
+		console.log("chick")
+		count++;
+	}
+}
+
+twelveBarBlues();
+
+/* time complexity is pretty high...
+could memoitize but beyond the scope right now and
+not positive on implementation */
+function fibonacci(index) {
+	if (index === 0) {
+		return 0;
+	} else if (index === 1) {
+		return 1;
+	} else {
+		return fibonacci(index - 1) + fibonacci(index - 2)
+	}
+}
+
+console.log(fibonacci(7)) // should be 13
+
+
+/*this function will take a number and add 
+up each individual digit i.e. 928 -> 19 */
+function sumToOneDigit(num) {
+	var total = 0;
+	while (num > 9) {
+		total += (num % 10) // should get the last digit
+		num = Math.floor(num / 10) // should 
+	}
+	return total + num; // final ones digit adding
+}
+
+console.log(sumToOneDigit(928))
+console.log(sumToOneDigit(111))
+console.log(sumToOneDigit(101))
+
+
+
+function isPrime(num) {
+	if (num === 2 || num === 3) {
+		return true
+	} else if (num % 2 === 0) {
+		return false
+	}
+	else if (num === 1) {
+		return false
+	} else {
+		for (var x = 3; x < num - 1; x+=2) {
+			if (num % x === 0) {
+				return false
+			} else {
+				return true
+			}
+		}
+	}
+}
+
+console.log(isPrime(2)) //true
+console.log(isPrime(1)) //false
+console.log(isPrime(3)) //true
+console.log(isPrime(4)) //false
+console.log(isPrime(5)) //true
+console.log(isPrime(13)) //true
+console.log(isPrime(17)) //true
+console.log(isPrime(15)) //false
+console.log(isPrime(419)) // true
+
+function extractDigit(num, digitNum) {
+	while (digitNum) {
+		num = Math.floor(num / 10)
+		digitNum--;
+	} return num % 10 
+}
+
+
+console.log(extractDigit(1824, 2)) // returns 8
+console.log(extractDigit(1824, 0)) //returns 4
+console.log(extractDigit(1824, 1)) //returns 2
+console.log(extractDigit(1824, 5)) //returns 0
+
+function mostSignificantDigit(num) {
+	if (num < 1 && num > -1) {
+		while (num < 1 && num > -1) {
+			num *= 10
+		}
+	} else if (num > 9) {
+		while (num > 9) {
+			num /= 10
+		}
+
+	} else if (num < -9) {
+		while (num < -9) {
+			num /= 10
+		}
+	} return Math.trunc(num)
+}
+
+
+console.log(mostSignificantDigit(344.343))
+console.log(mostSignificantDigit(.00874))
+console.log(mostSignificantDigit(-344))
+
+
+
+
+
+
+
+
+
 
 
 
