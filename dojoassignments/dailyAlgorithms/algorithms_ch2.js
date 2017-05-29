@@ -256,14 +256,354 @@ console.log(mostSignificantDigit(344.343))
 console.log(mostSignificantDigit(.00874))
 console.log(mostSignificantDigit(-344))
 
+/* Gaming Fundamentals, page 34 of algo book */
+
+console.log("Gaming Fundamentals")
+
+function rollone() {
+	return Math.floor(Math.random() * 6) + 1 
+}
+
+function playFives(num) {
+	for (var x = 1; x <= num; x++) {
+		var randomNumber = rollone()
+		console.log(randomNumber)
+		if (randomNumber === 5) {
+			console.log("That's good luck!")
+		}
+	}
+}
+
+playFives(10)
+
+function playStatistics() {
+	var min = 1000; //Don't like doing this, only if I am confident of the output of the function. 
+	var max = -1;
+	var count = 1;
+	while (count <= 8) {
+		var randomNumber = rollone()
+		if (randomNumber < min) {
+			min = randomNumber
+		}
+		if (randomNumber > max) {
+			max = randomNumber
+		}
+		count++;
+	}
+	console.log("The minimum value from these 8 rolls was " + min);
+	console.log("The maximum value from these 8 rolls was " + max);
+}
+
+playStatistics()
+
+function playStatistics2() {
+	var min = 1000; //Don't like doing this, only if I am confident of the output of the function. 
+	var max = -1;
+	var count = 1;
+	var total = 0;
+	while (count <= 8) {
+		var randomNumber = rollone()
+		if (randomNumber < min) {
+			min = randomNumber
+		}
+		if (randomNumber > max) {
+			max = randomNumber
+		}
+		count++;
+		total += randomNumber;
+	}
+	console.log("The minimum value from these 8 rolls was " + min);
+	console.log("The maximum value from these 8 rolls was " + max);
+	console.log("The total value from these 8 rolls was " + total);
+}
+
+playStatistics2();
+
+function playStatistics3(num) {
+	var min = 1000; //Don't like doing this, only if I am confident of the output of the function. 
+	var max = -1;
+	var count = 1;
+	var total = 0;
+	while (count <= num) {
+		var randomNumber = rollone()
+		if (randomNumber < min) {
+			min = randomNumber
+		}
+		if (randomNumber > max) {
+			max = randomNumber
+		}
+		count++;
+		total += randomNumber;
+	}
+	console.log("The minimum value from these " + num + " rolls was " + min);
+	console.log("The maximum value from these " + num + " rolls was " + max);
+	console.log("The total value from these " + num + " rolls was " + total);
+}
+
+playStatistics3(3);
 
 
+function playStatistics4(num) {
+	var min = 1000; //Don't like doing this, only if I am confident of the output of the function. 
+	var max = -1;
+	var count = 1;
+	var total = 0;
+	while (count <= num) {
+		var randomNumber = rollone()
+		if (randomNumber < min) {
+			min = randomNumber
+		}
+		if (randomNumber > max) {
+			max = randomNumber
+		}
+		count++;
+		total += randomNumber;
+	}
+	console.log("The minimum value from these " + num + " rolls was " + min);
+	console.log("The maximum value from these " + num + " rolls was " + max);
+	console.log("The average from these " + num + " rolls was " + total/count);
+}
+
+playStatistics4(5);
 
 
+console.log("New years roll to 20 game")
+function rollOneToTwenty() {
+	return Math.floor(Math.random() * 20) + 1 
+}
+function statsUntilDoubles() {
+	var count = 1;
+	var min = 21;
+	var max = -1;
+	var total = 0;
+	var firstRoll = rollOneToTwenty()
+	var differentRolls = true;
+	while (differentRolls) {
+		newRoll = rollOneToTwenty()
+		count++;
+		total += newRoll
+		if (newRoll < min) {
+			min = newRoll
+		}
+		if (newRoll > max) {
+			max = newRoll
+		}
+		if (newRoll === firstRoll) {
+			differentRolls = false;
+		} else {
+			firstRoll = newRoll
+		}
+	}
+	console.log("Minimum value: " + min)
+	console.log("Maximum value: " + max)
+	console.log("Total value: " + total)
+	console.log("Total rolls: " + count)
+	console.log("Average value: " + total/count)
+}
 
+statsUntilDoubles();
 
+/*Claire is where? create reset, moveby, xLocation, yLocation 
+functions for claire.
+Will do this with functional programming as instructed by book
+Makes more sense to create this with OOP later. */
 
+var xClaire = 0;
+var yClaire = 0;
 
+function reset() {
+	var xClaire = 0;
+	var yClaire = 0;
+}
 
+function moveBy(xDistance = 0, yDistance = 0) {
+	xClaire += xDistance
+	yClaire += yDistance
+}
 
+function xLocation() {
+	return xClaire;
+}
 
+function yLocation() {
+	return yClaire;
+}
+
+reset();
+moveBy(1, -2);
+moveBy(3, 1)
+console.log(xLocation())
+console.log(yLocation())
+
+function distFromHome() {
+	return Math.sqrt(xClaire*xClaire + yClaire*yClaire)
+}
+
+console.log(distFromHome())
+
+function weekdayName(weekdayNum) {
+	switch(weekdayNum) {
+		case 1:
+			console.log("Sunday")
+			break;
+		case 2: 
+			console.log("Monday")
+			break;
+		case 3:
+			console.log("Tuesday")
+			break;
+		case 4: 
+			console.log("Wednesday")
+			break;
+		case 5:
+			console.log("Thursday")
+			break;
+		case 6: 
+			console.log("Friday")
+			break;
+		case 7:
+			console.log("Saturday")
+			break;
+		default: 
+			console.log("No day number given!")
+	}
+}
+
+weekdayName(1)
+weekdayName(3)
+weekdayName(4)
+weekdayName()
+
+function weekdayName2(weekdayNum) {
+	var num = weekdayNum % 7
+	switch (num) {
+		case 1:
+			console.log("Sunday")
+			break;
+		case 2: 
+			console.log("Monday")
+			break;
+		case 3:
+			console.log("Tuesday")
+			break;
+		case 4: 
+			console.log("Wednesday")
+			break;
+		case 5:
+			console.log("Thursday")
+			break;
+		case 6: 
+			console.log("Friday")
+			break;
+		case 7:
+			console.log("Saturday")
+			break;
+		default: 
+	}
+}
+
+weekdayName2(1)
+weekdayName2(8)
+weekdayName2(16)
+
+function monthName(monthNum) {
+	var months =["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+	return months[monthNum-1]
+}
+
+console.log(monthName(1))
+console.log(monthName(12))
+
+function monthToDays(monthNum) {
+	switch (monthNum) {
+		case 1:
+			return 31
+			break;
+		case 2: 
+			return 28
+			break;
+		case 3:
+			return 31
+			break;
+		case 4: 
+			return 30
+			break;
+		case 5:
+			return 31
+			break;
+		case 6: 
+			return 30
+			break;
+		case 7:
+			return 31
+			break;
+		case 8:
+			return 31
+			break;
+		case 9: 
+			return 30
+			break;
+		case 10:
+			return 31
+			break;
+		case 11: 
+			return 30
+			break;
+		case 12:
+			return 31
+			break;
+	}
+}
+
+function dayToMonth(dayNum) {
+	switch (true) {
+		case (dayNum >= 1 && dayNum <= 31):
+			return "January"
+			break;
+		case (dayNum >= 32 && dayNum <= 59):
+			return "February"
+			break;
+		case (dayNum >= 60 && dayNum <= 90):
+			return "March"
+			break;
+		case (dayNum >= 91 && dayNum <= 120):
+			return "April"
+			break;
+		case (dayNum >= 121 && dayNum <= 151):
+			return "May"
+			break;
+		case (dayNum >= 152 && dayNum <= 181):
+			return "June"
+			break;
+		case (dayNum >= 182 && dayNum <= 212):
+			return "July"
+			break;
+		case (dayNum >= 213 && dayNum <= 243):
+			return "August"
+			break;
+		case (dayNum >= 244 && dayNum <= 273):
+			return "September"
+			break;
+		case (dayNum >= 274 && dayNum <= 304):
+			return "October"
+			break;
+		case (dayNum >= 305 && dayNum <= 334):
+			return "November"
+			break;
+		case (dayNum >= 335 && dayNum <= 365):
+			return "December"
+			break;
+
+	}
+}
+
+console.log(dayToMonth(243))
+
+function fullDate(dayNum) {
+	var monthString = dayToMonth(dayNum)
+	var dayOfWeekString = weekdayName2(dayNum)
+	var yearString = "2017";
+	return monthString, dayOfWeekString, yearString
+}
+
+console.log(fullDate(234))
