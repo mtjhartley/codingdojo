@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+
+            #wrapper {
+                margin: 0 auto;
+                padding: 10px;
+                text-align: center;
+                max-width: 800px;
+            }
+            .header1Style {
+                color: red;
+            }
+
+            .demo_container {
+                border: 1px solid green;
+                margin: 0 auto;
+                padding: 10px;
+                margin: 5px;
+
+            }
+        </style>
+
+
+            
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+ 
+
+                //demo 1
+                $("#addClassButton").click(function() {
+                    $("#addClassDemo").addClass("header1Style") //no need for .header1Style dot syntax for classname!
+                });
+
+                $("#addClassExplanation").html("<p> Click this button to add a class yall! </p>")
+
+                $("#addClassButton").before($("#addClassExplanation"))
+
+
+                //demo 2
+                $("#hide_paragraph").click(function() {
+                    $("#sneaky_paragraph").hide();
+                })
+
+                $("#show_paragraph").click(function() {
+                    $("#sneaky_paragraph").show();
+                })
+
+                //demo 3
+
+                $("#toggle_paragraph").click(function() {
+                    $("#sneaky_paragraph_2").toggle();
+                })
+
+                //demo 4
+
+                $("#slide_around").prepend("Slide up, down, ")
+
+                $("#slide_down_button").click(function() {
+                    $(".slide_paragraph").slideDown();
+                });
+
+                $("#slide_up_button").click(function() {
+                    $(".slide_paragraph").slideUp();
+                })
+
+                $("#slide_toggle_button").click(function() {
+                    $(".slide_paragraph").slideToggle();
+                })
+
+                //demo 5
+                
+                $("#fade_out_button").click(function() {
+                    $("#fade_out").fadeOut(800);
+                });
+
+                $("#fade_in_button").click(function() {
+                    $("#fade_out").fadeIn(800);
+                });
+
+                // demo 6
+                $("#append_button").click(function() {
+                    $("#append_header").append("my Append Button!!!")
+                })
+
+                $("#after_button").click(function() {
+                    $("#append_header").after("<p> Even more POWER with AFTER!!!</p>")
+                })
+
+                //demo 7
+                var hiddenAttributes = $("em").attr("title")
+                console.log(hiddenAttributes)
+                $("#attribute_button").click(function() {
+                    $("#attribute_div").text(hiddenAttributes)
+                })
+
+                //demo 8
+                var clickCount = 1;
+                $(".music_radio").click(function(){
+                    if (clickCount < 2){
+                    var radioChoice= $( "input[type=radio][name=music_radio]:checked" ).val();
+                    $("#radio_paragraph").append(radioChoice)
+                    clickCount++;
+                    } 
+                })
+                
+                //demo 9
+                $( "body" ).data( "nickname", "Dempsey" );
+                var secretNickname = $("body").data("nickname")
+                $("#secret_button").click(function(){
+                    console.log(secretNickname)
+                    $("#secret_values_header").after("<p>My secret nickname is..." + secretNickname + "!!! ")
+
+
+                })
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="demo_container">
+                <h1 id="addClassDemo">Add Class</h1>
+                <button id="addClassButton">addClass</button>
+                <p id="addClassExplanation"></p>
+            </div>
+            <div class="demo_container">
+                <h1 id="hide_show_demo">Show and Hide my Paragraph!</h1>
+                <p id="sneaky_paragraph">Congrats! You revealed me to myself :)</p>
+                <button id="hide_paragraph">Disappear~</button>
+                <button id="show_paragraph">Revealio!</button>
+            </div>
+            <div class="demo_container">
+                <h1 id="hide_show_demo">What if there was a better way to hide? A ...toggle?</h1>
+                <p id="sneaky_paragraph_2">One Button Magic Trick!</p>
+                <button id="toggle_paragraph">Toggleio~</button>
+            </div>
+            <div class="demo_container">
+                <h1 id="slide_around">and toggle around!</h1>
+                <p class="slide_paragraph">I'll show you the various ways I can slide around!!!</p>
+                <button id="slide_down_button">Slide Down</button>
+                <button id="slide_up_button">Slide Up</button>
+                <button id="slide_toggle_button">Slide Toggle</button>
+            </div>
+
+            <div class="demo_container">
+                <h1 id="fade_out">Fade out!</h1>
+                <p class="fade_paragraph">Where'd my header go?</p>
+                <button id="fade_out_button">Fade away, shoot the J!</button>
+                <button id="fade_in_button">Fade in, close to the net</button>
+            </div>
+
+            <div class="demo_container">
+                <h1 id="append_header">I'll show you...the power of </h1>
+                <button id="append_button">Append my true power!!!</button>
+                <button id="after_button">But wait...there's more AFTER!</button>
+            </div>
+            <div class="demo_container">
+                <h1 id="attribute_header">Reveal my <em title="massive strengthGGGDSGDSHHDSFDSF">hidden attributes</em> to gauge my strength!</h1>
+                <div id="attribute_div"></div>
+                <button id="attribute_button">Do it! NOW!</button>
+            </div>
+
+            <div class="demo_container">
+                <h1 id="radio_header">The Radio plays awesome music (Be confident! Can't change ya answer)</h1>
+                <input type="radio" name="music_radio" class="music_radio" value="great"> agree!
+                <input type="radio" name="music_radio" class="music_radio" value="terrible"> disagree!
+                <p id="radio_paragraph">Wow, your taste in music is absolutely </p>
+            </div>
+
+            <div class="demo_container">
+                <h1 id="secret_values_header">My last trick...my hidden values in the Script~</h1>
+                <button id="secret_button">Thanks for playing :D</button>
+
+
+            </div>
+        </div> <!-- Wrapper ends here -->
+    
+    </body>
+</html>
