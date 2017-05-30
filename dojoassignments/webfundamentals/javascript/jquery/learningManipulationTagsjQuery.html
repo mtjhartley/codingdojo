@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            .link_color {
+                color:red;
+                text-decoration: none;
+            }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $("#hide").click(function() {
+                    $('p').slideToggle()
+                })
+
+                $("#paragraph1").after("<h3> I inserted after paragraph 1!!! </h3>") //can also insert after just 'p' 
+
+                $('body').append($("h3")) //yup adds to the end of the body!
+
+                $('#paragraph1').prepend("<h5>Prepend me out familia</h5>") //yup adds to the front of the body!
+
+                $('.hi_guy').prepend("<b>See me in the second paragraph </b>")
+
+                var title = $("em").attr("title");
+                $("#enterTitle").text(title);      
+
+                
+                $(".result").before("<h3>Saying hi from above!</h3>")
+
+                var allText = $("#wrapper").text()
+                console.log(allText)
+
+                function notify() {
+                    alert("clicked");
+                }
+
+                $("#finalButton").on("click", notify);
+
+                $("body").append($("#finalButton"))
+          
+
+               
+            })
+            
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <p id="paragraph1">This is a paragraph!!</p>
+            <p class="hi_guy">This is also a paragraph!</p>
+            <button id="hide">This will toggle all paragraphs</button>
+
+            <a href="https://www.google.com">go to Google!</a>
+
+
+            <h3> Mountain View, California Will get moved below Seattle!</h3>
+            <h2>Seattle, Washington</h2>
+            
+            <p> Once there was a <em title="huge, gigantic">large</em> dinosaur...</p>
+            The title of the emphasis is <div id="enterTitle"></div>
+            <div class="result"></div>
+
+            <div class="inner">Say hi above me real quick</div>
+            <div class="inner">above me too!</div>
+            <button id="finalButton">Click me for that there alert</button>
+        </div>
+
+    
+    </body>
+</html>

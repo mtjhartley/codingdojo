@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            .link_color {
+                color:red;
+                text-decoration: none;
+            }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $("#hide").click(function() {
+                    $('p').hide()
+                })
+
+                $("#show").click(function() {
+                    $('p').show()
+                })
+
+                $("#toggle").click(function() {
+                    $('p').toggle(300)
+                })
+
+                $("#slideDown").click(function() {
+                    $('p').slideDown(100)
+                })
+
+                $("#slideToggle").click(function() {
+                    $('p').slideToggle()
+                })
+
+                $("#slideUp").click(function() {
+                    $('p').slideUp(900)
+                })
+
+                $("#fadeOut").click(function() {
+                    $('p').fadeOut(500)
+                })
+
+                $("#fadeIn").click(function() {
+                    $('p').fadeIn(500)
+                })
+
+                $("#fadeToggle").click(function() {
+                    $('p').fadeToggle("slow", "linear")
+
+                })
+
+                $("#changeLinkColor").click(function() {
+                    $('a').addClass("link_color")
+                })
+                $("#removeLinkColor").click(function() {
+                    $('a').removeClass()
+                })
+
+                $("#applyCSS").hover(function() {
+                    $('p').css("color", "green");
+                });
+
+                
+
+                function notify() {
+                    alert("clicked");
+                }
+
+                $("#finalButton").on("click", notify);
+
+
+
+               
+            })
+            
+        </script>
+    </head>
+    <body>
+        <p>This is a paragraph!!</p>
+        <p>This is also a paragraph!</p>
+        <button id="hide">This will hide all paragraphs</button>
+        <button id="show">Click to show all paragraphs!</button>
+        <button id="toggle">Click to show toggle() paragraphs!</button>
+        <button id="slideDown">Click to show slideDown() paragraphs!</button>
+        <button id="slideToggle">Click to show slideToggle() effect on paragraphs!</button>
+        <br >
+
+        <button id="slideUp">Click to show slideUp() effect on paragraphs!</button>
+        <button id="fadeOut">Click to show fadeOut() effect on paragraphs!</button>
+        <button id="fadeIn">Click to show fadeIn() effect on paragraphs!</button>
+        <button id="fadeToggle">Click to show fadeToggle() effect on paragraphs!</button>
+        <a href="https://www.google.com">go to Google!</a>
+        <button id="changeLinkColor">Add the link class!</button>
+        <button id="removeLinkColor">Remove the link class!</button>    
+        <button id="applyCSS">Apply raw CSS to the paragraph!</button>
+        <h3> Mountain View, California </h3>
+        <h2>Seattle, Washington</h2>
+        <button class="append">Click to see append work!</button>
+        <div class="result"></div>
+
+        <button id="finalButton">Click me for an alert!</button>
+
+    
+    </body>
+</html>

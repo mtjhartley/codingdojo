@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                //elements appear with their event listeners as well!
+                alert("You are now working with jQuery!");
+
+                $('a').click(function(){
+                    alert('You are now leaving the page!');
+                })
+
+                //effects methods toggle the visibility property of items
+                //these are the most basic ways; also .fadeIn, .fadeOut, etc.
+                //click is a listener, if you wanted this to happen automatically...
+                //$('p').hide();
+                
+                $('p').hide();
+                $('#hide').click(function() {
+                    $('p').hide();
+                })
+
+                $('#show').click(function() {
+                    $('p').show();
+                })
+
+                //manipulation methods add either text or html to your document
+                //add stuff with .append or use .text/.html to overwrite what's already there!
+                //.hover can take 2 functions, one when you hover, the second executes when you remove hover!
+                $('h3').hover(function(){
+                    $('h2').text('go see the Space Needle!');
+                }, function(){$('h2').text('Seattle, Washington')});
+
+                $('.append').click(function() {
+                    $('.result').append('<h4>.append adds HTML! </h4>')
+                })
+
+                //.css method
+                $('button').hover(function() {
+                    $('button').css('background-color', 'yellow');
+                })
+
+
+
+
+
+            })
+            
+        </script>
+    </head>
+    <body>
+        <p>This is a paragraph!!</p>
+        <p>This is also a paragraph!</p>
+        <button id="hide">This will hide all paragraphs</button>
+        <button id="show">Click to show all paragraphs!</button>
+        <a href="https://www.google.com">go to Google!</a>
+        <h3> Mountain View, California </h3>
+        <h2>Seattle, Washington</h2>
+        <button class="append">Click to see append work!</button>
+        <div class="result"></div>
+
+    
+    </body>
+</html>
