@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                $('#submit').click(function() {
+
+                    //can either select with input -> name of input, or assigning an ID to each form field. 
+
+                    var $firstName = $('input[name="first_name"]').val()
+                    var $lastName = $("#field2").val()
+                    var $email = $("#field3").val()
+                    var $phoneNumber = $("#field4").val()
+                    
+                    console.log($firstName, $lastName, $email, $phoneNumber)
+                    
+                    // v alternative way of selecting the table using what we just learned! 
+                    //$(this).parents().siblings('table').children('tbody').append(
+                    
+                    //append table from form
+                    if ($firstName && $lastName && $email && $phoneNumber) {
+                        $('tbody').append("<tr class='new_row'>" +
+                        '<td>' + $firstName + '</td>' +
+                        '<td>' + $lastName + '</td>' +
+                        '<td>' + $email + '</td>' +
+                        '<td>' + $phoneNumber + '</td>'
+                        )
+                    }
+                
+                });
+
+                $('form').submit(function() {
+                    return false;
+                })
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email Address</th>
+                    <th>Contact #</th>
+                </tr>            
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div id="add_user_div">
+            <h1>Add User</h1>
+            <form id="form1" action="process.php" method='POST'> <!-- where is the method getting sent to, and how are we sending it! -->
+                First name:<input type='text' name='first_name' id="field1">
+                <br />
+                Last name:<input type='text' name='last_name' id="field2">
+                <br />
+                Email:<input type='text' name='email' id="field3">
+                <br />
+                Contact No.:<input type='text' name="phone_number" id="field4">
+                <br />
+                <input type='submit' value='Add User' id="submit">
+            </form>
+        </div>
+    
+    </body>
+</html>

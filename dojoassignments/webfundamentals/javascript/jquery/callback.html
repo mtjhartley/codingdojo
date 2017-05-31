@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Swag me out</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+
+            function attach_handlers()
+            {
+                $('.alert').click(function() {
+                    alert('you clicked me!');
+                });
+
+            }
+
+
+
+            $(document).ready(function() {
+
+                attach_handlers();
+                
+                $('.new_btn').click(function(){
+                    $('#buttons').append("<button class='alert'>I am a dynamically generated button!</button>");
+                    attach_handlers(); //this is the callback function, described outside 
+                });
+
+                // $(document).on('click', '.alert', function(){
+                //     alert('you clicked me!');
+                // });
+
+                //A callback is nothing more than calling a function at sometime, from within another function**
+
+
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <h3>Static Content!</h3>
+        <div>
+            <button class='alert'>click me for a message!</button>
+            <button class='alert'>click me for a message!</button>
+            <button class='alert'>click me for a message!</button>
+            <button class='new_btn'>click me to add a new button!</button>
+        </div>
+        <h3>Dynamically rendered content!</h3>
+        <div id="buttons">
+        
+        </div>
+    
+    </body>
+</html>

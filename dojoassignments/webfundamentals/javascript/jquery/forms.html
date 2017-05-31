@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+        //return false doesn't allow the page to refresh
+        //.submit works in two ways
+        //.serialize preps forms being handled by a computer
+            $(document).ready(function() {
+                //alert('hello!');
+                //1 works as listener
+                $('#form1').submit(function(){
+                    console.log($(this).serialize()); //input name attribute get attached to entered value first_name=Michael&last_name=Hartley&email
+                    return false; //prevents the page from reloading and form from submitting!! 
+                });
+                //2 used to hard submit!
+                $('.btn').click(function() {
+                    $('#form1').submit()
+                })
+                $('#big_button').click(function(){
+                    $(this).siblings().children().children().text('Michael Choi was here!')
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <form id="form1" action="process.php" method='POST'> <!-- where is the method getting sent to, and how are we sending it! -->
+            First name<input type='text' name='first_name'>
+            Last name<input type='text' name='last_name'>
+            Email<input type='text' name='email'>
+            <input type='submit' value='submit!'>
+        </form>
+        <button class="btn">Click me to hard submit with .submit() differently</button>
+
+
+         <div>
+    <button id="big_button">Click me for crazy things!</button>
+    <ul>
+        <li><h3>Tiger Woods</h3></li>
+        <li><h3>Phil Mickelson</h3></li>
+        <li><h3>Ben Hogan</h3></li>
+        <li><h3>Jack Nicklaus</h3></li>
+        <li><h3>Gary Player</h3></li>
+        <li><h3>Rory Mcilroy</h3></li>
+    </ul>
+ </div>
+    </body>
+</html>
