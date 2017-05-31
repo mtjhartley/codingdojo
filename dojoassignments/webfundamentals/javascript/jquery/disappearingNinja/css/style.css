@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    max-width: 975px;
+    margin: 0 auto;
+    border: 1px solid green;
+    padding: 5px;
+
+}
+
+h1 {
+    text-align: center;
+}
+img {
+    max-width: 230px;
+    height: 230px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.hiddenClass {
+    visibility: hidden;
+}
+
+#restore_images {
+    padding: 10px;
+    margin: auto;
+    margin-top: 15px;
+    background-color: green;
+    font-weight: bold;
+    color: snow;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+}

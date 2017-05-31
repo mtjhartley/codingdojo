@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $('img').click(function() {
+                    $(this).fadeOut();
+                })
+
+                $('#restore_images').click(function() {
+                    $('img').fadeIn(600);
+                })
+
+                
+                //if you want space to be conserved use visibility hidden instead of display none
+             
+                /*
+                $('img').click(function() {
+                    $(this).toggleClass("hiddenClass");
+                })
+
+                $('#restore_images').click(function() {
+                    $('img').toggleClass("hiddenClass");
+                })
+                */
+                
+
+
+
+
+
+
+
+
+
+
+            })
+
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Click the images to make them disappear!</h1>
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+            <img src="melilkid.jpg" alt="me as a kid">
+        
+        </div>
+        <button id="restore_images">Bring me back!!!</button>
+    
+    </body>
+</html>

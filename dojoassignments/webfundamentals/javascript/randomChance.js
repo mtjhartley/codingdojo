@@ -2,14 +2,14 @@ function randomChanceGame(quarters) {
 	var jackpot = Math.floor(Math.random() * 51) + 50
 	for (quarters; quarters >= 0; quarters--) {
 		var userNumber = Math.floor(Math.random() * 100)
-		if (userNumber === 3) {
+		if (userNumber === 3) { //if your number matches the jackpot number of 3, you win!
 			console.log("You won the game! Your prize is " + (quarters + jackpot))
 			return (quarters + jackpot);
 		}
-		else if (userNumber !== 3 && quarters > 0) {
+		else if (userNumber !== 3 && quarters > 0) { //if your number does not match, and you have quarters remaining rerun the loop
 			console.log("Rerunning the game. You have " + quarters + " quarters remaining.");
 		}
-		else {
+		else { //your number did not match and you don't have enough quarters left! 
 			console.log("You have lost the game. You have 0 quarters remaining.");
 			return 0;
 		}
@@ -18,6 +18,11 @@ function randomChanceGame(quarters) {
 }
 
 //randomChanceGame(100)
+
+console.log(randomChanceGame(10))
+
+
+
 
 function randomChanceGame(quarters, goal) {
 	for (quarters; quarters >= 0; quarters--) {
@@ -44,4 +49,4 @@ function randomChanceGame(quarters, goal) {
 	} 
 }
 
-randomChanceGame(100, 120)
+//randomChanceGame(100, 120)
