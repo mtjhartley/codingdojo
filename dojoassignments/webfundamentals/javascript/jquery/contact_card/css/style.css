@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #c4c5ba;
+}
+
+#wrapper {
+    max-width: 1100px;
+    padding: 10px;
+    background-color: #1F3F25;
+    margin: 0 auto;
+
+
+}
+
+#form_container {
+    width: 520px;
+    background-color: #59744E;
+    height: 400px;
+    padding: 5px;
+}
+
+#form_container h1 {
+    padding: 10px;
+    margin: 10px;
+}
+.input_container {
+    padding: 10px;
+    margin: 10px;
+}
+
+.input_container label, input{ 
+    display: inline-block;
+    vertical-align: top;
+}
+
+.input_container input {
+    margin-left: 10px;
+}
+.input_container textarea {
+    display: block;
+    margin-top: 10px;
+    width: 300px;
+    height: 100px;
+}
+
+#submit {
+    display: block;
+    margin-left: 20px;
+}
+
+#form_container, #contact_card_container {
+    display: inline-block;
+    vertical-align: top;
+}
+#contact_card_container {
+    width: 520px;
+    background-color: #59744E; /*might have to remove this later when we add contact cards! */
+    padding: 5px 5px 15px 5px;
+    margin-left: 20px;
+}
+
+.contact_card_class {
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #36543A;
+    height: 200px;
+    margin-top: 10px;
+    text-align: center;
+    overflow: scroll;
+
+}
+
+.contact_card_class h1 {
+    margin-top: 60px;
+}
+
+.contact_card_class h4 {
+    margin-top: 40px;
+}
+
+.invisible {
+    display: none;
+}
+
+.para_description {
+    font-size: 22px;
+    vertical-align: top;
+    margin: 0 auto;
+    text-align: center;
+ 
+    padding: 30px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('nav li ul').hide().removeClass('fallback');
+                $('nav li').hover(
+                function () {
+                    $('ul', this).stop().slideDown(100);
+                },
+                function () {
+                    $('ul', this).stop().slideUp(100);
+                }
+                );
+            })
+        </script>
+        
+
+        <style>
+        nav {background:#FFF;float:left;}
+
+        nav ul li {float:left;display:inline;}
+        nav ul li:hover {background:#E6E6E6;}
+        nav ul li a {display:block;padding:15px 25px;color:#444;}
+        nav ul li ul {position:absolute;width:110px;background:#FFF;}
+        nav ul li ul li {width:110px;}
+        nav ul li ul li a {display:block;padding:15px 10px;color:#444;}
+        nav ul li ul li:hover a {background:#F7F7F7;}
+        nav ul li ul.fallback {display:none;}
+        nav ul li:hover ul.fallback {display:block;}
+            </style>
+
+    </head>
+    <body>
+
+
+
+<nav>
+  <ul>
+    <li><a href="#">Link 1</a></li>
+    <li>
+      <a href="#">Link 2</a>
+      <ul class="fallback">
+        <li><a href="#">Sub-Link 1</a></li>
+        <li><a href="#">Sub-Link 2</a></li>
+        <li><a href="#">Sub-Link 3</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#">Link 3</a>
+      <ul class="fallback">
+        <li><a href="#">Sub-Link 1</a></li>
+        <li><a href="#">Sub-Link 2</a></li>
+        <li><a href="#">Sub-Link 3</a></li>
+        <li><a href="#">Sub-Link 4</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Link 4</a></li>
+    <li><a href="#">Link 5</a></li>
+    <li><a href="#">Link 6</a></li>
+  </ul>
+</nav>
+    
+    </body>
+</html>

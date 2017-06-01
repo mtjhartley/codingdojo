@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            // function attach_handlers() {
+            //     $('.contact_card_class').click(function() {
+            //         $(this).children().toggleClass("invisible")
+            //         //alert('you clicked me!');
+            //     });
+            // }
+            $(document).ready(function(){
+
+                //attach_handlers()
+
+                $("#form1").submit(function() {
+                    var $description = $("#fieldDescription").val();
+                    var $firstName = $("#fieldFirstName").val();
+                    var $lastName = $("#fieldLastName").val();
+                    console.log($description, $firstName, $lastName)
+                    $("#contact_card_container").append("<div class='contact_card_class'>" + 
+                    "<h1>" + $firstName + " " + $lastName + "</h1>" + 
+                    "<h4> Click to read my description!</h4>" + 
+                    "<p class='invisible para_description'>" + $description + "</p></div>"
+                    )
+                    //attach_handlers() //comment this out and uncomment 'doing it with .on()
+                    return false;
+                });
+
+
+                //doing it with .on()
+                
+                $(document).on("click", ".contact_card_class", function() {
+                    $(this).children('h1, h4, p').toggleClass("invisible")
+                });
+                
+
+
+
+            }); //document.ready ends here
+
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="form_container">
+                <h1>Add Contact Card</h1>
+                <form id="form1" action="process.php" method='POST'> <!-- where is the method getting sent to, and how are we sending it! -->
+                <div class="input_container">
+                    <label for="first_name">First name:<input type='text' name='first_name' id="fieldFirstName"></label>
+                </div>
+                <div class="input_container">
+                    <label for="last_name">Last name:</label><input type='text' name='last_name' id="fieldLastName">
+                </div>
+                <div class="input_container">
+                    <label for"description">Description:</label><textarea name="description" form="form1" id="fieldDescription"></textarea>
+                </div>
+                <input type='submit' value='Add User' id="submit">
+            </form>
+
+            </div>
+
+            <div id="contact_card_container">
+                <div class="contact_card_class">
+                    <h1>Mr. Example</h1>
+                    <h4>Click to read my description!</h4>
+                    <p class="invisible para_description">Nice! Just click me again to revert me</p>
+                </div>
+
+            </div>
+
+        </div> <!-- wrapper ends here-->
+    
+    </body>
+</html>
