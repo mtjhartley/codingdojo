@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                var count = 1;
+                for (var count = 1; count <= 151; count++) {
+                    var pokemonImage = "<img id=" + count + " src='http://pokeapi.co/media/img/" + count + ".png'>"
+                $('#image_container').append(
+                    "<img id=" + count + " src='http://pokeapi.co/media/img/" + count + ".png'>")
+                //console.log("<img src='http://pokeapi.co/media/img/" + count + ".png>")
+                }
+                /*
+                $('img').hover(function(){
+                    var srcImg = $(this).attr('src')
+                    var altImg = $(this).attr('alt-src')
+                    $(this).attr('src', altImg);
+                    $(this).attr('alt-src', srcImg);
+                }, function(){
+                    var srcImg = $(this).attr('src')
+                    var altImg = $(this).attr('alt-src')
+                    $(this).attr('src', altImg);
+                    $(this).attr('alt-src', srcImg);
+                })
+                */
+
+                $('img').on("click", function(){
+                    var id = $(this).attr("id")
+                    console.log(id)
+                    $.get("http://pokeapi.co/api/v1/pokemon/" + id + "/", function(res) {
+                        console.log("http://pokeapi.co/api/v1/pokemon/" + count + "/")
+                        var html_str = "";
+                        var name = res.name 
+                        html_str += "<h2>" + name + "</h2>"
+
+                        var pokedexNumber = res.national_id
+                        html_str += "<h3> Pokedex Number: #" + pokedexNumber + "</h3>"
+
+                        var pokemonImage = "<img id=" + id + " src='http://pokeapi.co/media/img/" + id + ".png'>"
+                        html_str += pokemonImage
+
+                        html_str += "<h4>Type(s)</h4>"
+                        html_str += "<ul>"
+                        for (var i = 0; i < res.types.length; i++) {
+                            html_str += "<li>" + res.types[i].name + "</li>"
+                        }
+                        html_str += "</ul>"
+
+                        var height = res.height
+                        var weight = res.weight
+
+                        html_str += "<h4>Height</h4>"
+                        html_str += "<p>" + height + "</p>"
+                        html_str += "<h4>Weight</h4>"
+                        html_str += "<p>" + weight + "</p>"
+                        
+
+                        //evolution code isn't fully functional
+                        //res.evolution can be an array or an object
+                        //depending on the pokemon
+                        html_str += "<h4>Evolves to</h4>"
+                        if (res.evolutions.length > 0 || res.evolutions) {
+                            console.log("length" + res.evolutions.length)
+                            console.log('evolutions object')
+                            console.log(res.evolutions)
+                            
+                            html_str += "<ul>"
+                            //for (var y in res.evolutions) {
+                            for (var y = 0; y < res.evolutions.length-1; y++) {
+                                html_str += "<li>" + res.evolutions[y]["to"] + "</li>"
+                            }
+                            html_str += "</ul>"
+                        } else {
+                            html_str += "<p>No further evolutions!</p>"
+                        }
+
+                        $("#pokedex").html(html_str)
+
+                        console.log(res)
+                        console.log(html_str)
+
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="image_container">
+
+        </div>
+
+        <div id="pokedex">
+
+        </div>
+    
+    </body>
+</html>

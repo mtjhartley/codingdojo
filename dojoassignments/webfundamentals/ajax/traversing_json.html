@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $.get("http://pokeapi.co/api/v1/pokemon/1/", function(res) {
+                console.log(res);
+                console.log(res["abilities"]);
+                for (var x = 0; x < res["moves"].length; x++){
+                    console.log(res["moves"][x].name);
+                }
+                
+            }, 'json');
+
+        </script>
+
+    </head>
+    <body>
+    
+    </body>
+</html>

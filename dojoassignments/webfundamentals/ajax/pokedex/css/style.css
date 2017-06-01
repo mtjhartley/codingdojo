@@ -1,0 +1,40 @@
+img {
+    width: 100px;
+    height: 100px;
+    padding: 2px;
+}
+
+#image_container, #pokedex {
+    vertical-align: top;
+}
+
+#image_container {
+    max-width: 850px;
+    padding: 5px;
+    border: 1px solid green;
+    display: inline-block;
+    
+}
+
+#pokedex {
+    border: 10px solid red;
+    /*display: inline-block;*/
+    width: 300px;
+    height: 600px;
+    background-color: #c5e3ed;
+    text-align: center;
+    overflow: scroll;
+    /*margin-left: 10px;*/
+    position: fixed;
+    top: 0;
+    right: 0;
+    
+}
+
+#pokedex ul {
+    padding-left: 0px;
+}
+#pokedex li {
+    list-style: none;
+    text-align: center;
+}

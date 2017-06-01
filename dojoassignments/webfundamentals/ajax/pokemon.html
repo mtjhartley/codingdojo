@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function(){
+
+                var count = 1;
+                for (var count = 1; count <= 151; count++) {
+                $('#image_container').append(
+                    "<img alt-src='pokeball.png' src='http://pokeapi.co/media/img/" + count + ".png'>")
+                //console.log("<img src='http://pokeapi.co/media/img/" + count + ".png>")
+                }
+                /*
+                $('img').hover(function(){
+                    var srcImg = $(this).attr('src')
+                    var altImg = $(this).attr('alt-src')
+                    $(this).attr('src', altImg);
+                    $(this).attr('alt-src', srcImg);
+                }, function(){
+                    var srcImg = $(this).attr('src')
+                    var altImg = $(this).attr('alt-src')
+                    $(this).attr('src', altImg);
+                    $(this).attr('alt-src', srcImg);
+                })
+                */
+            })
+        </script>
+
+        <style>
+            img {
+                width: 100px;
+                height: 100px;
+                padding: 2px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="image_container">
+
+        </div>
+    
+    </body>
+</html>
