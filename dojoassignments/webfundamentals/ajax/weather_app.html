@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+
+            function kelvinToFahrenheit(degrees) {
+                var kelvin = Number(degrees)
+                var fahrenheit = (9/5) * (kelvin - 273) + 32
+                return Math.trunc(fahrenheit)
+            }
+            $(document).ready(function(){
+                $('form').submit(function() {
+                    var $cityInput = $("#city_input").val();
+                    console.log($cityInput)
+                    var apiString = "http://api.openweathermap.org/data/2.5/weather?q=" + 
+                                    $cityInput + "&&appid=aa23fce7884d23d315fdb41ad480ea80"
+                    console.log(apiString)
+
+                    $.get(apiString, function(res) {
+                        var html_str = "";
+                        html_str += "<h1>" + res.name + "</h1>"
+                        html_str += "<p>Temperature: " + kelvinToFahrenheit(res.main.temp) + "</p>"
+                        html_str += "<p>Min Temp: " + kelvinToFahrenheit(res.main.temp_min) + "</p>"
+                        html_str += "<p>Max Temp: " + kelvinToFahrenheit(res.main.temp_max) + "</p>"
+                        console.log(html_str) 
+                        $("#weather_container").html(html_str)
+
+                        var visibility = res.visibility;
+                        var visibility_str = "";
+                        visibility_str += "<p>Visibility: " + visibility + "</p>"
+                        $("#weather_container").append(visibility_str)
+
+                        }, "json");
+                        return false;
+                });
+            });
+
+        </script>
+
+
+    </head>
+    <body>
+        <form>
+            <input type="text" name="city_input" id="city_input">
+            <button type="submit" name="search_button" id="search_button" value="Search Weather">Search Weather</button>
+        </form>
+        <div id="weather_container">
+        </div>
+
+    
+    </body>
+</html>

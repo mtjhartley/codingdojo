@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                $('img').on("click", function(){
+
+                    var $apiHouseId = $(this).attr("api-id")
+                    var apiString = "https://anapioficeandfire.com/api/houses/" + $apiHouseId +"/"
+                    console.log(apiString)
+
+                    $.get(apiString, function(res) {
+                        var html_str = "";
+                        html_str += "<h1>Name: " + res.name + "</h1>"
+                        html_str += "<h2>Words: " + res.words + "</h2>"
+                        html_str += "<p>Titles: "
+
+                        for (var x = 0; x < res.titles.length - 1; x++) {
+                            var title = res.titles[x]
+                            html_str += title + ", "
+                        }
+                        html_str += res.titles[res.titles.length-1] + "."
+                        html_str += "</p>"
+                        console.log(html_str)
+
+                        $("#house_details").html(html_str)
+                        }, "json")
+                })
+            }); 
+
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <img id="baratheon_house" src="gameofthrones/baratheon.png" alt="baratheon" api-id= "17">
+            <img id="lannister_house" src="gameofthrones/lannister.jpg" alt="lannister" api-id="229">
+            <img id="stark_house" src="gameofthrones/stark.jpg" alt="stark" api-id="362">
+            <img id="targaryen_house" src="gameofthrones/targaryen.jpg" alt="targaryen" api-id="378">
+            <div id="house_details">
+                <h1>Click the house images to read more information!</h1>
+            </div>
+        </div>
+    </body>
+</html>

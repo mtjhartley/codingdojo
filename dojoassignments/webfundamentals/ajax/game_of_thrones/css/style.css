@@ -1,0 +1,43 @@
+* {
+    margin: 0
+    padding: 0;
+}
+
+#wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: lightcoral;
+    padding: 10px;
+    background-image: url("../gameofthrones/got_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+img {
+    display: inline-block;
+    width: 250px;
+    height: 200px;
+    vertical-align: top;
+    margin-left: 20px;
+    padding: 10px;
+
+}
+
+#house_details {
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    background-color: grey;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    text-align: center;
+    padding: 20px;
+}
+
+#house_details h1 {
+    margin-top: 100px;
+
+}
