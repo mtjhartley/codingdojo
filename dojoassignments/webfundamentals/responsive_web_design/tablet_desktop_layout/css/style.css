@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body{ height:100%; }
+
+#header {
+    background-color: lightblue;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+
+}
+
+#wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    height: auto;
+    overflow: hidden; /* needs to be done when floating idk why */
+}
+
+#nav_bar ul {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#nav_bar ul li {
+    list-style: none;
+    display: inline-block;
+    background-color: green;
+    padding: 10px;
+}
+
+.row {
+    clear: both;
+    padding-left: 20px;
+    /* ^ adds gutter to left of row for consistency */
+}
+
+.column { 
+    float: left;
+    padding-right: 20px; /* adds gutters! use padding, not margin*/
+    /* moves out of place, because 8 + 4 + paddings > 100? how to fix?
+    box-sizing : border-box;!*/
+}
+
+@media only screen and (max-width: 480px) {
+    .twelve-s {width: 100%; }
+    #nav_bar {display: none;}
+}
+@media only screen and (min-width: 481px) {
+    .three-m { width: 33.333333%; }
+    .twelve-m {width: 100%; }
+    #nav_bar {display: none;}
+}
+
+@media only screen and (min-width: 1024px) {
+    .four-l {width: 25%; }
+    #nav_bar {display: inline-block;
+    max-width: 80%;}
+}
+
+.content {
+    padding: 5px;
+}
+

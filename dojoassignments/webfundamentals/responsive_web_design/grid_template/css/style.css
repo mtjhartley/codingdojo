@@ -1,0 +1,53 @@
+/* the twelve class has 100% width,
+so it takes up the whole row automatically
+and moves down automatically.
+*/
+
+
+.row {
+    clear: both;
+    padding-left: 20px;
+    /* ^ adds gutter to left of row for consistency */
+}
+
+@media only screen and (max-width: 480px) {
+    .twelve-s {width: 100%; }
+}
+@media only screen and (min-width: 481px) {
+    .four-m { width: 33.333333%; }
+    .five-m {width: 41.666666%; }
+    .seven-m {width: 58.33333%; }
+    .eight-m {width: 66.666666%; }
+}
+@media only screen and (min-width: 1024px) {
+    .four-l {width: 33.333333%; }
+    .eight-l {width: 66.666666%; }
+}
+/*
+Because we haven't floated our columns yet. 
+Right now, by default your divs will be stacked from top to bottom, 
+regardless of width:
+*/
+.column { 
+    float: left;
+    padding-right: 20px; /* adds gutters! use padding, not margin*/
+    /* moves out of place, because 8 + 4 + paddings > 100? how to fix?
+    box-sizing : border-box;!*/
+     }
+
+* { 
+    box-sizing: border-box;
+}
+
+#wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content {
+    padding: 20px;
+}
+
+#main_content { background-color: #D8D8DC; }
+#sidebar { background-color: #828284; }
