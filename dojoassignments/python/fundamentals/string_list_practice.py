@@ -27,8 +27,10 @@ start = y[:halfway]
 end = y[halfway:]
 
 final_list = [start]
+final_list_2 = [start]
 print final_list #[[-3,-2,2,6,7]]
-for number in range(len(end)):
-    final_list.append(end[number])
+for number in end:
+    final_list.append(number)
 print final_list
-#[[-3, -2, 2, 6, 7], 10, 12, 19, 32, 54, 98]
+
+
