@@ -1,0 +1,8 @@
+pip install Django uses pip to install Django on our computer.
+pip list lists all installed packages on our computer.
+pip install Django again shows us various messages stating “Requirement already satisfied”
+pip freeze shows already installed packages in requirement format (virtualenv==15.1.0)
+pip freeze > requirements.txt writes all of our installed packages into the text file.
+pip uninstall Django uninstalls Django.
+pip show Django reveals nothing because Django no longer exists on our computer.
+pip search Flask searches the entire python package database for any packages that include Flask in the name or description.
