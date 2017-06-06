@@ -1,3 +1,5 @@
+"""Implementation of several higher order functions using Classes"""
+
 class Underscore(object):
     def map(self, array, function):
         new_array = []
