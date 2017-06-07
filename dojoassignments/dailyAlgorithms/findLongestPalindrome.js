@@ -16,7 +16,7 @@ function findLongestPalindrome(string) {
         for (var y = i; y < string.length; y++) {
             var chunk = string.slice(i,y+1);
             console.log(chunk)
-            if (isPalindrome(chunk) && (chunk.length > longestPalindrome.length) && (string[y] !== " ")) {
+            if (isPalindrome(chunk) && (chunk.length > longestPalindrome.length)) {
                 longestPalindrome = chunk.trim();
                 console.log("Found new palindrome!")
                 var start_index = i;
@@ -30,6 +30,6 @@ function findLongestPalindrome(string) {
 
 console.log(findLongestPalindrome("I am a racecar, are you?"))
 console.log(findLongestPalindrome("aba"))
-console.log(findLongestPalindrome("I am a banana, but you are a aba. In the end, who is truly the tattarrattat"))
+console.log(findLongestPalindrome("I am a banana, but you are a aba. In the end, who is truly he tattarrattat"))
 
 
