@@ -16,7 +16,7 @@ function findLongestPalindrome(string) {
         for (var y = i; y < string.length; y++) {
             var chunk = string.slice(i,y+1);
             console.log(chunk)
-            if (isPalindrome(chunk) && (chunk.length > longestPalindrome.length)) {
+            if (isPalindrome(chunk) && (chunk.trim().length > longestPalindrome.length)) {
                 longestPalindrome = chunk.trim();
                 console.log("Found new palindrome!")
                 var start_index = i;
