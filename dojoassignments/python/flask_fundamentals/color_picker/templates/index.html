@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet">
+    </head>
+    
+    <body style="background-color:rgb({{color.red}}, {{color.green}}, {{color.blue}})"
+        <div id="wrapper">
+            <h1> Enter your color values below! </h1>
+            <form action='/changecolor' method='post'>
+                Red: <input type="range" name="red" min="0" max="255" value={{random1}}>
+                Green: <input type="range" name="green" min="0" max="255" value={{random2}}>
+                Blue: <input type="range" name="blue" min="0" max="255" value={{random3}}>
+                <input type="submit" value="Show my color!">
+            </form>
+            <h3>All values are restricted from 0 - 255 :)</h3>
+            <h4>I've included a randomizer for fun. Hit the button after every page load!</h4>
+        </div>
+    </body>
+</html>
+

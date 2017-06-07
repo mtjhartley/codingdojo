@@ -1,0 +1,11 @@
+#wrapper {
+    max-width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h3 {
+    padding: 6px;
+    margin-top: 2em;
+}
