@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Enter the Dojo!</h1>
+        <p>So you aim to become a ninja? Fill out this form and see 
+            be evaulated by our strongest masters!
+        </p>
+        <form action='/handleuser' method='post'>
+            Name: <input type='text' name='name'>
+            Email: <input type='text' name='email'>
+            Password: <input type='password' name='password'>
+            <input type='submit' value="Let's ride!'">
+        </form>
+
+    </body>
+</html>

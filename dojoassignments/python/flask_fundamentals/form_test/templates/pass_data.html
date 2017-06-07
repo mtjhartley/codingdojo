@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Flask Templating With Python</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <p>Look at how I can embed this python!</p>
+        <p>Phrase: {{ phrase }}</p>
+        <p>Times: {{ times }}</p>
+        {% for x in range(0,times) %}
+            <p>{{ phrase }}</p>
+
+        {% endfor %}
+
+
+    
+    </body>
+</html>
