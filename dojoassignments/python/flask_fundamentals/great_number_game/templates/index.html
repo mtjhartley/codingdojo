@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Welcome to the Great Number Game!</h1>
+            <h4>I am thinking of a number between 1 and 100</h4>
+            <h4>Take a guess!</h4>
+
+            {% if session['guess'] %}
+                <div class='correct'><p>You got the right number!</p></div>
+                <form action='/play_again' method='post'>
+                    <input type='submit' value="Clear the session?">
+                </form>
+
+            {% elif session['high'] %}
+                <div class='incorrect'><p>Your guess was too high! Try again!</p></div>
+            {% elif session['low'] %}
+                <div class='incorrect'><p>Your guess was too low! Try again!</p></div>
+            {% endif %}
+
+
+            <form action='/guess' method='post'>
+                <input type='number' name='number_guess' min='1' max='100' value='1'>
+                <button>Test your luck!</button>
+            </form>
+        </div>
+    </body>
+</html>

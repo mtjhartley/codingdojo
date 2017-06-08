@@ -1,0 +1,33 @@
+.incorrect, .correct {
+    width: 60%;
+    height: 300px;
+    border: 3px solid black;
+    margin: 0 auto;
+    color: white;
+    font-size: 3em;
+}
+
+.incorrect, .correct p{
+    padding: 20px;
+    margin-top: 15px;
+
+}
+
+.incorrect {
+    background-color: red;
+    margin: 0 auto;
+}
+
+.correct {
+    background-color: green;
+}
+
+#wrapper {
+    width: 700px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+
+
+}
