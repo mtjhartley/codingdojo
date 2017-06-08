@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+        <link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="form_container">
+            <form action='/process' method='post'>
+                <div id="form_contents">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p> {{message}} </p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <div class="question">First name: <input type='text' name='first_name'></div>
+                    <div class="question">Last name: <input type='text' name='last_name'></div>
+                    <div class="question">Password: <input type='password' name='password'></div>
+                    <div class="question">Confirm Password: <input type='password' name='confirm_password'></div>
+                    <div class="question">Email: <input type='text' name='email'></div>
+                    <div class="question">Birthday: <input type="date" name="birthday"></div>
+                    <input type='submit' value='Submit!'>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+#form_container {
+    margin: 0 auto;
+    width: 800px;
+    height: auto;
+    padding: 20px;
+    background-color: cornflowerblue;
+    vertical-align: top;
+}
+
+* {
+    vertical-align: top;
+}
+
+#form_contents {
+    padding: 20px;
+}
+
+.question {
+    padding: 15px;
+    margin: 10px;
+}
+
+.button {
+    padding: 5px;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
