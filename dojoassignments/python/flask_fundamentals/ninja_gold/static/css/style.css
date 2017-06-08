@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    max-width: 80%;
+    background: lightblue;
+    margin: 0 auto;
+    text-align: center;
+    height: auto;
+
+}
+
+#wrapper input {
+    margin: 5px;
+    padding: 10px;
+
+}
+
+.activity {
+    width: 15%;
+    display: inline-block;
+    background: cornflowerblue;
+    border: 2px solid black;
+}
+
+.activity h4 {
+    padding: 10px;
+    font-size: 2em;
+}
+
+#activities {
+    display: block;
+    width: 60%;
+    height: 250px;
+    background: wheat;
+    border: 2px solid black;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.earned {
+    color: green;
+}
+
+.lost {
+    color: red;
+}
