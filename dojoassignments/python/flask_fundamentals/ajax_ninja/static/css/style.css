@@ -1,0 +1,34 @@
+ul li {
+    padding: 20px;
+    margin: 20px;
+    background-color: wheat;
+    display: inline-block;
+    border: 2px solid black;
+    vertical-align: top;
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+    padding: 0px;
+}
+#wrapper {
+    width: 60%;
+    height: auto;
+    background-color: green;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+#morphing_image {
+    height: 400px;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}

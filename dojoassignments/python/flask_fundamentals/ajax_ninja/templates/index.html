@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1 id="dynamic_text">Choose your Turtle!!!</h1>
+            <ul>
+                <li id="raphael" summon="{{url_for('static', filename='ninjas/raphael.jpg')}}" text="You chose Raphael!">Red</li>
+                <li id="leonardo" summon="{{url_for('static', filename='ninjas/leonardo.jpg')}}" text="You chose Leonardo!">Blue</li>
+                <li id="michaelangelo" summon="{{url_for('static', filename='ninjas/michelangelo.jpg')}}" text="You chose Michelangelo!">Orange</li>
+                <li id="donatello" summon="{{url_for('static', filename='ninjas/donatello.jpg')}}" text="You chose Donatello!">Purple</li>
+            </ul>
+            <img src="static/ninjas/tmnt.png" id="morphing_image">
+        </div>
+    </body>
+</html>
