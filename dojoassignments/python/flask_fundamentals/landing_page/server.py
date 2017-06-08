@@ -5,6 +5,11 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+#examples of sessions!
+@app.route('/show')
+def show_user():
+    return render_template('user.html', name='Jay', email='kpatel@codingdojo.com')
+
 @app.route('/ninjas')
 def ninjas():
     return render_template("ninjas.html")
