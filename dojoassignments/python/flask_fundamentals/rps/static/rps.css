@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    font-family: helvetica;
+}
+
+form{
+    display: inline-block;
+
+}
+
+h1{
+    font-size: 40px;
+}
+
+h2{
+    font-size: 20px;
+}
