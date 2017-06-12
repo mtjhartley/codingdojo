@@ -1,0 +1,7 @@
+Opened MAMP, checked the port of the Apache Server and the mySQL server.
+
+Imported one of the example sql queries (lead_gen_business) to sql using the query tool
+
+queried “USE lead_gen_business” to connect and set as default db.
+
+queried SELECT * FROM billing to ensure connection was made.
