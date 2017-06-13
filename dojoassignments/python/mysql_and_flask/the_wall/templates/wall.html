@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class='container'>
+            <div id="wall_header">
+                <h1>The Wall</h1>
+                <form action='/handle_message' method='post'>
+                    <textarea name='wall_message' id='wall_message' cols='135' rows='7'>
+                    </textarea>
+                    <div id = "submit_message">
+                        <input type="submit" value='Leave A Message!'>
+                    </div>
+                </form>
+            </div>
+            {% for message in messages %}
+                <div class="message_container">
+                    <h3> {{ message['name']}} - {{ message['calendar_date']}}</h3>
+                    <p> {{ message['message'] }} </p>
+                    <div class="container comment_container">
+                        {% for comment in comments %}
+                            {% if comment['message_id'] == message['message_id'] %}
+                                <h4>{{ comment['name'] }} - {{ comment['calendar_date'] }} </h4>
+                                <p> {{ comment['comment']}}</p>
+                            {% endif %}
+                        {% endfor %}
+
+
+                        <form action= '/handle_comment' method='post'>
+                            <input type='hidden' value='{{ message["message_id"] }}' name='message_id'>
+                            <textarea name='wall_comment' id='wall_comment' cols='60' rows='3'>
+                            </textarea>
+                            <div>
+                                <input type='submit' value='Comment away~'>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </body>
+</html>

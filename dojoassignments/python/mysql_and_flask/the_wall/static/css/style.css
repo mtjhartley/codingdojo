@@ -1,0 +1,55 @@
+body {
+    background: #0C243B;
+    color: #B3B5BB;
+}
+
+textarea {
+    background-color: snow;
+}
+
+.message_container {
+    background-color: #1E3754;
+    padding: 20px;
+    margin: 20px;
+}
+
+#submit_message {
+    margin-top: 15px;
+}
+
+/*.message_container p {
+    font-size: 1em;
+}*/
+
+.message_container p {
+    font-size: 1.2em;
+    margin-left: 5px;
+}
+
+.comment_container {
+    background-color: #384E6E;
+    padding: 10px;
+    margin: 10px;
+}
+
+.comment_container h4 {
+    font-size: 1.3em;
+}
+
+.comment_container p {
+    font-size: 1em;
+}
+
+#wall_header {
+    text-align: center;
+    margin: 10px;
+}
+#wall_header h1{
+    margin-top: 20px;
+    font-size: 5em;
+
+}
+
+.comment_container p {
+    margin-left: 20px;
+}
