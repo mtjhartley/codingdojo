@@ -80,4 +80,5 @@ GROUP BY clients.client_id, charged_datetime;
 SELECT concat(clients.first_name, " ", clients.last_name) AS client_name, 
 GROUP_CONCAT(sites.domain_name) AS sites 
 FROM clients 
-LEFT JOIN sites ON clients.client_id = sites.client_id GROUP BY clients.client_id;
+LEFT JOIN sites ON clients.client_id = sites.client_id 
+GROUP BY clients.client_id;
