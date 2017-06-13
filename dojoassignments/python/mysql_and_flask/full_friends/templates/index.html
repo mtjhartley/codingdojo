@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1 style="text-align: center;">All my friends :)</h1>
+            <table class="table table-striped table-inverse">
+                <thead class ="thead-default">
+                    <tr>
+                        <th> Name </th>
+                        <th> Occupation </th>
+                        <th> Friend Since </th>
+                        <th> Age </th>
+                    </tr>
+                </thead>
+
+                {% for friend in all_friends: %}
+                <tr>
+                    <td> {{ friend['name'] }} </td>
+                    <td> {{ friend['occupation'] }} </td>
+                    <td> {{ friend['friend_since'] }} </td>
+                    <td> {{ friend['age'] }} </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="container">
+            <h2> Add another friend!</h2>
+            <form action="/friends" method='post'>
+                <label for="first_name">First Name:<input type='text' name='first_name' id='first_name'></label>
+                <label for="last_name">Last Name:<input type='text' name='last_name' id='last_name'></label>
+                <label for="occupation">Occupation:<input type='text' name='occupation' id='occupation'></label>
+                <label for"birthday">Birthday: <input type="date" name='birthday' id='birthday'></label>
+                <input type="submit" value="Add">
+            </form>
+            </div>
+
+
+        </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </body>
+</html>
