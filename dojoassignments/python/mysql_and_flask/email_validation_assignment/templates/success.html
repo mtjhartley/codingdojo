@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p> {{ message }} </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h1>Email Addresses Entered</h1>
+        {% for email in all_emails %}
+            <p> {{ email['email'] }} {{ email['date_created'] }} </p>
+        {% endfor %}
+
+        <h4>Delete an email by email address</h4>
+        <form action='/delete' method='post'>
+            <input type='text' name='email' id='email'>
+            <input type='submit' value='Delete'>
+        </form>
+
+        <a href="{{url_for('index')}}">Go home and add some more emails in!</a>
+    </body>
+</html>
