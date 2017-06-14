@@ -161,7 +161,8 @@ def delete_message():
 def wall():
     messageInfo = {}
     query = "SELECT wall_messages.message as message, wall_messages.wall_user_id as message_user_id,wall_messages.id as message_id, DATE_FORMAT(wall_messages.created_at, '%M %d %Y %T') as calendar_date, \
-            CONCAT(wall_users.first_name, ' ', wall_users.last_name) as name \
+            CONCAT(wall_users.first_name, ' ', wall_users.last_name) as name, \
+            TIMESTAMPDIFF(MINUTE, wall_messages.created_at, NOW()) as minutes_since_creation \
             FROM wall_messages \
             JOIN wall_users \
             ON wall_messages.wall_user_id = wall_users.id \

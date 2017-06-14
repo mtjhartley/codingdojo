@@ -24,7 +24,7 @@
                     <h3> {{ message['name']}} - {{ message['calendar_date']}}</h3>
                     <p> {{ message['message'] }} </p>
                     <!-- if the current message belongs to the person logged in -->
-                    {% if message['message_user_id'] == session['id'] %}
+                    {% if message['message_user_id'] == session['id'] and message['minutes_since_creation'] < 31 %}
                         <form action='/delete' method='post'>
                             <input type='hidden' name='message_id' value='{{ message["message_id"] }}'>
                             <input type='submit' value='Delete?'>
