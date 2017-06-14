@@ -23,6 +23,14 @@
                 <div class="message_container">
                     <h3> {{ message['name']}} - {{ message['calendar_date']}}</h3>
                     <p> {{ message['message'] }} </p>
+                    <!-- if the current message belongs to the person logged in -->
+                    {% if message['message_user_id'] == session['id'] %}
+                        <form action='/delete' method='post'>
+                            <input type='hidden' name='message_id' value='{{ message["message_id"] }}'>
+                            <input type='submit' value='Delete?'>
+                        </form>
+                    {% endif %}
+
                     <div class="container comment_container">
                         {% for comment in comments %}
                             {% if comment['message_id'] == message['message_id'] %}

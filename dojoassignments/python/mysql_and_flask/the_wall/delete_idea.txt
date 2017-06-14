@@ -1,0 +1,14 @@
+Extra Credit 1: Allow the user to delete his/her own messages.
+jinja templating ->
+if wall_messages.wall_user_id == session[‘id’]
+	use a hidden input to send the current message id 
+	render a form action =‘/delete’ method =post
+	input type=submit
+
+server.py ->
+
+@app.route(/delete)
+def delete_message():
+	delete every comment with the user_message_id that equals hidden value(or leave them
+	delete message with the message_id that was sent over by the hidden input.
+could be huge.
