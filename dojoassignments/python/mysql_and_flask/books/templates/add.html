@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            <h1 id="header_text"> Add a BOOK</h1>
+            <form action='/handle_add' method='post'>
+                <label for="Title">Title: <input type='text' name='title' id='title'></label>
+                <label for="Author">Author<input type='text' name='author' id='author'></label>
+                <input type="submit" value="Add book!">
+            </form>
+        </div>
+    
+    </body>
+</html>

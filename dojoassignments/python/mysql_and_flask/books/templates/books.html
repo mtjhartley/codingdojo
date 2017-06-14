@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BOOKS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <div class="container">
+            {% if everyone: %}
+            <h1 id="header_text">Everyone's BOOKS</h1>
+            {% else %}
+            <h1 id="header_text">{{all_books[0]['name']}} BOOKS</h1>
+            {% endif %}
+                <h3 id="header_text"> {{ message }} </h3>
+            <table class="table table-striped table-inverse">
+                <thead class ="thead-default">
+                    <tr>
+                        <th> Title </th>
+                        <th> Author </th>
+                        <th> Date Added </th>
+                        <th> Added By </th>
+                        <th> Action </th>
+                    </tr>
+                </thead>
+
+                {% for book in all_books: %}
+                <tr>
+                    <td> <a href="{{url_for('add_existing', book_id=book['book_id'])}}">{{ book['title'] }}</a> </td>
+                    <td> {{ book['author'] }} </td>
+                    <td> {{ book['date_added'] }} </td>
+                    <td> <a href="{{url_for('user_books', user_id=book['added_by_id'])}}">{{ book['name'] }}</a> </td>
+                    {% if session['id'] == book['added_by_id'] %}
+                        <td> <a href="{{url_for('delete', book_id=book['book_id']) }}">delete?</a> </td>
+                    {% else %}
+                        <td> NO DELETE </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+            <a href="{{url_for('add_book')}}" id="add_book_link">Add a book?</a>
+        </div>
+
+    
+    </body>
+</html>

@@ -1,0 +1,33 @@
+body {
+    background-color: green;
+    color: snow;
+}
+
+#header_text {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#user_boxes {
+    text-align: center;
+    vertical-align: top;
+    max-width: 90%;
+    height: 800px;
+}
+
+#registration_box, #login_box {
+    max-width: 40%;
+    height: 400px;
+    display: inline-block;
+    padding: 30px;
+    margin: 30px;
+    background-color: lightgreen;
+    vertical-align: top;
+}
+
+#add_book_link {
+    color: snow;
+    padding: 10px;
+    background-color: red;
+}

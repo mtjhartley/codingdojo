@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" type='text/css' href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    <body>
+        <p> Are you sure you want to add</p>
+        <h3> {{book_name}} </h3>
+        <p> To your list of books? </p>
+
+        <a href="{{url_for('all_books')}}">Cancel</a>
+
+        <form action='/handle_add_existing' method='post'>
+            <input type='hidden' name='book_id' value='{{book_id}}'>
+            <input type='submit' value='ADD BOOK'>
+        </form>
+    
+    </body>
+</html>
