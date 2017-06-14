@@ -60,6 +60,16 @@ function sList() {
 		emptyStr += "]"
 		return emptyStr
 	}
+	this.addFront = function(value) {
+		if (this.head == null) {
+			this.head = new Node(value)
+		}
+		else {
+			newNode = new Node(value)
+			newNode.next = this.head
+			this.head = newNode
+		}
+	}
 
 
 }
@@ -94,6 +104,9 @@ linkedList.add(5)
 console.log(linkedList.display())
 
 linkedList.remove(1) 
+console.log(linkedList.display())
+
+linkedList.addFront(10) 
 console.log(linkedList.display())
 
 
