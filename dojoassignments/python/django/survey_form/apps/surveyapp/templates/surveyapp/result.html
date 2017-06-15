@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div>
+            <p>Thanks for submiting this form. You've submitted this form
+                {{request.session.count}} times now.</p>
+            <h3>Submitted Info</h3>
+            <p> Name: {{request.session.name}} </p>
+            <p> Dojo Location: {{request.session.location}} </p>
+            <p> Favorite Language: {{request.session.language}} </p>
+            <p> Comment: {{request.session.comment}} </p>
+            <a class="button" href="{% url 'index' %}">Take me home</a>
+        </div>
+    </body>
+</html>

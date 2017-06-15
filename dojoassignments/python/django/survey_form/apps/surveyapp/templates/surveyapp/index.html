@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <h1>Add your information now! Do it now!</h1>
+            <form action='/surveys/process' method='post'>
+                {% csrf_token %}
+                First Name: <input type='text' name="first_name" id="first_name">
+                Dojo Location: <select name="location">
+                    <option value="San Jose">San Jose</option>
+                    <option value="Bellevue">Bellevue</option>
+                    <option value="Mordor">Morder</option>
+                </select>
+                Favorite Language: <select name="language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Mean">Mean</option>
+                </select>
+                Comment (optional): <textarea name="comment" rows="10" cols="30"></textarea>
+                <input type="submit" value="Submit!">
+            </form>
+
+        </div>
+    
+    </body>
+</html>
