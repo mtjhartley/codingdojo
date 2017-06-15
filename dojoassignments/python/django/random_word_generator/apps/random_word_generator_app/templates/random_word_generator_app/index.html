@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Random word</h1>
+        <h2>{{ word }}</h2>
+        <h3>Attempt # {{request.session.count}}</h3>
+        <form action='/increment' method = 'post'>
+            {% csrf_token %}
+            <input type='submit' value="Generate!">
+        </form>
+
+        <form action='/clear' method = 'post'>
+            {% csrf_token %}
+            <input type='submit' value="Clear attempts?">
+        </form>
+    </body>
+</html>
