@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href="{% static 'ninjagoldapp/css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Welcome to Ninja Zennys!</h1>
+            <h4>Your gold: {{ request.session.gold }}</h4>
+            <div class="activity">
+                <h4>Farm</h4>
+                <p>(+ 10-20 zennys)</p>
+                <form action='/process_money/farm' method='post'>
+                    {% csrf_token %}
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="activity">
+                <h4>Cave</h4>
+                <p>(+ 5-10 zennys)</p>
+                <form action='/process_money/cave' method='post'>
+                    {% csrf_token %}
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="activity">
+                <h4>House</h4>
+                <p>(+ 2-5 zennys)</p>
+                <form action='/process_money/house' method='post'>
+                    {% csrf_token %}
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div class="activity">
+                <h4>Casino</h4>
+                <p>(+/- 0-50 zennys)</p>
+                <form action='/process_money/casino' method='post'>
+                    {% csrf_token %}
+                    <input type="submit" value="Find Gold!"/>
+                </form>
+            </div>
+            <div id="activities">
+                <h2>Activity log </h2>
+                {% if request.session.log %}
+                    {% for log in request.session.log %}
+                        {% if "Earned" in log %}
+                            <p class="earned"> {{log}} </p>
+                        {% else %}
+                            <p class="lost"> {{log}} </p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
+            <form action='/restart' method='post'>
+                {% csrf_token %}
+                <h4>If you've lost all your zennys at the casino...try again?</h4>
+                <input type='submit' value='Second lease on life...'>
+            </form>
+        </div><!--wrapper ends here-->
+    </body>
+</html>
