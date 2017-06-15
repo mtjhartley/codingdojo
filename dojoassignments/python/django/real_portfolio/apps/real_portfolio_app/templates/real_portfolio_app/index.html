@@ -4,12 +4,28 @@
         <title>Michael Hartley</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href="{% static 'real_portfolio_app/style.css' %}" rel="stylesheet"/>
+
     </head>
     <body>
         <h1>Hi, I'm Michael Hartley</h1>
-        <h2>Welcome to my Portfolio</h2>   
-        <a href="{% url 'projects' %}">Projects</a> 
-        <a href="{% url 'testimonials' %}">Testimonials</a>
-        <a href="{% url 'about' %}">About</a>
+        <h2>Welcome to my Portfolio</h2>
+        <div class="section_container">
+            <a href="{% url 'projects' %}">Projects</a> 
+            <p>Follow the link to see all of my projects! The one I'm most proud of is 
+                HartPR, an objective ranking system for SSBM created using Flask, Postgres, and 
+                the Microsoft Trueskill API</p>
+        </div>
+        <div class="section_container">
+            <a href="{% url 'testimonials' %}">Testimonials</a>
+            <p>Latest Testimonial:</p>
+            <p>Mikey is a good hardworking student. He started from the bottom, and now he 
+                is here! </p>
+        </div>
+        <div class="section_container">
+            <a href="{% url 'about' %}">About</a>
+            <p>Click here to learn more about Michael</p>
+        </div>
     </body>
 </html>

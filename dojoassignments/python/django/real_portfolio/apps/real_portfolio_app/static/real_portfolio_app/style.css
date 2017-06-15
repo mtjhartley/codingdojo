@@ -1,4 +1,16 @@
-* {
+body {
     text-align: center;
     background-color: lightblue;
+}
+
+.section_container {
+    max-width: 33%;
+    height: 400px;
+    background-color: cornflowerblue;
+    display: inline-block;
+    vertical-align: top;
+}
+
+h2 {
+    color: snow;
 }
