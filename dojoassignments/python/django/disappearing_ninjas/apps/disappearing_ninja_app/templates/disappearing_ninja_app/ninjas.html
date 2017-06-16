@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Disappearing Ninjas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link href="{% static 'disappearing_ninja_app/css/style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>You found the ninjas!</h1>
+        <img src="{% static image %}" alt="ninjas be here">
+        <h3>Get a closer look at the ninjas!</h3>
+        <a href="{% url 'ninjas'%}">Group Photo!</a>
+        <a href="{% url 'ninjas_color' color='red' %}">Raphael</a>
+        <a href="{% url 'ninjas_color' color='purple' %}">Donatello</a>
+        <a href="{% url 'ninjas_color' color='orange' %}">Michelangelo</a>
+        <a href="{% url 'ninjas_color' color='blue' %}">Leonardo</a>
+        <a href="{% url 'ninjas_color' color='xD' %}">Fifth...Ninja?</a>
+    </body>
+</html>
