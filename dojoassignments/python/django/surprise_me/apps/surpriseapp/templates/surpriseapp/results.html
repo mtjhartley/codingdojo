@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Surprise Me!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Your randomly selected heroes will display here</h1>
+        {% if message %}
+            <h2> {{ message }} </h2>
+        {% endif %}
+        {% for hero in heroes %}
+            <p> {{ hero }} </p>
+        {% endfor %}
+        <a href="{% url 'index' %}">Go back and try again!</a>
+    
+    </body>
+</html>

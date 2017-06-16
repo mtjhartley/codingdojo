@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Surprise Me!</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Surprise Me!</h1>
+        <h2>Pick a number from 1-10</h2>
+        <form action='/results' method = 'post'>
+            {% csrf_token %}
+            <input type='number' name='quantity' min='1' max='10' value='3'>
+            <input type='submit' value='Ready!'>
+        </form>
+    
+    </body>
+</html>
