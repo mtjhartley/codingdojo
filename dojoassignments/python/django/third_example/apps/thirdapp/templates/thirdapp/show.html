@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Third Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Future User</h1>
+        <p>
+        I bet rather than passing in this id: {{ id }} directly to the template,
+        we could eventually go to a database and do something akin to
+        "SELECT * FROM users WHERE id = {{id}}"
+        </p>
+        <p>The django documentation probably uses this! (1.10, 1.9) etc...</p>
+        <a href="{% url 'index' %}">Click me to go home!</a>
+    
+    </body>
+</html>

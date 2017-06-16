@@ -1,0 +1,1 @@
+alert("I only show if you correctly setup the static files path and loaded me :)")

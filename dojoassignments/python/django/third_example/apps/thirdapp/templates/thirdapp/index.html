@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Third Example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        {% load staticfiles %}
+        <script src="{% static 'thirdapp/js/main.js' %}"></script>
+    </head>
+    <body>
+        <h1>Practice with context, route parameters and static!</h1>
+        <p>Context Practice: Rendering email: {{email}} and name: {{name}}</p>
+        <p>Capturing Parameter from urls: <a href="{% url 'user' user_id=rng %}">Click me to go to a random users page!</a></p>
+        <p>If the alert loads, the static file was rendered correctly!</p>
+    </body>
+</html>
