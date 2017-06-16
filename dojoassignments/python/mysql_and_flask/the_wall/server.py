@@ -23,8 +23,8 @@ def register():
 @app.route('/handle_registration', methods=['POST'])
 def handle_registration():
     passTests = True
-    query = "INSERT INTO wall_users (first_name, last_name, email, password, salt, created_at, updated_at) \
-    VALUES (:first_name, :last_name, :email, :hashed_pw, :salt, NOW(), NOW())"
+    query = """INSERT INTO wall_users (first_name, last_name, email, password, salt, created_at, updated_at) \
+    VALUES (:first_name, :last_name, :email, :hashed_pw, :salt, NOW(), NOW())"""
     data = {}
 
     #first_name validation
@@ -81,8 +81,8 @@ def login():
 def handle_login():
     email = request.form['email']
     password = request.form['password']
-    user_query = "SELECT * FROM wall_users \
-    WHERE wall_users.email = :email LIMIT 1"
+    user_query = """SELECT * FROM wall_users \
+    WHERE wall_users.email = :email LIMIT 1"""
     query_data = {'email': email}
     
 
@@ -116,8 +116,8 @@ def success():
 def handle_message():
     post_message = request.form['wall_message']
     user_id = session['id']
-    user_query = "INSERT INTO wall_messages (message, wall_user_id, created_at, updated_at) \
-    VALUES (:post_message, :user_id, NOW(), NOW())"
+    user_query = """INSERT INTO wall_messages (message, wall_user_id, created_at, updated_at) \
+    VALUES (:post_message, :user_id, NOW(), NOW())"""
     query_data = {
         "post_message" : post_message,
         "user_id" : user_id
@@ -134,8 +134,8 @@ def handle_comment():
     post_comment = request.form['wall_comment']
     message_id = request.form['message_id']
     user_id = session['id']
-    user_query = "INSERT INTO wall_comments (comment, wall_user_id, wall_message_id, created_at, updated_at) \
-                VALUES (:post_comment, :user_id, :message_id, NOW(), NOW())"
+    user_query = """INSERT INTO wall_comments (comment, wall_user_id, wall_message_id, created_at, updated_at) \
+                VALUES (:post_comment, :user_id, :message_id, NOW(), NOW())"""
     query_data = {
         "post_comment": post_comment,
         "user_id": user_id,
@@ -160,22 +160,22 @@ def delete_message():
 @app.route('/wall')
 def wall():
     messageInfo = {}
-    query = "SELECT wall_messages.message as message, wall_messages.wall_user_id as message_user_id,wall_messages.id as message_id, DATE_FORMAT(wall_messages.created_at, '%M %d %Y %T') as calendar_date, \
+    query = """SELECT wall_messages.message as message, wall_messages.wall_user_id as message_user_id,wall_messages.id as message_id, DATE_FORMAT(wall_messages.created_at, '%M %d %Y %T') as calendar_date, \
             CONCAT(wall_users.first_name, ' ', wall_users.last_name) as name, \
             TIMESTAMPDIFF(MINUTE, wall_messages.created_at, NOW()) as minutes_since_creation \
             FROM wall_messages \
             JOIN wall_users \
             ON wall_messages.wall_user_id = wall_users.id \
-            ORDER BY wall_messages.created_at DESC"
+            ORDER BY wall_messages.created_at DESC"""
     messages = mysql.query_db(query)
 
-    comment_query = "SELECT wall_comments.comment as comment, DATE_FORMAT(wall_comments.created_at, '%M %d %Y %T') as calendar_date, \
+    comment_query = """SELECT wall_comments.comment as comment, DATE_FORMAT(wall_comments.created_at, '%M %d %Y %T') as calendar_date, \
                     CONCAT(wall_users.first_name, ' ', wall_users.last_name) as name, \
                     wall_comments.wall_user_id as commenter_id, \
                     wall_comments.wall_message_id as message_id \
                     FROM wall_comments \
                     JOIN wall_users \
-                    ON wall_comments.wall_user_id = wall_users.id"
+                    ON wall_comments.wall_user_id = wall_users.id"""
     comments = mysql.query_db(comment_query)
     return render_template('wall.html', messages=messages, comments = comments)
 

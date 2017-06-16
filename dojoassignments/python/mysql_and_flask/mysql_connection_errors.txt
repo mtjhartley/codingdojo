@@ -1,0 +1,16 @@
+1.
+'database': dba, # we got db as an argument
+NameError: global name 'dba' is not defined
+Fix by making sure ‘database’: db <- is the variable you define as the parameter.
+
+2. 
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'robot'@'localhost' (using password: YES)")
+User name was ‘robot’ instead of ‘root’. Fixed upon changing back to root.
+
+3.
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+Password was ‘boot’ instead of ‘root’, same error as when username is incorrect!
+
+4. OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' (61)")
+
+Error comes from setting port to 123 instead of 8889. Fixed upon setting the port back.
