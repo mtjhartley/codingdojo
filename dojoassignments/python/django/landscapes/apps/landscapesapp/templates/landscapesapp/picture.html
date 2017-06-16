@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Landscapes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+        <link href="{% static 'landscapesapp/css/style.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+        <h1>Picture will go here lul</h1>
+        <h2> {{ message }} </h2>
+        <h3> {{ prime }} </h3>
+        <img src="{% static image_path %}" alt="an landscape dependent on the parameter :)">
+    </body>
+</html>
