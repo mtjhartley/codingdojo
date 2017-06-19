@@ -1,0 +1,20 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py shell
+
+from apps.productsapp.models import Product 
+
+product1 = Product.objects.create(name="Tennis Racket", description="Good for hitting balls", 
+                                    weight=12.1, price=19.99, cost=9.99, category="Sports")
+
+product2 = Product.objects.create(name="Basketball Hoop", description="Good for putting balls through", weight=100, price=193.23, cost=100.23, category="Sports")
+
+product3 = Product.objects.create(name="Nintendo64", description="Classic console", weight=25, price=5000, cost=3000, category="Video Games")
+
+products = Product.objects.all()
+
+for product in products:
+  print product.name, product.description, product.category, etc...
+
+
+
