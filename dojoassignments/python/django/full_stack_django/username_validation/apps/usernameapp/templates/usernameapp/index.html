@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>Enter in your username!</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action='/handle_registration' method='post'>
+            {% csrf_token %}
+            <label for='username'>Username: </label>
+            <input type='text' name='username' id='username'>
+            <input type='submit' value='Go!'>
+        </form>
+    
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>All usernames!</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Join Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+     
+        {% for user in users %}
+            <tbody>
+                <tr>
+                    <td>{{user.username}}</td>
+                    <td>{{user.created_at}}</td>
+                    <td>
+                        <form action='/destroy/{{user.id}}' method='post'>
+                            {% csrf_token %}
+                            <input type='submit' value='REMOVE'>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+    </body>
+</html>
