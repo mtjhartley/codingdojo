@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <h1>Login or Register</h1>
+            {% if messages %}
+            <ul>
+                <li>ATTENTION REQUIRED!</li>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        
+        <h3>Register</h3>
+        <form action='/register' method='post' class ="form-vertical">
+            {% csrf_token %}
+            <label for='first_name'>First Name: </label>
+            <input type='text' name='first_name' id='first_name'>
+
+            <label for='last_name'>Last Name: </label>
+            <input type='text' name='last_name' id='last_name'>
+
+            <label for='email'>Email: </label>
+            <input type='text' name='email' id='email'>
+
+            <label for='password'>Password: </label>
+            <input type='password' name='password' id='password'>
+
+            <label for='confirm_password'>Confirm Password: </label>
+            <input type='password' name='confirm_password' id='confirm_password'>
+
+            <input type='submit' value="submit">
+            
+        </form>
+
+        <h3>Login</h3>
+        <form action='/login' method='post' class ="form-vertical">
+            {% csrf_token %}
+            <label for='email'>Email: </label>
+            <input type='text' name='email' id='email'>
+
+            <label for='password'>Password: </label>
+            <input type='password' name='password' id='password'>
+
+            <input type='submit' value="submit">
+        </form>
+    </body>
+</html>

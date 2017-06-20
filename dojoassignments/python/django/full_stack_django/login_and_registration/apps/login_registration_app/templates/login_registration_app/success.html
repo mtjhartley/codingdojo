@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Success!</h1>
+    
+        <div id="wrapper">
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li><h2>{{ message }}</h2></li>
+                {% endfor %}
+                <li>Successfully registered (or logged in)!</li>
+            </ul>
+            {% endif %}
+
+            <form action="{% url 'index' %}" method="POST" class="form-horizontal">
+                {% csrf_token %}
+                <input class="btn btn-default" id="submitbutton" type="submit" value="Home">
+            </form>
+        </div>
+    </body>
+</html>
