@@ -15,7 +15,10 @@ class UserManager(models.Manager):
     # Uses .objects.filter to check if the email exists. If it does, check the bcrypt hashed password 
     # and see if it matches what the hash is from the input. 
     # Message warnings might be dangerous (revealing if email exists in db by distinguishing, but is fine for debugging
-    def isValidLogin(self, userInfo, request):
+    def isValidLogin(self, userInfo):
+        loginObject = {
+            "errors": []
+        }
         validLogin = True
         if User.objects.filter(email = userInfo['email']):
             hashed = User.objects.get(email = userInfo['email']).password
@@ -23,14 +26,17 @@ class UserManager(models.Manager):
             password = userInfo['password']
             password = password.encode('utf-8')
             if bcrypt.hashpw(password, hashed) == hashed:
-                messages.success(request, "Success! Welcome, " + User.objects.get(email=userInfo['email']).first_name + "!")
+                loginObject['success'] = ("Success! Welcome, " + User.objects.get(email=userInfo['email']).first_name + "!")
+                user = User.objects.get(email=userInfo['email'])
+                loginObject['user'] = user
             else:
-                messages.warning(request, "Unsuccessful login, incorrect password.")
+                loginObject['errors'].append("Unsuccessful login, incorrect password.")
                 validLogin = False
         else:
-            messages.warning(request, "Unsuccessful login, email is not in our db.")
+            loginObject['errors'].append("Unsuccessful login, email is not in our db.")
             validLogin = False
-        return validLogin
+
+        return loginObject
                 
     # isValidRegistration takes userInfo from request.POST on views.py, and the request.
     # If checks to see if the various parameters are valid, and if they are not, adds a 
@@ -40,46 +46,50 @@ class UserManager(models.Manager):
     # If all of the tests pass, the user receives a success message, the hashed password is generated 
     # with bcrypt, and the function returns True. On views.py, returning true redirects us to the successful 
     # login page, which flashes the Success! message. 
-    def isValidRegistration(self, userInfo, request):
+    def isValidRegistration(self, userInfo):
+        registrationObject = {
+            "errors": []
+        }
         validRegistration = True
         if not userInfo['first_name'].isalpha():
-            messages.warning(request, 'First name contains non-alpha character(s)')
+            registrationObject['errors'].append('First name contains non-alpha character(s)')
             validRegistration = False
         if len(userInfo['first_name']) < 2:
-            messages.warning(request, 'First name is less than 2 char.')
+            registrationObject['errors'].append('First name is less than 2 char.')
             validRegistration = False
         if not userInfo['last_name'].isalpha():
-            messages.warning(request, 'Last name contains non-alpha character(s)')
+            registrationObject['errors'].append('Last name contains non-alpha character(s)')
             validRegistration = False
         if len(userInfo['last_name']) < 2:
-            messages.warning(request, 'Last name is less than 2 char.')
+            registrationObject['errors'].append('Last name is less than 2 char.')
             validRegistration = False
         if not EMAIL_REGEX.match(userInfo['email']):
-            messages.warning(request, 'Email is not a valid Email!')
+            registrationObject['errors'].append('Email is not a valid Email!')
             validRegistration = False
         if len(userInfo['password']) < 7:
-            messages.warning(request, 'Password is too short. Must be 8 char.')
+            registrationObject['errors'].append('Password is too short. Must be 8 char.')
             validRegistration = False
         if userInfo['password'] != userInfo['confirm_password']:
-            messages.warning(request, 'Passwords do not match!')
+            registrationObject['errors'].append('Passwords do not match!')
             validRegistration = False
         if User.objects.filter(email = userInfo['email']):
-            messages.error(request, "This email already exists in our database.")
+            registrationObject['errors'].append("This email already exists in our database.")
             validRegistration = False
         
         now = datetime.datetime.now()
         birthday = datetime.datetime.strptime(userInfo['birthday'], '%Y-%m-%d') 
         if birthday > now:
-            messages.error(request, "You can't be born in the future!")
+            registrationObject['errors'].append("You can't be born in the future!")
             validRegistration = False
         
         if validRegistration:
-            messages.success(request, "Success! Welcome, " + userInfo['first_name'] + "!")
+            registrationObject['success'] = ("Success! Welcome, " + userInfo['first_name'] + "!")
             hashed = bcrypt.hashpw(userInfo['password'].encode(), bcrypt.gensalt())
-            User.objects.create(first_name = userInfo['first_name'], last_name = userInfo['last_name'], email = userInfo['email'], password = hashed, birthday=userInfo['birthday'])
-            return validRegistration
+            new_user = User.objects.create(first_name = userInfo['first_name'], last_name = userInfo['last_name'], email = userInfo['email'], password = hashed, birthday=userInfo['birthday'])
+            registrationObject['user'] = new_user
+            return registrationObject
         else:
-            return validRegistration
+            return registrationObject
 
 class User(models.Model):
     first_name = models.CharField(max_length = 255)
