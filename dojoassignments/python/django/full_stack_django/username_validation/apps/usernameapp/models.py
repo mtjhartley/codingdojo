@@ -11,6 +11,8 @@ class UserManager(models.Manager):
 		else:
 			return False
 	def doesUsernameExist(self, username):
+    		#filter(username=username).exists();
+			#try returning user objects or error objects
 		existing_user = User.objects.filter(username=username)
 		if len(existing_user) > 0:
 			print "Username already exists from models.py"
