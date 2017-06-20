@@ -9,7 +9,12 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 # Create your models here.
 
+
 class UserManager(models.Manager):
+    # isValidLogin takes in the userInfo from request.POST on the views.py, and the request.
+    # Uses .objects.filter to check if the email exists. If it does, check the bcrypt hashed password 
+    # and see if it matches what the hash is from the input. 
+    # Message warnings might be dangerous (revealing if email exists in db by distinguishing, but is fine for debugging
     def isValidLogin(self, userInfo, request):
         validLogin = True
         if User.objects.filter(email = userInfo['email']):
@@ -27,8 +32,14 @@ class UserManager(models.Manager):
             validLogin = False
         return validLogin
                 
-
-    
+    # isValidRegistration takes userInfo from request.POST on views.py, and the request.
+    # If checks to see if the various parameters are valid, and if they are not, adds a 
+    # warning to django messages with a label warning. 
+    # If any tests fail, the boolean is set to False and the page is redirected to the index,
+    # flashing the fails on the index page.
+    # If all of the tests pass, the user receives a success message, the hashed password is generated 
+    # with bcrypt, and the function returns True. On views.py, returning true redirects us to the successful 
+    # login page, which flashes the Success! message. 
     def isValidRegistration(self, userInfo, request):
         validRegistration = True
         if not userInfo['first_name'].isalpha():
@@ -69,6 +80,7 @@ class UserManager(models.Manager):
             return validRegistration
         else:
             return validRegistration
+
 class User(models.Model):
     first_name = models.CharField(max_length = 255)
     last_name = models.CharField(max_length=255)
