@@ -8,9 +8,10 @@ def index(request):
     return render(request, 'login_registration_app/index.html')
 
 def register(request):
-    userObjet = User.objects.isValidRegistration(request.POST)
+    userObject = User.objects.isValidRegistration(request.POST)
     if 'user' in userObject:
-        messages.success(request, userObject['success'])
+        request.session['id'] = userObject['user'].id
+        request.session['first_name'] = userObject['user'].first_name
         return redirect('success')
     else:
         for error in userObject['errors']:
@@ -20,7 +21,8 @@ def register(request):
 def login(request):
     userObject = User.objects.isValidLogin(request.POST)
     if 'user' in userObject:
-        messages.success(request, userObject['success'])
+        request.session['id'] = userObject['user'].id
+        request.session['first_name'] = userObject['user'].first_name
         return redirect('success')
     else:
         for error in userObject['errors']:

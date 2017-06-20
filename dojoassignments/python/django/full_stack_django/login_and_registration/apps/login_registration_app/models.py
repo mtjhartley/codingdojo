@@ -26,7 +26,6 @@ class UserManager(models.Manager):
             password = userInfo['password']
             password = password.encode('utf-8')
             if bcrypt.hashpw(password, hashed) == hashed:
-                loginObject['success'] = ("Success! Welcome, " + User.objects.get(email=userInfo['email']).first_name + "!")
                 user = User.objects.get(email=userInfo['email'])
                 loginObject['user'] = user
             else:
@@ -83,13 +82,10 @@ class UserManager(models.Manager):
             validRegistration = False
         
         if validRegistration:
-            registrationObject['success'] = ("Success! Welcome, " + userInfo['first_name'] + "!")
             hashed = bcrypt.hashpw(userInfo['password'].encode(), bcrypt.gensalt())
             new_user = User.objects.create(first_name = userInfo['first_name'], last_name = userInfo['last_name'], email = userInfo['email'], password = hashed, birthday=userInfo['birthday'])
             registrationObject['user'] = new_user
-            return registrationObject
-        else:
-            return registrationObject
+        return registrationObject
 
 class User(models.Model):
     first_name = models.CharField(max_length = 255)

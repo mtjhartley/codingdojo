@@ -8,6 +8,7 @@
     </head>
     <body>
         <h1>Success!</h1>
+        <h2>Hello, {{request.session.first_name}}, with a user id of {{request.session.id}}</h2>
     
         <div id="wrapper">
             {% if messages %}
