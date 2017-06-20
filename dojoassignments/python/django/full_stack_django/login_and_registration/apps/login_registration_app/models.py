@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib import messages
 from django.db import models
+import datetime
 import re 
 import bcrypt
 
@@ -54,11 +55,17 @@ class UserManager(models.Manager):
         if User.objects.filter(email = userInfo['email']):
             messages.error(request, "This email already exists in our database.")
             validRegistration = False
-
+        
+        now = datetime.datetime.now()
+        birthday = datetime.datetime.strptime(userInfo['birthday'], '%Y-%m-%d') 
+        if birthday > now:
+            messages.error(request, "You can't be born in the future!")
+            validRegistration = False
+        
         if validRegistration:
             messages.success(request, "Success! Welcome, " + userInfo['first_name'] + "!")
             hashed = bcrypt.hashpw(userInfo['password'].encode(), bcrypt.gensalt())
-            User.objects.create(first_name = userInfo['first_name'], last_name = userInfo['last_name'], email = userInfo['email'], password = hashed)
+            User.objects.create(first_name = userInfo['first_name'], last_name = userInfo['last_name'], email = userInfo['email'], password = hashed, birthday=userInfo['birthday'])
             return validRegistration
         else:
             return validRegistration
@@ -67,7 +74,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length = 45)
-    #birthday = models.DateField(null=True, blank=True)
+    birthday = models.DateField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
