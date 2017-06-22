@@ -16,7 +16,10 @@ def books(request):
     return render(request, 'books/books.html', context)
 
 def add_book(request):
-    return render(request, 'books/book_add.html')
+    context = {
+        "authors": Author.objects.order_by('name')
+    }
+    return render(request, 'books/book_add.html', context)
 
 def handle_add_book(request):
     title = request.POST['title']
