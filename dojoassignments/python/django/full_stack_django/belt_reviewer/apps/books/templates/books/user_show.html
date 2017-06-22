@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container'>
+            <a href="{% url 'books' %}">Home</a>
+            <h1>This is a user's page, {{request.session.first_name}}!</h1>
+            
+            <h2>User Alias: {{user.first_name}}</h2>
+            <h3>Name: {{user.first_name}} {{user.last_name}}</h3>
+            <h3>Email: {{user.email}}</h3>
+            <h3>Total Reviews: {{user.number_of_reviews}}</h3>
+
+            <h3>Posted Reviews on the following books</h3>
+            {% for review in reviews %}
+                <h4><a href="{% url 'show_book' book_id=review.book.id%}">{{review.book.title}}</a></h4>
+
+            {% endfor %}
+            <div class='col-md-6'>
+            </div>
+
+            <div class='col-md-6'>
+            </div>
+
+        </div><!-- container ends here -->
+    
+    </body>
+</html>
