@@ -13,11 +13,17 @@
             </div>
             <div class="col-md-8">
                 <h1>Clients</h1>
-                <h2>{{project.project_name}} for {{client.business_name}}</h2>
+                <h2>EDIT {{project.project_name}} for {{client.business_name}}</h2>
                 <!-- main content here -->
-                <p><a href="{% url 'project_edit' project_id=project.id %}">Project Notes</a>: {{project.notes}}</p>
+                <p>Edit Project Notes: </p>
+                <form action='/edit/projects/{{project.id}}/handle_edit' method='post'>
+                    {% csrf_token %}
+                    <textarea name='notes' id='notes' class='form-control'>{{project.notes}}</textarea>
 
-                <a href="{% url 'client_show' client_id=client.id%}" class='btn btn-default'>Back</a>
+
+                    <a href="{% url 'client_show' client_id=client.id%}" class='btn btn-default'>Back</a>
+                    <button type="Add" class="btn btn-default">Edit</button>
+                </form>
 
 
             </div>

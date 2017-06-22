@@ -14,7 +14,7 @@
             <div class="col-md-8">
                 <h1>Clients</h1>
                 <!-- main content here -->
-                <h2>{{client.business_name}}</h2>
+                <h2>EDIT NOTES FOR: {{client.business_name}}</h2>
                 <p>Projects:</p>
                     {% for project in client.projects.all %}
                         <p><a href="{% url 'project_show' project_id=project.id%}">{{project.project_name}}</a></p>
@@ -24,11 +24,15 @@
                         <li>{{client.email}}</li>
                         <li>{{client.phone}}</li>
                     </ul>
-                <p><a href="{% url 'client_edit' client_id=client.id %}">Notes</a>:</p>
-                <p>{{client.notes}}</p>
-                    
-                <a href="{% url 'index' %}" class='btn btn-default'>Back</a>
-                <a href="{% url 'project_add' client_id=client.id %}" class='btn btn-default'>Add Project</a>
+                <p>Notes:</p>
+                <p>Edit Client Notes: </p>
+                <form action='/client/{{client.id}}/handle_edit' method='post'>
+                    {% csrf_token %}
+                    <textarea name='notes' id='notes' class='form-control'>{{client.notes}}</textarea>
+
+                    <a href="{% url 'client_show' client_id=client.id%}" class='btn btn-default'>Back</a>
+                    <button type="Add" class="btn btn-default">Edit</button>
+                </form>
             </div>
             <div class='col-md-2'>
             </div>
