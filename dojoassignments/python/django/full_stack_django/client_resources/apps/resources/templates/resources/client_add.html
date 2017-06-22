@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <h1>Clients</h1>
+                <!-- main content here -->
+                <form action='/client/handle_add' method='post'>
+                    {% csrf_token %}
+                    <div class='form-group'>
+                        <label for="business_name">Business Name:</label>
+                        <input type='text' name='business_name' id='business_name' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="email">Email:</label>
+                        <input type='text' name='email' id='email' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="phone">Phone:</label>
+                        <input type='text' name='phone' id='phone' class='form-control'>
+                    </div>
+                    <div class='form-group'>
+                        <label for="notes">Notes:</label>
+                        <textarea name='notes' id='notes' class='form-control'></textarea>
+                    </div>
+                    <a href="{% url 'index' %}" class='btn btn-default'>Cancel</a>
+                    <button type="Add" class="btn btn-default">Submit</button>
+                </form>
+
+                        
+            </div>
+
+
+            </div>
+            <div class='col-md-2'>
+            </div>
+
+        </div>
+        
+    
+    </body>
+</html>

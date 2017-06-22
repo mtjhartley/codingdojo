@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <h1>Clients</h1>
+                <!-- main content here -->
+                <h2>{{client.business_name}}</h2>
+                <p>Projects:</p>
+                    {% for project in client.projects.all %}
+                        <p><a href="{% url 'project_show' project_id=project.id%}">{{project.project_name}}</a></p>
+                    {% endfor %}
+                <p>Contact:</p>
+                    <ul>
+                        <li>{{client.email}}</li>
+                        <li>{{client.phone}}</li>
+                    </ul>
+                <p>Notes:</p>
+                <p>{{client.notes}}</p>
+                    
+                <a href="{% url 'index' %}" class='btn btn-default'>Back</a>
+                <a href="{% url 'project_add' client_id=client.id %}" class='btn btn-default'>Add Project</a>
+            </div>
+            <div class='col-md-2'>
+            </div>
+
+        </div>
+        
+    
+    </body>
+</html>

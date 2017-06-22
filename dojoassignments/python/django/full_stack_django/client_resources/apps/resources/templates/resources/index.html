@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <h1>Clients</h1>
+                <!-- main content here -->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Business Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for client in clients %}
+                        <tr>
+                            <td><a href="{% url 'client_show' client_id=client.id%}">{{client.business_name}}</a></td>
+                            <td>{{client.email}}</td>
+                            <td>{{client.phone}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'client_add' %}">Add a Client</a>
+                
+            </div>
+            <div class='col-md-2'>
+            </div>
+
+        </div>
+        
+    
+    </body>
+</html>
