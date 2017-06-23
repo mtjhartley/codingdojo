@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <h1>Hello New User!</h1>
+            <form action="{% url 'handle_add_user' %}" method='post'>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for='first_name'>First Name: </label>
+                    <input type='text' name='first_name' id='first_name' class='form-control' placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label for='last_name'>Last Name: </label>
+                    <input type='text' name='last_name' id='last_name' class='form-control' placeholder="Last name">
+                </div>
+
+                <div class="form-group">
+                    <label for='email'>Email: </label>
+                    <input type='text' name='email' id='email' class='form-control' placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label for='password'>Password: </label>
+                    <input type='password' name='password' id='password' class='form-control' placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for='confirm_password'>Confirm Password: </label>
+                    <input type='password' name='confirm_password' id='confirm_password' class='form-control' placeholder="Confirm Password">
+                </div>
+
+                <div class="form-group">
+                    <label for='birthday'>Birthday: </label>
+                    <input type='date' name='birthday' id='birthday' class='form-control'>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    
+    </body>
+</html>
