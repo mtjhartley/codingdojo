@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^users/edit/(?P<user_id>\d+)/handle_edit_user$', views.handle_edit_user, name='handle_edit_user'),
     url(r'^users/delete/(?P<user_id>\d+)$', views.handle_delete_user, name='handle_delete_user'),
     url(r'^users/show/(?P<user_id>\d+)$', views.show_user, name='show_user'),
+    url(r'^users/handle_message/(?P<wall_id>\d+)$', views.handle_message, name='handle_message'),
+    url(r'^users/handle_comment/(?P<message_id>\d+)$', views.handle_comment, name='handle_comment'),
 ]

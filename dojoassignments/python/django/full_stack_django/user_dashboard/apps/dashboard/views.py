@@ -1,8 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
 from ..login_registration.models import User
+from .models import Message, Comment
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 import bcrypt
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -81,7 +83,37 @@ def handle_delete_user(request, user_id):
 def show_user(request, user_id):
     user = User.objects.get(id=user_id)
     context = {
-        "user": user
+        "user": user,
+        "messages": Message.objects.filter(wall=user),
     }
     #create forms, render messages on show page and you're done :)
     return render(request, 'dashboard/show_user.html', context)
+
+def handle_message(request, wall_id):
+    if request.method == 'POST':
+        wall_id = wall_id
+        poster_id = request.session['id']
+        user_who_owns_wall = User.objects.get(id=wall_id)
+        user_who_posted_message = User.objects.get(id=poster_id)
+
+        Message.objects.create(message_text=request.POST['message'], wall=user_who_owns_wall, user=user_who_posted_message)
+
+
+        print "the wall and poster ids are", wall_id, poster_id
+        url = reverse('show_user', kwargs={'user_id': wall_id})
+        return HttpResponseRedirect(url)
+    
+def handle_comment(request, message_id):
+    if request.method =='POST':
+        message_id = message_id
+        message = Message.objects.get(id=message_id)
+        user_who_commented = User.objects.get(id=request.session['id'])
+        wall_id = message.wall.id
+
+        Comment.objects.create(comment_text=request.POST['comment'], message=message, commenter=user_who_commented)
+        url = reverse('show_user', kwargs={'user_id': wall_id})
+        return HttpResponseRedirect(url)
+
+
+
+

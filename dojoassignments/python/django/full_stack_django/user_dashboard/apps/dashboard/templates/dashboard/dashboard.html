@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class='container-fluid'>
+            <a href="{% url 'dashboard' %}">E.T. Phone Home</a>
             <h1>Hello {{request.session.first_name}}, Here's the 
                 {% if boolean %}
                 Admin
@@ -40,7 +41,11 @@
                             <td>Normal</td>
                         {% endif %}
                         <td>
+                            {% if boolean or user.id == request.session.id %}
                             <a href="{% url 'edit_user' user_id=user.id %}">Edit</a>
+                            {% else %}
+                            No Permissions
+                            {% endif %}
                             {% if boolean and not user.admin %}
                             <a href="{% url 'handle_delete_user' user_id=user.id %}">Delete</a>
                             {% endif %}
