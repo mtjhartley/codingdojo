@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Restful Pets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <h1>Welcome to PETS</h1>
+            <h2>This is {{pet.name}}'s page</h2>
+
+            <h4>ID: {{pet.id}}</h4>
+            <h4>Name: {{pet.name}}</h4>
+            <h4>Time since creation: {{pet.created_at|timesince}}</h4>
+            <h4>edit</h4>
+            <h4><a href="{% url 'index' %}">back</a></h4>
+
+
+    
+        <div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Restful Pets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <h1>Welcome to PETS</h1>
+            <!-- form action here -->
+            <form action="{% url 'create' %}" method ='post'>
+                {% csrf_token %}
+                <div class='form-group'>
+                    <label for="name">Pet Name:</label>
+                    <input type='text' name='name' id='name' class='form-control'>
+                </div>
+                <div class='form-group'>
+                    <label for="name">Pet Description:</label>
+                    <textarea name='description' id='description' class='form-control'></textarea>
+                </div>
+                <button class='btn btn-default' type='submit'>Add a Pet!</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Restful Pets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class='container-fluid'>
+            <h1>Welcome to PETS</h1>
+
+            <table class='table table-hover'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for pet in pets %}
+                    <tr>
+                        <td>{{pet.id}}</td>
+                        <td>{{pet.name}}</td>
+                        <td>{{pet.description}}</td>
+                        <td>{{pet.created_at}}</td>
+                        <td>{{pet.updated_at}}</td>
+                        <td>
+                            <a href="{% url 'show' pet_id=pet.id %}">Show</a> 
+                            <a href="{% url 'edit' pet_id=pet.id %}">Update</a>
+                            <form action="{% url 'destroy' pet_id=pet.id %}" method='post'>
+                                {% csrf_token %}
+                                <button class='btn btn-default' type='submit'>DESTROY</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a class='btn btn-default' href="{% url 'new' %}">Add New Pet!</a>
+        <div>
+    </body>
+</html>
