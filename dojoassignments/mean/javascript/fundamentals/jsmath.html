@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script>
+            //math1
+            function zero_negativity(arr) {
+                zeroNeg = true;
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] < 0) {
+                        zeroNeg = false;
+                        break;
+                    }
+                }
+                return zeroNeg
+            }
+
+            console.log(zero_negativity([1,2,3]))
+            console.log(zero_negativity([1,-2,3]))
+            //math 2
+            function is_even(num) {
+                return num % 2 === 0
+            }
+
+            console.log(is_even(2))
+            console.log(is_even(3))
+            //math 3
+            function how_many_even(arr) {
+                var evenCount = 0
+                for (var i=0; i < arr.length; i++) {
+                    if (is_even(arr[i])) {
+                        evenCount++;
+                    }
+                }
+                return evenCount
+            }
+            console.log(how_many_even([1,2,3,4]))
+            console.log(how_many_even([1,2,3,]))
+
+            //math 4
+            function create_dummy_array(n) {
+                var dummy_array = []
+                for (var i = 0; i < n; i++) {
+                    dummy_array.push(Math.floor(Math.random() * 10))
+                }
+                return dummy_array
+            }
+            console.log(create_dummy_array(5))
+
+            //math 5
+            function random_choice(arr) {
+                randomIdx = Math.floor(Math.random() * arr.length)
+                return arr[randomIdx]
+            }
+            console.log(random_choice([1,2,3,4,5]))
+
+
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
