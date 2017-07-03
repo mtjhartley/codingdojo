@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Javascript Demo</title>
+	<style>
+		body {
+			background-color:black;
+			font-family: monospace;
+			color:white;
+			font-size:50px;
+			text-align: center;
+			margin-top:20%;
+		}
+		#magic{
+			color: #777;
+			border-right: 1px solid #777;
+			padding-right: 7px;
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+
+	Coding is <div id="magic"></div>
+
+	<script>
+		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
+			el = document.getElementById('magic'),
+			word_counter = 0,
+			character_counter = 0;
+		function randomColors() {
+  			return '#' + Math.floor(Math.random() * 16777215).toString(16);
+		}
+		function updateText()
+		{
+			//document.getElementById("magic").style.color = randomColors(); //this would update the color every character
+			if(words[word_counter][character_counter] === " ") { //if the current character to add is a blank space, replace it with html &nbsp and increment the counter
+				el.innerHTML = el.innerHTML + "&nbsp";
+				character_counter++;
+			} else { //else, add the next character
+			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
+			}
+			/* //simple code to add !!, don't like how it looks though.
+			if(character_counter == words[word_counter].length) {
+				el.innerHTML = el.innerHTML + "!"
+			}
+			*/
+			if(character_counter == words[word_counter].length+1)//get the last character
+			{
+				document.getElementById("magic").style.color = randomColors(); //this updates the color every word!
+				word_counter++; 	//choose a different word
+				character_counter = 0;	//start over with the first character of the word
+				el.innerHTML = '';  //set the html to be blank
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == words.length)
+					word_counter = 0;	
+			}
+		}
+		setInterval(updateText,250);
+	</script>
+
+</body>
+
+</html>
