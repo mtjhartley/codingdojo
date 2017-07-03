@@ -8,6 +8,7 @@
     </head>
     <script>
         function Ninja(name) {
+            var self = this;
             this.name = name;
             this.health = 100;
             //private
@@ -26,15 +27,38 @@
                 this.health += 10;
                 return this
             }
+            this.punch = function(ninja) {
+                if (ninja instanceof Ninja) {
+                    ninja.health -= 5
+                    return this
+                }
+            }
+
+            var getStrength = function() { //power for strength
+                return strength;
+            }
+            this.kick = function(ninja) {
+                if (ninja instanceof Ninja) { 
+                    strength = getStrength() //this is ryu's strength
+                    ninja.health -= (5 * strength) //ken's strength goes down by 5 x ryu's strength of 3
+                    console.log("woo hoo you are a ninja still.")
+                }
+            }
+
 
 
         }
         var Ryu = new Ninja("Ryu")
+        var Ken = new Ninja("Ken")
+        Ken.strength = 5
         Ryu.sayName()
         Ryu.showStats()
         Ryu.drinkSake()
         Ryu.showStats()
-
+        Ryu.punch(Ken)
+        Ken.showStats()
+        Ryu.kick(Ken)
+        Ken.showStats()
     </script>
     <body>
     
