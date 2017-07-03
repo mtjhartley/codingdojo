@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script>
+            //basic 1
+            let x = []
+            console.log(x)
+            x.push('coding')
+            x.push('dojo')
+            x.push('rocks')
+            x.pop()
+            console.log(x)
+
+            //basic 2
+            const y = []
+            y.push(88) //this is fine, you aren't changing what const is, just what's in it
+            console.log(y)
+            
+            //basic 3
+            let z =[9, 10, 6, 5, -1, 20, 13, 2]
+            for (var i = 0; i < z.length; i++) {
+                console.log(z[i])
+            }
+            console.log()
+            for (var i = 0; i < z.length-1; i++) {
+                console.log(z[i])
+            }
+            console.log()
+
+            //basic 4
+            console.log("names length")
+            let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso']
+            for (var i = 0; i < names.length; i++) {
+                console.log(names[i].length)
+            }
+            for (var i = 0; i < names.length; i++) {
+                if (names[i].length === 5) {
+                    console.log(names[i].length)
+                }
+            }
+            //basic 5
+            function yell(string) {
+                console.log(string.toUpperCase())
+            }
+            yell("sup")
+            //google it
+
+
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
