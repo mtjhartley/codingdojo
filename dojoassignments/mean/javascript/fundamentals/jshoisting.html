@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script>
+            //1
+            console.log(hello);
+            var hello = 'world';
+            //predicted output -> undefined, because the var declaration is hosted, but not the assignment. 
+
+            //2
+            var needle = 'haystack';
+            test();
+            function test(){
+                var needle ='magnet';
+                console.log(needle)
+            }
+            //predicted output -> function will get hoisted, and then test will print the needle scoped to it, which has a value of 'magnet'
+
+            //3 
+            var brendan = 'super cool';
+            function print() {
+                brendan = 'only okay'
+                console.log(brendan);
+            }
+            console.log(brendan);
+            //predicted output -> the function is not called, so the only thing c.logged will be the global brendan, 'super cool'
+
+            //4
+            var food = 'chicken';
+            console.log(food);
+            eat();
+            function eat() {
+                food = 'half-chicken';
+                console.log(food);
+                var food = 'gone'
+            }
+            //predicted output -> 'chicken' will be console logged, and then func hoisted b4 eat is called, so eat will c.log it's scoped food, which is 'half-chicken'
+
+            //5
+            // mean(); //not a function!
+            // console.log(food); // undefined
+            // var mean = function() {
+            //     food = 'chicken'; //syntax error maybe? or just undefined, actually declares it globally...lol
+            //     console.log(food)
+            //     var food = "fish"; //hoisted to top, i think this would be overriden by chicken becuz chicken lacks the var 
+            //     console.log(food)
+            // }
+            // console.log(food) //undefined again, food is never declared globally. 
+
+            //6
+            console.log(genre); //undefined, but will c.log rock because of genre = 'rock' in the rewind() function
+            var genre = "disco";
+            rewind();
+            function rewind() {
+                genre = "rock";//pulled to very top
+                console.log(genre);
+                var genre = "rnb";
+                console.log(genre);
+            }
+            console.log(genre); //disco overwrites rock.
+
+            //7
+            dojo = "san jose";
+            console.log(dojo);
+            learn();
+            function learn() {
+                dojo = "seattle";
+                console.log(dojo);
+                var dojo = "burbank";
+                console.log(dojo);
+            }
+            console.log(dojo);
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
