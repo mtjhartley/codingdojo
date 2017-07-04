@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>
+        function Deck() {
+            this.cardMin = 1;
+            this.cardMax = 52;
+            this.dealerCards = [];
+            //must call allCards to put cards in dealer deck
+
+            this.resetCards = function() {
+                this.dealerCards = [];
+                for (var i = this.cardMin; i <= this.cardMax; i++) {
+                    this.dealerCards.push(i);
+                    this.cardMax = 52;
+                    this.cardMin = 1;
+
+                }
+                return this.dealerCards
+            }
+
+            this.showCards = function() {
+                console.log(this.dealerCards)
+            }
+            this.shuffleCards = function() {
+                var m = this.dealerCards.length, t, i;
+
+                while (m) {
+                    i = Math.floor(Math.random() * m--);
+                    t = this.dealerCards[m];
+                    this.dealerCards[m] = this.dealerCards[i]
+                    this.dealerCards[i] = t;
+                }
+                return this.dealerCards
+
+            }
+            this.dealCard = function() {
+                randomCardIndex = Math.floor(Math.random() * this.cardMax-1);
+                dealtCard = this.dealerCards.splice(randomCardIndex, 1)[0]
+                console.log(dealtCard)
+                return dealtCard
+
+            }
+
+        }
+        var deck1 = new Deck()
+        deck1.resetCards()
+        deck1.showCards()
+        deck1.shuffleCards()
+        deck1.showCards()
+        //deck1.dealCard()
+        deck1.showCards()
+
+        function Player(name) {
+            this.name = name;
+            this.hand = []
+            this.takeCard = function(card){
+                this.hand.push(card)
+            }
+            this.discardCard = function(value){
+                this.hand.pop(value)
+            }
+            this.showHand = function() {
+                console.log(this.hand)
+            }
+            this.discardHand = function(value) {
+                this.hand = [];
+            }
+        }
+
+        player1 = new Player("Michael")
+        player1.takeCard(deck1.dealCard())
+        player1.takeCard(deck1.dealCard())
+        player1.takeCard(deck1.dealCard())
+        player1.showHand()
+        deck1.showCards()
+        player1.discardHand()
+        deck1.resetCards()
+        deck1.showCards()
+        player1.showHand()
+
+
+
+    </script>
+
+    
+    </body>
+</html>
