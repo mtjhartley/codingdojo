@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <button id="getName">Get my name from my Github!</button>
+        <h1 id='name'></h1>
+    </body>
+    <script>
+        var button = document.getElementById("getName")
+        button.addEventListener("click", updateName);
+
+        function updateName() { $.get("https://api.github.com/users/mtjhartley", displayName)
+        
+            function displayName(data) {
+                console.log(data)
+                console.log(data.name) //should display Michael Hartley 
+                let nameHeader = document.getElementById('name')
+                console.log(nameHeader)
+                nameHeader.innerHTML = data.name
+
+            }
+        }
+
+
+
+
+
+    </script>
+</html>
