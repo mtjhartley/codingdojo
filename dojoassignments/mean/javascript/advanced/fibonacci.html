@@ -11,14 +11,14 @@
         function fib() {
             var x = 0;
             var y = 1;
-            var z = 1;
 
             function nacci() {
                 console.log(y)
                 //console.log(total)
-                x = y 
-                y = z
-                z = x + y
+                var temp = y
+                y = x + y
+                x = temp
+
                 //console.log(y)
 
 
@@ -26,6 +26,9 @@
             return nacci
         }
         var fibCounter = fib();
+        fibCounter();
+        fibCounter();
+        fibCounter();
         fibCounter();
         fibCounter();
         fibCounter();
