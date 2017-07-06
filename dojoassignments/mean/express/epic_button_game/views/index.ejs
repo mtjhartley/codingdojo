@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ='text/javascript' src="/socket.io/socket.io.js"></script>
+        <script type ='text/javascript'>
+            $(document).ready(function() {
+                var socket = io.connect();
+
+                $('#increment_button').click(function(e){
+                    e.preventDefault();
+                    console.log("You clicked the button on the client side!");
+                    socket.emit('clicking_button', {message: "Sending button click to server from client"});
+                })
+
+                socket.on('updating_count', function(data){
+                    console.log('The button has been pressed ' + data.count + " time(s).");
+                    var h1 = document.getElementById("num_presses");
+                    h1.innerHTML = 'The button has been pressed ' + data.count + " time(s)."
+                })
+
+                $('#reset_button').click(function(e){
+                    e.preventDefault();
+                    console.log("You clicked the reset button from the client!");
+                    socket.emit('clicking_reset_button', {message: "Sending reset click to server from client"});
+                })
+                
+                socket.on('resetting_count', function(data){
+                    console.log('The reset button has been pressed. Everything goes back to 0.');
+                    var h1 = document.getElementById("num_presses");
+                    h1.innerHTML = 'The button has been pressed ' + data.count + " times(s)." 
+
+                })
+
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <h1 id="num_presses">The button has been pressed 0 time(s).</h1>
+        <button id="increment_button">Increase the count through me!</button>
+        <button id='reset_button'>Reset the count to zero with me!</button>
+    
+    </body>
+</html>
