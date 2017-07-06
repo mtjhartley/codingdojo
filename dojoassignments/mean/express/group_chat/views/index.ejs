@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ='text/javascript' src="/socket.io/socket.io.js"></script>
+        <script type ='text/javascript'>
+            $(document).ready(function(){
+                var socket = io.connect();
+                var name = prompt('What is your name?')
+                console.log(name)
+                //automatically load all messages after the user passes in their name.
+                socket.emit('see_all_messages')
+                socket.on('show_all_messages', function(data){
+                    var html_str = ""
+                    for (var i = 0; i < data.chats.length; i++) {
+                        
+                        html_str += "<p>" + data.chats[i].name + ": " + data.chats[i].message + "</p>"
+                    }
+                    console.log(html_str)
+                    $('#conversation_board').html(html_str)
+                });
+                $('#new_message_form').submit(function(e){
+                    e.preventDefault();
+                    socket.emit('got_a_new_message', {message: $('#new_message').val(), name: name})
+                })
+
+                socket.on('render_new_message',function(data){
+                    console.log(data.chats)
+                    console.log(data.chats[0].name)
+                    console.log(data)
+                    var html_str = ""
+                    
+                    for (var i = 0; i < data.chats.length; i++) {
+                        
+                        html_str += "<p>" + data.chats[i].name + ": " + data.chats[i].message + "</p>"
+                    }
+                    console.log(html_str)
+                    $('#conversation_board').html(html_str)
+                });
+
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>Chatroom!</h1>
+        
+        <div id='conversation_board'>
+        </div>
+        <form id='new_message_form'>
+            <textarea id='new_message' placeholder='enter your message here'></textarea>
+            <button id='new_message_button'>Send!</button>
+        </form>
+    
+    </body>
+</html>
