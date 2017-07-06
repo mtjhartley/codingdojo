@@ -1,0 +1,38 @@
+2
+<script>
+    var name = prompt('What is your name?');
+</script>
+
+3
+    <script>
+        var name = prompt('What is your name');
+        io = io.connect();
+        io.emit('got_a_new_user', {name: name})
+    </script>
+
+4.1
+    socket.on('got_a_new_user', function(data){
+        io.emit('new_user' {name: data.name}) 
+
+    }) //socket.on
+
+4.2 
+    var users = {};
+    users[socket.id] = name
+
+4.3
+    socket.on('got_a_new_user', function(data){
+        io.emit('new_user' {name: data.name}) 
+        socket.emit('existing_users', users)
+
+5
+    <script>
+        var name = prompt('What is your name');
+        io = io.connect();
+        io.emit('got_a_new_user', {name: name})
+
+        io.on('new_user', function(data){
+            //render this info in the html
+        })
+    </script>
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type ='text/javascript' src="/socket.io/socket.io.js"></script>
+        <script type ='text/javascript'>
+            $(document).ready(function(){
+                var socket = io.connect();
+                var name = prompt('What is your name?')
+                console.log(name)
+                socket.emit('got_a_new_user', {name: name})
+
+                socket.on('new_user', function(data) {
+                    console.log("The new user's name is " + data.name + " and their socket_id is " + data.socket_id)
+                    $('#users').append("<div id=" + data.socket_id +">" + data.name + "</div>")
+
+                });
+                socket.on('existing_users', function(data){
+                    console.log("These are all the users?:")
+                    for (var user in data.users) {
+                        //console.log(data.users) //entire object
+                        console.log(data.users[user]) //name
+                        console.log(user) //socket_id
+                        $('#users').append("<div id=" + user + ">" + data.users[user] +"</div>")
+                    }
+                });
+                socket.on('disconnect_user', function(data){
+                    console.log("Disconnected users id: " + data.id)
+                    $("#" + data.id).remove()
+                })
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <h1>Chatroom!</h1>
+        <h3>Currently Active Users:</h3>
+        <div id='users'>
+        </div>
+    
+    </body>
+</html>
