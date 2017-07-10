@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dog Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Welcome to Dog Dashboard!</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for (var i = 0; i < dogs.length; i++) { %>
+                <tr>
+                    <td><a href="/dogs/<%= dogs[i]._id %>"><%= dogs[i].name %></a></td>
+                    <td><%= dogs[i].createdAt.toDateString() %></td>
+                    <td><a href="/dogs/edit/<%= dogs[i]._id%>">Edit</a>, 
+                    <form action="/dogs/destroy/<%= dogs[i]._id%>" method='post'>
+                        <input type='submit' value='Remove'>
+                    </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <a href="/dogs/new">Add a new dog!</a>
+    
+    </body>
+</html>
