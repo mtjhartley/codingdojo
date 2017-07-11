@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Test mongoose app</h1>
+        <form action='/users' method='post'>
+            <label for='name'>Name: </label>
+            <input name='name' id='name' type='text'>
+
+            <label for='age'>Number: </label>
+            <input name='age' id='age' type='number'>
+
+            <input type='submit' value='submit'>
+
+        </form>
+        <h2>Current Users</h2>
+        <% for (var x in users) { %>
+            <h3>Name: <%= users[x].name %></h3>
+            <h4>Age: <%= users[x].age %></h4>
+
+        <% } %> 
+    
+    </body>
+</html>
