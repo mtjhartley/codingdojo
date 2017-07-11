@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dog Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Welcome to Dog Dashboard!</h1>
+        <h2>Edit a dog here!</h2>   
+        <h3>Name: <%= dogs.name %></h3>
+        <h4>Description: <%= dogs.description %></h4>
+        <h5>Created At: <%= dogs.createdAt %></h5> 
+         <% if(typeof(errors) != 'undefined' ) { %>
+            <% for (var x in errors) { %>
+            <h3><%= errors[x].message %></h3>
+            <% } %>
+        <% } %>
+
+        <form action="/dogs/<%= dogs._id %>" method='post'>
+            <label for='name'>Edit Name: </label>
+            <input name='name' id='name' type='text' value="<%= dogs.name %>">
+
+            <label for='description'>Edit Description: </label>
+            <textarea name='description' id='description'><%= dogs.description %></textarea>
+            
+            <input type='submit' value='Edit this dog!'>
+
+
+        </form>
+    </body>
+</html>
