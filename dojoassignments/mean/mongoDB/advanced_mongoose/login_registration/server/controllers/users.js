@@ -4,53 +4,56 @@ var bcrypt = require('bcrypt');
 
 module.exports = {
     register: function(req,res){
-        console.log(req.body);
-        if (req.body.password != req.body.confirm){
-            res.render('register', {errors: {errors:{User:{message: "Passwords must be identical!"}}}, input: req.body});
-        } 
-        else 
-        {
-            var newUser = new User({
-                email: req.body.email,
+        var newUser = new User({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
+                email: req.body.email,
                 password: req.body.password,
                 birthday: req.body.birthday,
             })
-            console.log(newUser);
+        if (req.body.password != req.body.confirm){
+            newUser.validate(function(err){
+                if (err){
+                    console.log(err, "The passwords do not match!")
+                    res.render('register', {errors: err, passwordMatch: true})
+                } else {
+                    res.render('register', {passwordMatch: true, errors: ""});
+
+                }
+            })
+        } else {
             newUser.save(function(err, user){
                 if(err){
-                    console.log("Error saving the user, please read.", err);
-                    console.log(err['name']) //error name
-                    res.render('register', {errors: err, input:req.body})
+                    console.log("Error during newUser.save", err);
+                    res.render('register', {errors: err, passwordMatch:false})
                 } else {
-                    console.log("Successfully Registered!")
+                    console.log("Successful registration!")
                     req.session.id = user.id;
+                    console.log(req.session.id)
                     res.redirect('/success')
                 }
             })
         }
     },
+
     login: function(req,res){
-        if (! req.body.email || !req.body.password){
-            res.render('index', {errors:'error'})
-        }
-        else 
-        {
+        if (!req.body.email || !req.body.password){
+            res.render('login', {errors:'error'})
+        } else {
             User.findOne({email: req.body.email}, function(err, user){
                 if (err){
-                    console.log("Errors from logging in.", err)
-                    res.render('index', {errors:"login error"})
+                    console.log("Invalid login credentials", err)
+                    res.render('login', {errors:"Invalid login credentials!"})
                 } else {
                     console.log(user);
                     if (bcrypt.compareSync(req.body.password, user.password)){
-                        console.log("Passwords match!");
+                        console.log("Success password match");
                         req.session.id = user.id;
                         console.log(req.session.id)
                         res.redirect('/success')
                     } else {
-                        console.log("Invalid Login Credentials (Password for debugging)");
-                        res.render('index', {errors:"login error"})
+                        console.log("Invalid login (password) (delete)");
+                        res.render('login', {errors:"Invalid login credentials!"})
                     }
                 }
             });

@@ -13,31 +13,34 @@
         <form action="/register" method="post">
  
             <label>First Name: </label>
-            <input type="text" name="first_name">
+            <input type="text" name="first_name" id="first_name">
 
             <label>Last Name: </label>
-            <input type="text" name="last_name">
+            <input type="text" name="last_name" id="last_name">
 
             <label>Email: </label>
-            <input type="text" name="email">
-            
+            <input type="text" name="email" id='email'>
+
             <label>Birthday: </label>
-            <input type="date" name="birthday">
+            <input type="date" name="birthday" id='birthday'>
 
             <label>Password: </label>
-            <input type="password" name="password">
+            <input type="password" name="password" id='password'>
 
             <label>Confirm Password: </label>
-            <input type="password" name="confirm">
+            <input type="password" name="confirm" id='password'>
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Register!">
         </form>
         <a href='/'>Login</a>
+        <% if (passwordMatch == true){ %>
+            <p>These two passwords do not match </p>
+        <% } %>
         <% if (errors) { %>
             <% if (errors['name'] == 'MongoError') { %>
-            <p>Email exists in our database!!</p>
+                <p>The email has already been taken!!</p>
             <% } %>
-            <% for (let error in errors['errors']) { %>
+            <% for (var error in errors['errors']) { %>
                     <p><%= errors['errors'][error]['message'] %></p>
             <% } %>
         <% } %>

@@ -44,7 +44,7 @@ var UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Password field can not be empty"],
-        minlength: 8,
+        minlength: [8, "Password must be at least 8 characters"],
         maxlength: 32,
         validate: {
             validator: function( value ) {

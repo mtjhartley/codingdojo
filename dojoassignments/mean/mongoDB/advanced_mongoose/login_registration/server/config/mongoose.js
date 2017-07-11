@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 // require the fs module for loading model files
 var fs = require('fs');
 // require path for getting the models path
