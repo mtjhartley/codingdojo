@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+         <h1> Register! </h1>
+ 
+        <form action="/register" method="post">
+ 
+            <label>First Name: </label>
+            <input type="text" name="first_name">
+
+            <label>Last Name: </label>
+            <input type="text" name="last_name">
+
+            <label>Email: </label>
+            <input type="text" name="email">
+            
+            <label>Birthday: </label>
+            <input type="date" name="birthday">
+
+            <label>Password: </label>
+            <input type="password" name="password">
+
+            <label>Confirm Password: </label>
+            <input type="password" name="confirm">
+
+            <input type="submit" value="Register">
+        </form>
+        <a href='/'>Login</a>
+        <% if (errors) { %>
+            <% if (errors['name'] == 'MongoError') { %>
+            <p>Email exists in our database!!</p>
+            <% } %>
+            <% for (let error in errors['errors']) { %>
+                    <p><%= errors['errors'][error]['message'] %></p>
+            <% } %>
+        <% } %>
+    </body>
+</html>
