@@ -6,12 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  timeZones = {'PST': true, 'MST': false, 'CST': false, 'EST': false};
   title = 'US TIME ZONE DISPLAY';
-  date = new Date();
-  changeTime(btn){
-    for (let zone in timeZones)
-    console.log("i change the time!")
+  lastTimeZone = null;
+  time = new Date();
+  changeTime(timezone){
+    this.time = new Date();
+    if (timezone === 'MST') {
+      this.time.setHours(this.time.getHours() + 1);
+    } else if (timezone === 'CST') {
+      this.time.setHours(this.time.getHours() + 2);
+    } else if (timezone === 'EST') {
+      this.time.setHours(this.time.getHours() + 3);
+    } else if (timezone === 'PST') {
+      this.time.setHours(this.time.getHours())
+    }
+    this.lastTimeZone = timezone;
 
   }
 }
