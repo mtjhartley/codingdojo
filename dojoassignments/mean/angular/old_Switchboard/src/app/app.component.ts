@@ -7,9 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Switchboard';
-  switches = [true, true, true, false, false, false, true, false, true, false]
-  onSwitch(idx) {
-    this.switches[idx] = !this.switches[idx]
+  switches = [true, false, true, false, false, false, true, true, false, true]
+  
 
-  }
 }
