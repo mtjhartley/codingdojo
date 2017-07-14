@@ -1,0 +1,11 @@
+
+<h1>{{title}}</h1>
+
+<form (submit)="getScore()" #githubForm="ngForm"> <!-- this line triggers getScore in component.ts-->
+  <h3>Github Username: <input type="text" name="username" [(ngModel)]="username" required></h3>
+  <button type='submit' [disabled]="!githubForm.valid">Get my score!</button>
+</form>
+
+
+<h2>Score: {{score}}</h2>
+<h4 [class]="status[0]">{{status[1]}}</h4> <!-- status is used solely for rendering CSS and a message -->
