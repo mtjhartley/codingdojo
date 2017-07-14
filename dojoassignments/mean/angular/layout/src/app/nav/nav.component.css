@@ -1,0 +1,14 @@
+div.nav {
+    width: 200px;
+    margin: 30px;
+    background-color: royalblue;
+    display: inline-block;
+    vertical-align: top;
+}
+button {
+    display: block;
+    padding: 4px;
+    margin: 15px auto;
+    width: 50px;
+    border-radius: 2px solid black;
+}

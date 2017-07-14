@@ -1,0 +1,7 @@
+div.header {
+    width: 900px;
+    min-height: 10px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: royalblue;
+}
