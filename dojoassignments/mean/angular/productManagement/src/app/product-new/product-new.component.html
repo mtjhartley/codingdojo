@@ -1,0 +1,25 @@
+<h3>Create a New Product</h3>
+<div class="labels">
+  <label for="">Title:</label>
+  <label for="">Price:</label>
+  <label for="">Image Url:</label>
+</div>
+<div class="inputs">
+  <form (submit)="create()" #formData="ngForm">
+
+    <input type="text" name="title" 
+    required 
+    [(ngModel)]="newProduct.title">
+
+    <input type="number" name="price" 
+    required 
+    [(ngModel)]="newProduct.price">
+
+    <input type="text" name="imgUrl" 
+    [(ngModel)]="newProduct.imgUrl">
+
+    <input type="submit" 
+    [disabled]="!formData.valid">
+    
+  </form>
+</div>

@@ -1,0 +1,14 @@
+<h4>Edit Product</h4>
+<form (submit)="update()" #formData="ngForm">
+  <div class='inputs' *ngIf="product">
+    <label for='title'>Title: </label>
+    <input type='text' name='title' [(ngModel)]="product.title">
+    <label for='number'>Price: </label>
+    <input type='number' name='price' [(ngModel)]="product.price">
+    <label for='imgURL'>Image URL: </label>
+    <input type='text' name='imgUrl' [(ngModel)]="product.imgUrl">
+    <input class='submit' type='submit' value="UPDATE">
+  </div>
+    
+  
+</form>
