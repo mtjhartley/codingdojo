@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!!
+  </h1>
+
+  <form (submit)="getScore()" #githubForm="ngForm"> <!-- for validations -->
+    <h3>Github Username: <input type='text' name='username' [(ngModel)]="username" required> </h3> <!-- binds to username variable in component -->
+    <button type='submit' [disabled]="!githubForm.valid"> <!-- possible with the hashtag = ngForm -->Get my Score!</button>
+  </form>
+
+  <h2> Score: {{score}}</h2>
+  <h4 [class]="status[0]">{{status[1]}}</h4>
+
