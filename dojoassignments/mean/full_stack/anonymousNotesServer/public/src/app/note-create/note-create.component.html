@@ -1,0 +1,12 @@
+<form name='addForm' #addForm="ngForm" (submit)="onSubmit(addForm)">
+  <label for="note">Note: </label>
+  <textarea required minlength='3' name='note' [(ngModel)]='newNote.text' #note="ngModel"></textarea>
+  <div *ngIf="note.errors && note.dirty" style='color: red;'>
+    <p *ngIf='note.errors.required'>Note is required</p>
+    <p *ngIf='note.errors.minlength'>Note must be at least 3 characters</p>
+  </div>
+
+  <input type='submit' [disabled]='!addForm.valid' value='Add a note!'>
+
+
+</form>
