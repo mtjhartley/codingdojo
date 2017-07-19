@@ -1,0 +1,11 @@
+.trueplaying {
+    background-color: green;
+}
+
+.truenotplaying {
+    background-color: red;
+}
+
+.trueundecided {
+    background-color: yellow;
+}

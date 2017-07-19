@@ -1,0 +1,21 @@
+<form (submit)="addPlayer()" #playerForm="ngForm">
+  <div>
+    <label for="name">Player Name: </label>
+    <input type="text" name="name" [(ngModel)]='player.name' minlength=2 required #name="ngModel">
+    <div class='errors' *ngIf='name.errors && (name.dirty || name.touch)'>
+      <span *ngIf='name.errors.required'>Name is required</span>
+      <span *ngIf='name.errors.minlength'>Name must be 2 char(s) long.</span>
+    </div>
+  </div>
+  <div>
+    <label for='position'>Position: </label>
+    <select name='position' [(ngModel)]='player.position' #position="ngModel">
+      <option value="Forward">Forward</option>
+      <option value="Goalie">Goalie</option>
+      <option value="Midfield">MidField</option>
+    </select>
+  </div>
+  <div>
+    <input type="submit" value="Add a player!" class="btn btn-success" [disabled]="!playerForm.valid">
+  </div>
+</form>
