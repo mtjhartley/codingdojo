@@ -1,0 +1,23 @@
+<h3>Dogs</h3>
+
+<table>
+	<tr>
+		<th>Dog Name</th>
+		<th>ID</th>
+		<th>Description </th>
+		<th>Age</th>
+		<th>Action</th>
+	</tr>
+	<tr *ngFor="let dog of dog_list">
+		<td>{{ dog.name }}</td>
+		<td>{{ dog._id }}</td>
+		<td>{{ dog.description }}</td>
+		<td>{{ dog.age }}</td>
+		<td>
+			<button [routerLink]="['/doggies', 'edit', dog._id]">Edit</button>
+			<button (click)="delete(dog)">Delete</button>
+		</td>
+	</tr>
+</table>
+
+{{ dog_list | json }}

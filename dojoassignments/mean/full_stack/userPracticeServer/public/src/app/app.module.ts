@@ -9,15 +9,24 @@ import { UsersDashboardComponent } from './users/users-dashboard/users-dashboard
 import { UsersLoginComponent } from './users/users-login/users-login.component';
 
 import { UserService } from './users/user.service';
+import { DogService } from './dogs/dog.service';
 
 import { AppRoutingModule } from './app-routing.module';
+import { DogsComponent } from './dogs/dogs.component';
+import { DogsListComponent } from './dogs/dogs-list/dogs-list.component';
+import { DogsCreateComponent } from './dogs/dogs-create/dogs-create.component';
+import { DogsEditComponent } from './dogs/dogs-edit/dogs-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UsersDashboardComponent,
-    UsersLoginComponent
+    UsersLoginComponent,
+    DogsComponent,
+    DogsListComponent,
+    DogsCreateComponent,
+    DogsEditComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, DogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

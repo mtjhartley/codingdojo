@@ -1,0 +1,18 @@
+<h2>Add a dog!</h2>
+
+<form (submit)="addDog()" #formData="ngForm">
+  <p>Name <input type='text' name='name' [(ngModel)]="new_dog.name" #name='ngModel' required></p>
+  <div class='errors' *ngIf='name.errors && (name.dirty || name.touch)'>
+    <span *ngIf='name.errors.required'>Name is required</span>
+  </div>
+
+  <p>Age <input type='number' min='0' max='100' name='number' [(ngModel)]="new_dog.age" #age='ngModel' required ></p>
+  <p>Description: </p>
+  <textarea name='description' [(ngModel)]="new_dog.description" #description='ngModel' required></textarea>
+  <div class='errors' *ngIf='description.errors && (description.dirty || description.touch)'>
+    <span *ngIf='description.errors.required'>Description is required</span>
+  </div>
+  <input type='submit' [disabled]=!formData.valid>
+</form>
+
+{{ new_dog | json }}
