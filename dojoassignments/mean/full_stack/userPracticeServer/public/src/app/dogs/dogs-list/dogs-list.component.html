@@ -1,5 +1,6 @@
 <h3>Dogs</h3>
 
+<input type='text' name='search_text' [(ngModel)]='search_text'>
 <table>
 	<tr>
 		<th>Dog Name</th>
@@ -8,7 +9,7 @@
 		<th>Age</th>
 		<th>Action</th>
 	</tr>
-	<tr *ngFor="let dog of dog_list">
+	<tr *ngFor="let dog of dog_list | filter: search_text | sort:'name' ">
 		<td>{{ dog.name }}</td>
 		<td>{{ dog._id }}</td>
 		<td>{{ dog.description }}</td>

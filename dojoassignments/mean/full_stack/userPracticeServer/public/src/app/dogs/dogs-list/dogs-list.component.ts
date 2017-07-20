@@ -14,6 +14,7 @@ import { UserService } from './../../users/user.service';
 export class DogsListComponent implements OnInit {
   dog_list: Array<Dog>
   current_user: User
+  search_text: String = ""
 
   constructor(private _dogService: DogService,
     private _userService: UserService,

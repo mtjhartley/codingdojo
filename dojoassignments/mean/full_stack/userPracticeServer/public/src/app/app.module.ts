@@ -16,6 +16,8 @@ import { DogsComponent } from './dogs/dogs.component';
 import { DogsListComponent } from './dogs/dogs-list/dogs-list.component';
 import { DogsCreateComponent } from './dogs/dogs-create/dogs-create.component';
 import { DogsEditComponent } from './dogs/dogs-edit/dogs-edit.component';
+import { FilterPipe } from './dogs/filter.pipe';
+import { SortPipe } from './dogs/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { DogsEditComponent } from './dogs/dogs-edit/dogs-edit.component';
     DogsComponent,
     DogsListComponent,
     DogsCreateComponent,
-    DogsEditComponent
+    DogsEditComponent,
+    FilterPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
