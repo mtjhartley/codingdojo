@@ -1,0 +1,38 @@
+
+
+<h3 *ngIf="current_user">Hello, {{current_user.name}}</h3>
+
+
+<div class='results' [ngClass] = "{resultsRed: current_user.last_score == 1, resultsBlue: current_user.last_score == 2, resultsGreen: current_user.last_score == 3}">
+<p *ngIf="current_user.last_score == 1">That was alright, {{current_user.name}}. Your score was {{current_user.last_score}}/3 (33%).</p>
+<p *ngIf="current_user.last_score == 2">Not half bad, {{current_user.name}}. Your score was {{current_user.last_score}}/3 (66%).</p>
+<p *ngIf="current_user.last_score == 3">That was awesome {{current_user.name}}!!! You aced it with a {{current_user.last_score}}/3 (100%).</p>
+</div>
+
+<div class='play_box'>
+	<button [routerLink]="['/lets_play']">Play!!</button>
+	<p>Click the above button to start the Trivia! game</p>
+</div>
+
+<p>Search :<input type='text' name='search_string' [(ngModel)]='search_string'></p>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Score</th>
+		<th>Percentage</th>
+
+	</tr>
+	<tr *ngFor="let user of user_list | filter: search_string | sort:'score' ">
+		<td *ngIf="!user.total == 0"> {{ user.name }}</td>
+		<td *ngIf="user.total == 0"></td>
+
+		<td *ngIf="!user.total == 0">{{ user.score }}/{{ user.total }}</td>
+		<td *ngIf="user.total == 0"></td>
+
+		<td *ngIf="!user.total == 0">{{ user.score * 100 / user.total | number: "1.1-1"}}%</td>
+		<td *ngIf="user.total == 0"></td> <!-- covers NaN scenario -->
+
+
+	</tr>
+</table>

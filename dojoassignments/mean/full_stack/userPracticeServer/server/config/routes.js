@@ -14,6 +14,8 @@ module.exports = (app) => {
     app.post('/dogs/destroy', dogs.destroy)
     app.post('/dogs/update', dogs.update)
     app.post('/dogs/id', dogs.getOne)
+    app.post('/dogs/like', dogs.like)
+    app.post('/dogs/dislike', dogs.dislike)
 
     app.get("*", (req, res) => {
         res.sendFile(path.resolve('./public/dist/index.html')) // make angular name

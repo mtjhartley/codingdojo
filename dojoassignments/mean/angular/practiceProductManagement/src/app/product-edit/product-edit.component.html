@@ -1,0 +1,11 @@
+<h3>Edit Me!</h3>
+<form (submit) = "update()" #formData="ngForm">
+  <label for="title">Title: </label>
+  <input type="text" name="title" required [(ngModel)]='product.title'>
+
+  <label for="price">Price: </label>
+  <input type="number" name="price" required [(ngModel)]='product.price'>
+
+  <input type="submit" value="Submit!" [disabled]='!formData.valid'>
+
+</form>

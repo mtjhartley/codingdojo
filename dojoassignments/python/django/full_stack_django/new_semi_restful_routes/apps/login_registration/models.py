@@ -25,9 +25,9 @@ class UserManager(models.Manager):
                 user = User.objects.get(email=userInfo['email'])
                 loginObject['user'] = user
             else:
-                loginObject['errors'].append("Unsuccessful login, incorrect password")
+                loginObject['errors'].append("Invalid Login Credentials.")
         else:
-            loginObject['errors'].append("Unsuccessful login, email does not exist.")
+            loginObject['errors'].append("Invalid Login Credentials.")
         return loginObject
     
     def isValidRegistration(self, userInfo):
@@ -52,10 +52,10 @@ class UserManager(models.Manager):
         if len(userInfo['last_name']) < 2:
             registrationObject['errors'].append('Last name is less than 2 char.')
             validRegistration = False
-        if not EMAIL_REGEX.match(userInfo['email']):
-            registrationObject['errors'].append('Email is not a valid Email!')
+        if User.objects.filter(email=userInfo['email']):
+            registrationObject['errors'].append("Email is already registered.")
             validRegistration = False
-        if len(userInfo['password']) < 7:
+        if len(userInfo['password']) <= 7:
             registrationObject['errors'].append('Password is too short. Must be at least 8 char.')
             validRegistration = False
         if userInfo['password'] != userInfo['confirm_password']:

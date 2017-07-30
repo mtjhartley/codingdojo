@@ -39,5 +39,17 @@ export class DogService {
     .toPromise()
     
   }
+  like_dog(dog_id) {
+    console.log("dog_id from service for liking", dog_id)
+    return this._http.post('/dogs/like', {dog_id: dog_id})
+    .map(data => data.json())
+    .toPromise()
+  }
+  dislike_dog(dog_id) {
+    console.log("dog_id from service for liking", dog_id)
+    return this._http.post('/dogs/dislike', {dog_id: dog_id})
+    .map(data => data.json())
+    .toPromise()
+  }
 
 }

@@ -1,0 +1,65 @@
+<h2>Hi {{current_user.name}}!</h2>
+<h3>Choose an answer for each of the questions and submit the test once done.</h3>
+<h3>Good luck!</h3>
+
+<form (submit) = "gradeTrivia()" #formData="ngForm" name='ngForm'>
+  <div class='border'>
+
+    <h4>1. {{questions[0].question}}</h4>
+    <div>
+      <input type="radio" id="q1a1" name="q1Answer" value="correct" [(ngModel)]="users_answers[0]" #q1Answer='ngModel' required>
+      <label for="q1a1">{{questions[0].options[0]}}</label>
+    </div>
+    <div>
+      <input type="radio" id='q1a2' name="q1Answer" value="wrong1" [(ngModel)]="users_answers[0]" #q1Answer='ngModel' required >
+      <label for='q1a2'>{{questions[0].options[1]}}</label>
+    </div>
+    <div>
+      <input type="radio" id='q1a3' name="q1Answer" value="wrong2" [(ngModel)]="users_answers[0]" #q1Answer='ngModel' required>
+      <label for="q1a3">{{questions[0].options[2]}}</label>
+    </div>
+
+  </div>
+
+  <div class='border'>
+
+    <h4>2. {{questions[1].question}}</h4>
+    <div>
+      <input type="radio" id="q2a1" name="q2Answer" value="wrong1" [(ngModel)]="users_answers[1]" required #q2Answer='ngModel' >
+      <label for='q2a1'>{{questions[1].options[1]}}</label>
+    </div>
+    <div>
+      <input type="radio" id='q2a2' name="q2Answer" value="wrong2" [(ngModel)]="users_answers[1]" required #q2Answer='ngModel'>
+      <label for="q2a2">{{questions[1].options[2]}}</label>
+    </div>
+    <div>
+      <input type="radio" id='q2a3'name="q2Answer" value="correct" [(ngModel)]="users_answers[1]" required #q2Answer='ngModel'>
+      <label for="q2a3">{{questions[1].options[0]}}</label>
+    </div>
+
+  </div>
+
+  <div class='border'>
+
+    <h4>3. {{questions[2].question}}</h4>
+    <div>
+      <input type="radio" id='q3a1' name="q3Answer" value="wrong1" [(ngModel)]="users_answers[2]" required #q3Answer='ngModel' >
+      <label for="q3a1">{{questions[2].options[1]}}  </label>
+    </div>
+    <div>
+      <input type="radio" id='q3a2' name="q3Answer" value="correct" [(ngModel)]="users_answers[2]" required #q3Answer='ngModel'>
+      <label for="q3a2">{{questions[2].options[0]}}</label>
+    </div>
+    <div>
+      <input type="radio" id='q3a3' name="q3Answer" value="wrong2" [(ngModel)]="users_answers[2]" required #q3Answer='ngModel'>
+      <label for="q3a3">{{questions[2].options[2]}}  </label>
+    </div>
+
+  </div>
+
+  <button [routerLink]="['/users_scores']">Cancel</button>
+  <input type='submit' value='Test your smarts!' [disabled] = "!q1Answer.valid || !q2Answer.valid || !q3Answer.valid">
+
+
+  
+</form>

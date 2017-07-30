@@ -13,11 +13,11 @@ def register(request):
         if 'user' in userObject:
             request.session['id'] = userObject['user'].id 
             request.session['first_name'] = userObject['user'].first_name 
-            return redirect(reverse('products:index')) #change this line
+            return redirect(reverse('products:index')) #change this line to other app
         else:
             for error in userObject['errors']:
                 messages.warning(request, error)
-            return redirect(reverse('products:index')) #change this line
+            return redirect(reverse('auth:index')) 
     else:
         return redirect('auth:index')
 

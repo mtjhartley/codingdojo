@@ -6,7 +6,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./quote-create.component.css']
 })
 export class QuoteCreateComponent implements OnInit {
-  @Input() quotes;
   @Output() createQuoteEvent = new EventEmitter();
 
   newQuote = { body: '', author: '', rating: 0};

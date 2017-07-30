@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'app';
   username: string; //updated from ngForm and ngModel = "username"
   status: string[] = [];
+  color: string = "";
+  message: string = "";
   score: number;
 
   constructor(private _httpService: HttpService){}
@@ -17,12 +19,12 @@ export class AppComponent {
     this._httpService.retrieveScore(this.username)
     .then(user => {this.score = user.followers + user.public_repos;
     if (this.score < 20) {
-      this.status[0] = 'red';
-      this.status[1] = "needs work!"
+      this.color = 'red';
+      this.message = "needs work!"
     }
     else {
-      this.status[0] = "blue";
-      this.status[1] = "github elite!"
+      this.color = "blue";
+      this.message = "github elite!"
     }
   
   })

@@ -1,0 +1,23 @@
+.play_box {
+    border: 1px solid black;
+    height: 100px;
+    width: 400px;
+}
+
+.resultsBlue {
+    background-color: lightblue;
+}
+
+.resultsRed {
+    background-color: red;
+}
+
+.resultsGreen {
+    background-color: green;
+}
+
+.results {
+    color: snow;
+    padding: 12px;
+    margin: 8px;
+}

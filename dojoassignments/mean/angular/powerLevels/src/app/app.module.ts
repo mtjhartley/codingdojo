@@ -9,6 +9,7 @@ import { SupersaiyanComponent } from './power/supersaiyan/supersaiyan.component'
 import { SupersaiyantwoComponent } from './power/supersaiyantwo/supersaiyantwo.component';
 import { SupersaiyanthreeComponent } from './power/supersaiyanthree/supersaiyanthree.component';
 import { SupersaiyanfourComponent } from './power/supersaiyanfour/supersaiyanfour.component';
+import { SupersaiyangodComponent } from './power/supersaiyangod/supersaiyangod.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SupersaiyanfourComponent } from './power/supersaiyanfour/supersaiyanfou
     SupersaiyanComponent,
     SupersaiyantwoComponent,
     SupersaiyanthreeComponent,
-    SupersaiyanfourComponent
+    SupersaiyanfourComponent,
+    SupersaiyangodComponent
   ],
   imports: [
     BrowserModule,

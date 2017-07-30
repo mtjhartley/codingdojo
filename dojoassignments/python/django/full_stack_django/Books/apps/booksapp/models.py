@@ -3,14 +3,22 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+
+class Author(models.Model):
+    name = models.CharField(max_length=255)
+    age = models.IntegerField()
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
 class Book(models.Model):
     title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
     published_date = models.DateField(auto_now_add=True)
     category = models.CharField(max_length=255)
     #adding new field in_print, lets see how the migrations and stuff work out!
     in_print = models.BooleanField()
     in_audio = models.BooleanField(default=False)
+    author_id = models.ForeignKey(Author)
+    
 
 #shell commands
 #book1 = Book.objects.create(title="Harry Potter 1", author="J.K. Rowling", category="Fantasy")

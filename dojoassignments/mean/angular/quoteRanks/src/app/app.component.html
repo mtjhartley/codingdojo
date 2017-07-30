@@ -3,6 +3,6 @@
   <h1>
     Welcome to {{title}}!!
   </h1>
-  <app-quote-create [quotes] = "quotes" (createQuoteEvent) = "createQuote($event)"></app-quote-create>
+  <app-quote-create (createQuoteEvent) = "createQuote($event)"></app-quote-create>
   <app-quote-list [quotes] = "quotes" (deleteQuoteEvent) = "deleteQuote($event)"></app-quote-list>
 

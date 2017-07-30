@@ -1,0 +1,12 @@
+<h3>Let's add a new product</h3>
+
+
+<form (submit)="create()" #formData="ngForm">
+  <label for='title'>Title: </label>
+  <input type="text" name="title" required [(ngModel)]="newProduct.title">
+
+  <label for="number">Price: </label>
+  <input type="number" name="price"[(ngModel)]="newProduct.price" required>
+
+  <input type="submit" value="Submit!" [disabled]='!formData.valid'>
+</form>

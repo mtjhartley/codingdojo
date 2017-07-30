@@ -1,0 +1,14 @@
+<div class="notes">
+  {% for note in notes %}
+  <div class="note">
+    <div class='note' style="border: 2px solid black;">
+        <h1>Title: {{note.title}}</h1>
+        <p>Description: {{note.description}}</p>
+        <form action="{% url 'destroy' note.id %}" method='post' id="delete">
+            {% csrf_token %}
+            <input type='submit' value='delete'>
+        </form>
+    </div>
+  </div>
+  {% endfor %}
+</div>

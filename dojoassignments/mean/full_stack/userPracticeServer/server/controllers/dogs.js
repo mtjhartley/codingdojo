@@ -1,21 +1,36 @@
 const mongoose = require("mongoose")
 const Dog = mongoose.model("Dog")
+const User = mongoose.model("User")
 
 module.exports = {
     index: (req, res, next) => {
         Dog.find()
+        .populate('_user').exec()
         .then(data => res.json(data))
         .catch(err => {res.status(500).json(err)})
     },
     add: (req, res, next) => {
         console.log(req.body);
         var newDog = new Dog(req.body);
+        newDog._user = req.session.user_id
+        console.log('saving the new dog')
         newDog.save()
         .then(() => {
             res.json(true)
         })
         .catch((err) => {
             res.status(500).json(err)
+        })
+        //user dog push user id 
+        console.log('attempting to add the dog into the user array')
+        User.findOne({_id: req.session.user_id})
+        .then((user) => {
+            console.log('found the user!')
+            user.dogs.push(newDog)
+            user.save()
+        })
+        .catch((err) => {
+            res.status(500).json(err);
         })
     },
     destroy: (req, res, next) => {
@@ -58,5 +73,28 @@ module.exports = {
             res.status(500).json(err);
         })
 
+    },
+    like: (req, res, next) => {
+        console.log('trying to increment the likes on this dog!', req.body)
+        Dog.findOne({_id: req.body.dog_id})
+        .then((dog) => {
+            console.log('found me a doggie to like', dog)
+            dog.likes++
+            dog.save()
+            .then(()=> {res.json(true)})
+            .catch((err) => {res.status(500).json(err)})
+
+        })
+    },
+    dislike: (req, res, next) => {
+        console.log('trying to decrement the likes on this dog!', req.body)
+        Dog.findOne({_id: req.body.dog_id})
+        .then((dog) => {
+            console.log('found me a dog i don\'t like', dog)
+            dog.likes--
+            dog.save()
+            .then(() => {res.json(true)})
+            .catch((err) => {res.status(500).json(err)})
+        })
     }
 }

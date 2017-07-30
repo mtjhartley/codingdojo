@@ -1,0 +1,13 @@
+<h1>Log IN!</h1>
+
+<form (submit)="login()" #formData="ngForm">
+  <p>Name: <input type='text' name='name' [(ngModel)]="new_user.name" minlength='3' #name='ngModel' required></p>
+    <div class='errors' *ngIf='name.errors && (name.dirty || name.touch)'>
+      <span *ngIf='name.errors.required'>Name is required</span>
+      <span *ngIf='name.errors.minlength'>Name must be 3 character(s) long</span>
+    </div>
+  <input type='submit' value='Log in' [disabled]="!formData.valid">
+
+</form>
+
+{{ new_user | json }}

@@ -1,0 +1,50 @@
+<h1>New Question</h1>
+
+<form (submit)="addQuestion()" #formData="ngForm">
+  <div>
+    <label for="question">Question: </label>
+    <textarea name='question' [(ngModel)]='new_trivia.question' #question="ngModel" minlength=15 required></textarea>
+
+    <div *ngIf="question.errors && (question.touch || question.dirty)">
+      <span *ngIf="question?.errors.required" class='error'>You must submit a question!</span>
+      <span *ngIf="question?.errors.minlength" class='error'>Your question must be 15 letters or more.</span>
+    </div>
+  </div>
+
+  <div>
+    <label for="correctAnswer">Correct Answer: </label>
+    <input name='correctAnswer' [(ngModel)]='new_trivia.correct_answer' #correctAnswer="ngModel" required>
+
+    <div *ngIf="correctAnswer.errors && (correctAnswer.touch || correctAnswer.dirty)">
+      <span *ngIf="correctAnswer.errors.required" class='error'>You must have a correct answer!</span>
+    </div>
+    
+  </div>
+
+  <div>
+    <label for="incorrectAnswer1">Incorrect Answer 1: </label>
+    <input name='incorrectAnswer1' [(ngModel)]='new_trivia.incorrect_answer_1' #incorrectAnswer1="ngModel" required>
+
+    <div *ngIf="incorrectAnswer1.errors && (incorrectAnswer1.touch || incorrectAnswer1.dirty)">
+      <span *ngIf="incorrectAnswer1.errors.required" class='error'>You must provide an incorrect answer!</span>
+    </div>
+    
+  </div>
+
+  <div>
+    <label for="incorrectAnswer2">Incorrect Answer 2: </label>
+    <input name='incorrectAnswer2' [(ngModel)]='new_trivia.incorrect_answer_2' #incorrectAnswer2="ngModel" required>
+
+    <div *ngIf="incorrectAnswer2.errors && (incorrectAnswer2.touch || incorrectAnswer2.dirty)">
+      <span *ngIf="incorrectAnswer2.errors.required" class='error'>You must provide an incorrect answer!</span>
+    </div>
+    
+  </div>
+
+
+
+
+  <button [routerLink]="['/users_scores']">Cancel</button>
+  <input type="submit" value="Add this question!" [disabled]="!formData.form.valid">
+
+</form>

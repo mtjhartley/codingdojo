@@ -50,4 +50,18 @@ export class DogsListComponent implements OnInit {
     .then(()=> {this.getDogs()})
     .catch((err) => {console.log("the error is: ", err)})
   }
+
+  likeDog(dog_id){
+    this._dogService.like_dog(dog_id)
+    .then(()=> {this.getDogs()})
+    .catch((err) => {console.log('likeing error is: ', err)})
+
+  }
+  dislikeDog(dog_id){
+    console.log('disliking this dog')
+    this._dogService.dislike_dog(dog_id)
+    .then(()=> {this.getDogs()})
+    .catch((err) => {console.log('disliking error is: ', err)})
+
+  }
 }

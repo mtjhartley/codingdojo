@@ -3,4 +3,5 @@ export class User {
     _id: string
     createdAt: Date
     updatedAt: Date
+    dogs: Array<any>
 }

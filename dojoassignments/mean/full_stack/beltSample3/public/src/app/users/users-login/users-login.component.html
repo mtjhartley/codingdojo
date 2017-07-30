@@ -1,0 +1,11 @@
+<h1>Log In to Trivia!!!!!</h1>
+
+<form (submit)="login()" #formData="ngForm">
+  <p>Name: <input type='text' name='name' [(ngModel)]="new_user.name" #name='ngModel' required></p>
+    <div class='errors' *ngIf='name.errors && (name.dirty || name.touch)'>
+      <span *ngIf='name.errors.required' class='error'>Name is required</span>
+
+    </div>
+  <input type='submit' value='Log in' [disabled]="!formData.valid">
+
+</form>

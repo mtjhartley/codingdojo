@@ -1,0 +1,12 @@
+<h3>List of Products!</h3>
+<div class='products'>
+  <div class='product' *ngFor="let product of products">
+    <div class='info'>
+      <h4>{{product.title}}</h4>
+      <h4>{{product.price | currency:US:true}}</h4>
+    </div>
+    <button [routerLink]="['/products', 'edit', product.id]">Edit</button>
+    <button (click)="deleteProduct(product)">DELETE</button>
+
+  
+</div>

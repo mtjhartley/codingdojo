@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Notes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <h1>Ajax Notes!</h1>
+        <div class='notes'>
+        {% for note in notes %}
+            <div class='note' style="border: 2px solid black;">
+                <h1>Title: {{note.title}}</h1>
+                <p>Description: {{note.description}}</p>                
+            </div>
+            <form action="{% url 'destroy' note.id %}" method='post' id="delete">
+                {% csrf_token %}
+                <input type='submit' value='delete'>
+            </form>
+        {% endfor %}
+        </div>
+        <form action="{% url 'create' %}" method='post' id='create'>
+            {% csrf_token %}
+            <label for='title'>Title: </label>
+            <input type='text' name='title' id='title'>
+
+            <label for='description'>Description: </label>
+            <textarea name='description' id='description'></textarea>
+            <input type='submit' value='Submit!'>
+        </form>
+        <h1>Notes Bottom</h1>
+    
+    </body>
+    <script>
+        $('#create').submit(function(e){
+            e.preventDefault()
+            $.ajax({
+                url: '/create/',
+                method: 'post',
+                data: $(this).serialize(),
+                success: function(serverResponse){
+                    console.log("success!")
+                console.log("Received this from server: ", serverResponse)
+                //console.log("I should probably put that in the DOM...")
+                $('.notes').html(serverResponse)
+                }
+            })
+            })
+        $('#delete').submit(function(e){
+            e.preventDefault()
+
+            $.ajax({
+                url: '/delete/',
+                method: 'post',
+                data: $(this).serialize(),
+                success: function(serverResponse){
+                    console.log("success!")
+                    console.log("Received this from server: ", serverResponse)
+                //console.log("Received this from server: ", serverResponse)
+                //console.log("I should probably put that in the DOM...")
+                $('.notes').html(serverResponse)
+                }
+            })
+            })
+
+    </script>
+</html>

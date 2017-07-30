@@ -1,2 +1,4 @@
 /dojoassignments/webfundamentals/css/yellowBeltExamMichaelHartley
 /dojoassignments/python/myEnvironments/
+*.pyc
+.DS_Store

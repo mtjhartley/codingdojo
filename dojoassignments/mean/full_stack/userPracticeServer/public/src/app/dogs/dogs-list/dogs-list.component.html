@@ -1,22 +1,28 @@
 <h3>Dogs</h3>
-
+<h4>Hi {{current_user.name}}!</h4>
 <input type='text' name='search_text' [(ngModel)]='search_text'>
 <table>
 	<tr>
 		<th>Dog Name</th>
+		<th>Owner</th>
 		<th>ID</th>
 		<th>Description </th>
 		<th>Age</th>
+		<th>Likes</th>
 		<th>Action</th>
 	</tr>
 	<tr *ngFor="let dog of dog_list | filter: search_text | sort:'name' ">
 		<td>{{ dog.name }}</td>
+		<td>{{ dog._user.name }}</td>
 		<td>{{ dog._id }}</td>
 		<td>{{ dog.description }}</td>
 		<td>{{ dog.age }}</td>
+		<td>{{ dog.likes }}</td>
 		<td>
-			<button [routerLink]="['/doggies', 'edit', dog._id]">Edit</button>
-			<button (click)="delete(dog)">Delete</button>
+			<button (click)="likeDog(dog._id)">Like</button>
+			<button (click)="dislikeDog(dog._id)">Dislike</button>
+			<button *ngIf="dog._user._id === current_user._id"[routerLink]="['/doggies', 'edit', dog._id]">Edit</button>
+			<button *ngIf="dog._user._id === current_user._id" (click)="delete(dog)">Delete</button>
 		</td>
 	</tr>
 </table>
