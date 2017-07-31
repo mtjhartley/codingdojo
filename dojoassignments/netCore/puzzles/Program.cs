@@ -25,7 +25,7 @@ namespace puzzles
 
         }
 
-        public static void coinFlip()
+        public static string coinFlip()
         {
             Console.WriteLine("Tossing a coin!");
             Random rand = new Random();
@@ -43,7 +43,7 @@ namespace puzzles
             {
                 result = "This flip can't be right!";
             }
-            Console.WriteLine(result);
+            return result;
         }
 
         public static double tossMultipleCoins(int num)
@@ -59,6 +59,7 @@ namespace puzzles
                 }
             }
             double ratio = (double)heads/(double)num;
+            System.Console.WriteLine("This is the ratio: " + ratio);
             return ratio;
 
         }
@@ -107,7 +108,7 @@ namespace puzzles
         {
             //randomArray();
             //coinFlip();
-            //tossMultipleCoins(10);
+            tossMultipleCoins(1000);
             string[] names = {"Todd", "Tiffany", "Charlie", "Geneva", "Sydney"};
             shuffleArray(names);
             namesLongerThan5(names);
