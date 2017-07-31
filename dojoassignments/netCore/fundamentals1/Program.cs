@@ -34,6 +34,27 @@ namespace fundamentals1
                     Console.WriteLine("Buzz");
                 }
             }
+            Console.WriteLine("******* RANDOM NUMBER CHECKER ********");
+            Random rand = new Random();
+            int count = 1;
+            while (count <= 10)
+            {
+                if (rand.Next() % 15 == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                }
+                else if (rand.Next() % 3 == 0)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (rand.Next() % 5 == 0)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                count = count + 1;
+
+            }
+
             // Console.WriteLine("Hello World!");
         }
     }
