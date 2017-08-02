@@ -1,0 +1,8 @@
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/bin/Debug/netcoreapp1.1/cards_against_humanity.deps.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/bin/Debug/netcoreapp1.1/cards_against_humanity.runtimeconfig.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/bin/Debug/netcoreapp1.1/cards_against_humanity.runtimeconfig.dev.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/obj/Debug/netcoreapp1.1/cards_against_humanity.AssemblyInfo.cs
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/bin/Debug/netcoreapp1.1/cards_against_humanity.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/bin/Debug/netcoreapp1.1/cards_against_humanity.pdb
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/obj/Debug/netcoreapp1.1/cards_against_humanity.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/cards_against_humanity/obj/Debug/netcoreapp1.1/cards_against_humanity.pdb
