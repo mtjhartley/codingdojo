@@ -22,13 +22,17 @@ namespace cards_against_humanity{
 "The new hottest front end framework is ____.",
 "____ - Michael Scott, 2017",
 "Why did you name your program ____?",
-"I wrote some code to do ____ quickly",
+"I wrote some code to process ____ quickly",
 "Donovan said it's okay to take ____ at 5 in the morning",
 "Last Minute Announcement: Please don't ____",
 "Donovan should rename his ping pong paddle to ____",
 "I just found a great API for ____",
 "Finding ____ in the refridgerator.",
 "This weeks topic for algorithms is ____.",
+"The bug in our program was caused by ____",
+"They just created an emoji version of ____",
+"In Coding Dojo: The Movie, George Clooney will be starring as ____",
+
 };
         public string[] jokes = {"A linked list",
 "A Node",
@@ -41,7 +45,6 @@ namespace cards_against_humanity{
 "15k for a coding bootcamp and the internet doesn't work",
 "Hacking javascript in the console to get rid of the timer in the belt exam.",
 "9.4 on the belt exam.",
-"Google Girl",
 "Stack Overflow",
 "You know nothing Jon Snow!",
 "Torrenting movies on Dojo WIFI",
@@ -62,6 +65,7 @@ namespace cards_against_humanity{
 "Cool? Cool!",
 "Python Olympics",
 "Beer",
+"Chuck Norris",
 };
 
         public Deck()

@@ -36,7 +36,7 @@ namespace cards_against_humanity{
 
         public void getCards()
         {
-            string handString = "These are the cards you currently hold!" +  "\n";
+            string handString = "\nThese are the cards you currently hold!\n";
             for (int i = 0; i < hand.Count; i++)
             {
                 string oneCard = "Card " + (i + 1) + " : " + hand[i].text + "\n";
