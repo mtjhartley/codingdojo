@@ -1,0 +1,8 @@
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/bin/Debug/netcoreapp1.1/hello_world.deps.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/bin/Debug/netcoreapp1.1/hello_world.runtimeconfig.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/bin/Debug/netcoreapp1.1/hello_world.runtimeconfig.dev.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/bin/Debug/netcoreapp1.1/hello_world.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/bin/Debug/netcoreapp1.1/hello_world.pdb
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/obj/Debug/netcoreapp1.1/hello_world.AssemblyInfo.cs
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/obj/Debug/netcoreapp1.1/hello_world.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/hello_world/obj/Debug/netcoreapp1.1/hello_world.pdb
