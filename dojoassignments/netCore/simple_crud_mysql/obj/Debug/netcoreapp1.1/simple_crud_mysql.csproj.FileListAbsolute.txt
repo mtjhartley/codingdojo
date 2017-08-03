@@ -1,0 +1,8 @@
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/bin/Debug/netcoreapp1.1/simple_crud_mysql.deps.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/bin/Debug/netcoreapp1.1/simple_crud_mysql.runtimeconfig.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/bin/Debug/netcoreapp1.1/simple_crud_mysql.runtimeconfig.dev.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/bin/Debug/netcoreapp1.1/simple_crud_mysql.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/bin/Debug/netcoreapp1.1/simple_crud_mysql.pdb
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/obj/Debug/netcoreapp1.1/simple_crud_mysql.AssemblyInfo.cs
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/obj/Debug/netcoreapp1.1/simple_crud_mysql.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/simple_crud_mysql/obj/Debug/netcoreapp1.1/simple_crud_mysql.pdb
