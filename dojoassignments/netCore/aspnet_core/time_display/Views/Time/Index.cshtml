@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Time Display</h1>
+
+        @{
+            DateTime CurrentTime = DateTime.Now;
+            string formattedDate = String.Format("{0:MMM d, yyyy}", CurrentTime);
+            string formattedTime = String.Format("{0:hh:mm tt}", CurrentTime);
+
+
+            <h2>The current time is @CurrentTime</h2>
+
+            <h3>With some String.Format, we can view the time as @formattedDate @formattedTime</h3>
+
+
+        }
+    
+    </body>
+</html>
