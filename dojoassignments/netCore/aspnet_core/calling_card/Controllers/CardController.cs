@@ -25,5 +25,11 @@ namespace calling_card.Controllers
             };
             return Json(AnonObject);
         }
+
+        [Route("card/{FirstName}/{LastName}/{Age}/{FavoriteColor}")]
+        public JsonResult ViewCallingCard(string FirstName, string LastName, int Age, string FavoriteColor)
+        {
+            return Json( new {FirstName = FirstName, LastName = LastName, Age=Age, FavoriteColor = FavoriteColor});
+        }
     }
 }
