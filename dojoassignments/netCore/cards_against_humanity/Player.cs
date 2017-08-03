@@ -45,7 +45,8 @@ namespace cards_against_humanity{
             }
             System.Console.WriteLine(handString);
         }
-        public Card playRandomCard()
+        
+        public Card playRandomCard() //used for our computers to pick a random answer
         {
             Random rand = new Random();
             int randIdx = rand.Next(0, hand.Count);

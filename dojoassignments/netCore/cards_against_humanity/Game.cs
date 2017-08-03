@@ -136,11 +136,6 @@ namespace cards_against_humanity{
                 if (winningPlayer.score == 2)
                 {
                     System.Console.WriteLine($"The game is over. Congrats on winning {winningPlayer.name}!!");
-
-                    foreach (string game in otherGames )
-                    {
-                        // System.Console.WriteLine($"The winner of the hackathon is...not {game}");
-                    }
                     // System.Console.WriteLine("The winner of the hackathon is Team Brad!!!!");
                     isPlaying = false;
                 }
