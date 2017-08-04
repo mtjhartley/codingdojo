@@ -1,0 +1,8 @@
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/bin/Debug/netcoreapp1.1/dojo_survey.deps.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/bin/Debug/netcoreapp1.1/dojo_survey.runtimeconfig.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/bin/Debug/netcoreapp1.1/dojo_survey.runtimeconfig.dev.json
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/bin/Debug/netcoreapp1.1/dojo_survey.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/bin/Debug/netcoreapp1.1/dojo_survey.pdb
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/obj/Debug/netcoreapp1.1/dojo_survey.AssemblyInfo.cs
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/obj/Debug/netcoreapp1.1/dojo_survey.dll
+/Users/Michael/Projects/codingdojo/dojoassignments/netCore/aspnet_core/dojo_survey/obj/Debug/netcoreapp1.1/dojo_survey.pdb
