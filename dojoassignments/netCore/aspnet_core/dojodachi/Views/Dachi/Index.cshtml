@@ -1,0 +1,62 @@
+<div class="sixty-div center">
+    <div class="bar-display">
+        <span>Fullness: @ViewBag.Dojodachi.fullness</span>
+    </div>
+    <div class="bar-display">
+        <span>Happiness: @ViewBag.Dojodachi.happiness</span>
+    </div>
+    <div class="bar-display">
+        <span>Meals: @ViewBag.Dojodachi.meals</span>
+    </div>
+    <div class="bar-display">
+        <span>Energy: @ViewBag.Dojodachi.energy</span>
+    </div>
+    <div class="bar-display">
+        <span>TurnCount: @ViewBag.Dojodachi.turnCount</span>
+    </div>
+    <div class="bordered main-display">
+        <div class="dojodachi-display center-text center-vertical">
+            <span class="center">@ViewBag.Reaction</span>
+        </div>
+        <div class="center-text">
+            <span>@ViewBag.Message</span>
+        </div>
+    </div>
+    <div class="button-holder">
+        @{
+            if(ViewBag.GameStatus == "running")
+            {
+                <div class="bar-display">
+                    <form action="/performAction" method="post">
+                        <input type="hidden" value="feed" name="action">
+                        <button type="submit">Feed</button>
+                    </form>
+                </div>
+                <div class="bar-display">
+                    <form action="/performAction" method="post">
+                        <input type="hidden" value="play" name="action">
+                        <button type="submit">Play</button>
+                    </form>
+                </div>
+                <div class="bar-display">
+                    <form action="/performAction" method="post">
+                        <input type="hidden" value="work" name="action">
+                        <button type="submit">Work</button>
+                    </form>
+                </div>
+                <div class="bar-display">
+                    <form action="/performAction" method="post">
+                        <input type="hidden" value="sleep" name="action">
+                        <button type="submit">Sleep</button>
+                    </form>
+                </div>
+            }
+            else if(ViewBag.GameStatus == "over")
+            {
+                <div class="center-text">
+                    <a href="/reset" method="post"><button>Reset?</button></a>
+                </div>
+            }
+        }
+    </div>
+</div>
