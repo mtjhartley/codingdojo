@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Welcome to Quoting Dojo</h1>
+
+@foreach(var one_quote in @ViewBag.Quotes)
+{
+    <fieldset>
+        <p>"@one_quote["quote"]"</p>
+        <p> - @one_quote["name"]  at @one_quote["created_at"]</p>
+        <hr>
+    </fieldset>
+}
+
+<form action='/quotes' method='post'>
+    <label for='name'>Name: </label>
+    <input type='name' name='name'>
+
+    <label for='quote'>Quote: </label>
+    <textarea name='quote'></textarea>
+
+    <input type='submit' value='Submit!'>
+
+</form>

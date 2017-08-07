@@ -27,25 +27,25 @@
             if(ViewBag.GameStatus == "running")
             {
                 <div class="bar-display">
-                    <form action="/performAction" method="post">
+                    <form action="/doThing" method="post">
                         <input type="hidden" value="feed" name="action">
-                        <button type="submit">Feed</button>
+                        <button type="submit">Eat</button>
                     </form>
                 </div>
                 <div class="bar-display">
-                    <form action="/performAction" method="post">
+                    <form action="/doThing" method="post">
                         <input type="hidden" value="play" name="action">
                         <button type="submit">Play</button>
                     </form>
                 </div>
                 <div class="bar-display">
-                    <form action="/performAction" method="post">
+                    <form action="/doThing" method="post">
                         <input type="hidden" value="work" name="action">
                         <button type="submit">Work</button>
                     </form>
                 </div>
                 <div class="bar-display">
-                    <form action="/performAction" method="post">
+                    <form action="/doThing" method="post">
                         <input type="hidden" value="sleep" name="action">
                         <button type="submit">Sleep</button>
                     </form>
@@ -54,7 +54,7 @@
             else if(ViewBag.GameStatus == "over")
             {
                 <div class="center-text">
-                    <a href="/reset" method="post"><button>Reset?</button></a>
+                    <a href="/reset" method="post"><button>Reset!</button></a>
                 </div>
             }
         }

@@ -24,8 +24,8 @@ namespace dojodachi.Controllers
         }
 
         [HttpPost]
-        [Route("performAction")]
-        public IActionResult PerformAction(string action)
+        [Route("doThing")]
+        public IActionResult doThing(string action)
         {
             Dachi EditDachi = HttpContext.Session.GetObjectFromJson<Dachi>("Dojodachi");
             Random RandObject = new Random();
