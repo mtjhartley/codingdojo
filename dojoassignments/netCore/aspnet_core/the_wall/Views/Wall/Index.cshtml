@@ -1,0 +1,42 @@
+<h1> Hello, @ViewBag.Name. Welcome to...The Wall!</h1>
+
+<form asp-controller="Wall" asp-action="CreateMessage" method='post'>
+    <div class='form-group'>
+        <textarea name="Message" class='form-control'></textarea>
+    </div>
+    <button class='btn btn-default' type='submit'>Post Message!</button>
+</form>
+
+@{
+    foreach (var message in @ViewBag.Messages)
+    {
+        <fieldset>
+            <legend>@message["FirstName"] - @message["CreatedAt"]</legend>
+            <p>@message["Message"]</p>
+            
+            @{
+                foreach (var comments in @ViewBag.Comments)
+                {
+                    
+                    if (@comments["MessageId"] == @message["Id"])
+                    {
+                        <fieldset>
+                            <p>@comments["FirstName"] - @comments["CreatedAt"]: @comments["Comment"]</p>
+                        </fieldset>
+                    }
+
+                    
+                };
+            }
+
+
+            <form asp-controller="Wall" asp-action="CreateComment" method='post'>
+                <input type='hidden' name='MessageId' value='@message["Id"]'>
+                <div class='form-group'>
+                    <textarea name="Comment" class='form-control'></textarea>
+                </div>
+                <button class='btn btn-default' type='submit'> Write Comment!</button>
+            </form>
+        </fieldset>
+    };
+}
