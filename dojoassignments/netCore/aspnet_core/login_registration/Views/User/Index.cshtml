@@ -33,6 +33,12 @@
     </form>
 </div>
 <div class='col-md-6'>
+    @{
+        foreach(var error in ViewBag.Errors)
+            {
+                <p>@error</p>
+            }
+    }
     <h2>LOGIN</h2>
     <form asp-controller="User" asp-action="Login" method='post'>
         <div class='form-group'>

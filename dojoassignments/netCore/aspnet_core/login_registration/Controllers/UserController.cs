@@ -20,6 +20,7 @@ namespace login_registration.Controllers
         [Route("")]
         public IActionResult Index()
         {
+            ViewBag.Errors = new List<string>();
             return View();
         }
 
@@ -31,8 +32,17 @@ namespace login_registration.Controllers
             {
                 System.Console.WriteLine("User is valid!");
                 string query = $"INSERT INTO users (first_name, last_name, email, password) VALUES ('{newUser.FirstName}', '{newUser.LastName}', '{newUser.Email}', '{newUser.Password}')";
-                _dbConnector.Execute(query);
                 //add to db code
+                _dbConnector.Execute(query);
+                //makeshift session code
+                string userQuery = "SELECT * FROM users ORDER BY id DESC LIMIT 1";
+                var loggedUser = _dbConnector.Query(userQuery);
+                string userName = (string)loggedUser[0]["first_name"];
+                int UserId = (int)loggedUser[0]["id"];
+                System.Console.WriteLine(userName);
+                HttpContext.Session.SetString("UserName", userName);
+                HttpContext.Session.SetInt32("UserId", UserId);
+
                 return RedirectToAction("Success");
             }
             System.Console.WriteLine("User is NOT VALID");
@@ -48,19 +58,35 @@ namespace login_registration.Controllers
             if (loggedUser.Count > 0)
             {
                 System.Console.WriteLine("Found the user!");
+                string userName = (string)loggedUser[0]["first_name"];
+                int UserId = (int)loggedUser[0]["id"];
+                HttpContext.Session.SetString("UserName", userName);
+                HttpContext.Session.SetInt32("UserId", UserId);
                 return RedirectToAction("Success");
             }
             else {
                 System.Console.WriteLine("Couldn't find the user!");
-                return RedirectToAction("Index");
+                ViewBag.Errors = new List<string>{
+                    "Invalid name or password"
+                };
+                return View("Index");
             }
             
-
         }
         [HttpGet]
         [Route("success")]
         public IActionResult Success()
         {
+            string LoggedUserName = HttpContext.Session.GetString("UserName");
+            int? LoggedUserId = HttpContext.Session.GetInt32("UserId");
+
+            System.Console.WriteLine("****************");
+            System.Console.WriteLine(LoggedUserName);
+            System.Console.WriteLine(LoggedUserId);
+            System.Console.WriteLine("****************");
+            ViewBag.Name = LoggedUserName;
+            ViewBag.Id = LoggedUserId;
+
             return View();
         }
 
