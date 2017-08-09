@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Home Page"
+}
+<h1>Trail Creation App</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Length</th>
+        <th>Elevation Change</th>
+    </tr>
+
+    @foreach(var trail in @ViewBag.allTrails)
+    {
+        <tr>
+            <td>@trail.Name</td>
+            <td>@trail.Length</td>
+            <td>@trail.Elevation</td>
+        </tr>
+    }
+</table>
+
+<h3
