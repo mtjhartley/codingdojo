@@ -1,0 +1,31 @@
+@model lost_in_the_woods.Models.Trail
+
+<h3>Enter the Trail Information!</h3>
+<form asp-controller="Trail" asp-action="AddTrail" method='post'>
+    <div class='form-group'>
+        <label asp-for="Name">Trail Name: </label>
+        <input asp-for="Name"/>
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class='form-group'>
+        <label asp-for="Description">Description: </label>
+        <textarea name="Description" class='form-control'></textarea>
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div class='form-group'>
+        <label asp-for="Length">Trail Length: </label>
+        <input asp-for="Length"/>
+        <span asp-validation-for="Length"></span>
+    </div>
+    <div class='form-group'>
+        <label asp-for="Elevation">Elevation Change: </label>
+        <input asp-for="Elevation"/>
+        <span asp-validation-for="Elevation"></span>
+    </div>
+    <div class='form-group'>
+        <label asp-for="Longitude">Longitude and Latitude</label>
+        <input asp-for="Longitude"/>
+        <input asp-for="Latitude"/>
+    </div>
+    <button class='btn btn-default' type='submit'>Create Record!</button>
+</form>

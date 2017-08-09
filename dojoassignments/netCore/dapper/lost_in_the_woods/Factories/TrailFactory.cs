@@ -13,9 +13,9 @@ namespace lost_in_the_woods.Factories
     {
         private readonly IOptions<MySqlOptions> MySqlConfig;
  
-        public DbConnector(IOptions<MySqlOptions> config)
+        public TrailFactory(IOptions<MySqlOptions> config)
         {
-            MySlConfig = config;
+            MySqlConfig = config;
         }
         internal IDbConnection Connection {
             get {
@@ -42,7 +42,7 @@ namespace lost_in_the_woods.Factories
         {
             using (IDbConnection DbConnector = Connection)
             {
-                string query = $"INSERT INTO trails (name, description, length, elevation, longitude, latitude) VALUES (@Name, @Description, @Length, @Elevation, @Longitude, @Latitude)";
+                string query = "INSERT INTO trails (name, description, length, elevation, longitude, latitude) VALUES (@Name, @Description, @Length, @Elevation, @Longitude, @Latitude)";
                 DbConnector.Open();
                 DbConnector.Execute(query);
             }
