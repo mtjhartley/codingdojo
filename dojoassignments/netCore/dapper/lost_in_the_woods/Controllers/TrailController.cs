@@ -27,8 +27,23 @@ namespace lost_in_the_woods.Controllers
         }
 
         [HttpGet]
+        [Route("/length")]
+        public IActionResult SortedIndex(string sort="length")
+        {
+            ViewBag.allTrails = trailfactory.GetAllTrails(sort);
+            return View("Index");
+        }
+        [HttpGet]
+        [Route("/elevation")]
+        public IActionResult SortedElevationIndex(string sort="elevation")
+        {
+            ViewBag.allTrails = trailfactory.GetAllTrails(sort);
+            return View("Index");
+        }
+
+        [HttpGet]
         [Route("new_trail")]
-        public IActionResult NewTrail(Trail trail)
+        public IActionResult NewTrail()
         {
             return View();
         }
@@ -49,6 +64,16 @@ namespace lost_in_the_woods.Controllers
                 System.Console.WriteLine("Not Valid!");
                 return View("NewTrail");
             }
+        }
+
+        [HttpGet]
+        [Route("trail/{id}")]
+        public IActionResult ViewTrail(long id)
+        {
+            List<Trail> oneTrail = trailfactory.ViewOneTrail(id);
+            System.Console.WriteLine(oneTrail);
+            ViewBag.OneTrail = oneTrail[0];
+            return View("OneTrail");
         }
     }
 }

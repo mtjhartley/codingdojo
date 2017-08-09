@@ -24,13 +24,14 @@ namespace lost_in_the_woods.Factories
         }
 
         //Get All Trails
-        public List<Trail> GetAllTrails()
+        public List<Trail> GetAllTrails(string sort = "id")
         {
             using(IDbConnection DbConnector = Connection)
             {
                 using(IDbCommand command = DbConnector.CreateCommand())
                 {
-                    string query = "SELECT * FROM trails";
+                    string query = $"SELECT * FROM trails ORDER BY {sort}";
+                    System.Console.WriteLine(query);
                     DbConnector.Open();
                     return DbConnector.Query<Trail>(query).ToList();
                 }
@@ -44,7 +45,19 @@ namespace lost_in_the_woods.Factories
             {
                 string query = "INSERT INTO trails (name, description, length, elevation, longitude, latitude) VALUES (@Name, @Description, @Length, @Elevation, @Longitude, @Latitude)";
                 DbConnector.Open();
-                DbConnector.Execute(query);
+                DbConnector.Execute(query, trail);
+            }
+        }
+        public List<Trail> ViewOneTrail(long id)
+        {
+            using(IDbConnection DbConnector = Connection)
+            {
+                using (IDbCommand command = DbConnector.CreateCommand())
+                {
+                    string query = $"SELECT * FROM trails WHERE id = {id}";
+                    DbConnector.Open();
+                    return DbConnector.Query<Trail>(query).ToList();
+                }
             }
         }
     }

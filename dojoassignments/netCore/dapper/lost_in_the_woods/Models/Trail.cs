@@ -5,6 +5,9 @@ namespace lost_in_the_woods.Models
 {
     public class Trail : BaseEntity
     {
+        public long id { get; set; }
+
+        
         [Required(ErrorMessage = "You must input a trail name!")]
         public string Name { get; set; }
 
