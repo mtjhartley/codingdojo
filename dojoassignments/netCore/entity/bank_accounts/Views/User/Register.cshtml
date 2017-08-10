@@ -1,0 +1,52 @@
+@model bank_accounts.Models.RegisterViewModel
+
+<div class="col-md-6">
+    <h2>Register</h2>
+    <form asp-controller="User" asp-action="HandleRegister" method='post'>
+        <div class='form-group'>
+            <label asp-for="FirstName">First Name:</label>
+            <input asp-for="FirstName"/>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName"/>
+            <span asp-validation-for="LastName"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="Email"></label>
+            <input asp-for="Email"/>
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="Password"></label>
+            <input asp-for="Password"/>
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="PasswordConfirmation"></label>
+            <input asp-for="PasswordConfirmation" type='password'>
+            <span asp-validation-for="PasswordConfirmation"></span>
+        </div>
+
+        <button class='btn btn-default' type='submit'>Register Now!</button>
+    </form>
+</div>
+
+<div class='col-md-6'>
+    <h2>Login</h2>
+    <form asp-controller="User" asp-action="Login" method='post'>
+        <div class='form-group'>
+            <label for='Email'>Email: </label>
+            <input type='text' name="Email">
+        </div>
+        <div class='form-group'>
+            <label for='PasswordToCheck'>Password: </label>
+            <input type='password' name="PasswordToCheck">
+        </div>
+        <button class='btn btn-default' type='submit'>Login!</button>
+    </form>
+
+</div>
+
+
