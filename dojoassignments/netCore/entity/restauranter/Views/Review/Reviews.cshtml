@@ -1,0 +1,17 @@
+<h1>Welcome to Restauranter!</h1>
+
+@foreach(var review in @ViewBag.Reviews)
+{
+    <h3>Review for: @review.RestaurantName</h3>
+    if (@review.Stars == 1)
+    {
+        <h5>@review.Stars star</h5>
+    }
+    else {
+        <h5>@review.Stars stars</h5>
+    }
+    <h4>Reviewer: @review.ReviewerName, @review.Visit</h4>
+
+    <p>@review.Content</p>
+    <hr>
+}
