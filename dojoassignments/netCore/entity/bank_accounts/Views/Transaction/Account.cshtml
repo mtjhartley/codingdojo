@@ -1,0 +1,36 @@
+<h2>Welcome to your account page, @ViewBag.UserName, with an ID of @ViewBag.UserId!</h2>
+
+<h1>Your Transactions</h1>
+<h2>Account Balance: $@ViewBag.Money</h2>
+<table class='table table-hover'>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var transaction in @ViewBag.Transactions)
+    {
+        <tr>
+            <td>@transaction.TransactionId</td>
+                @if (@transaction.Amount >= 0)
+                {
+                    <td>+@transaction.Amount</td>
+                }
+                else {
+                    <td>@transaction.Amount</td>
+                }
+            <td>@transaction.CreatedAt</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<h3>Add a new transaction!</h3>
+<form asp-controller="Transaction" asp-action="HandleTransaction">
+    <label for='Amount'>Amount: </label>
+    <input type='number' step=".01" name='Amount'>
+    <button type='submit' class='btn btn-default'>Withdraw/Deposit</button>
+</form>

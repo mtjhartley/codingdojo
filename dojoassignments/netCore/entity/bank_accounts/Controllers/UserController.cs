@@ -50,7 +50,7 @@ namespace bank_accounts.Controllers
                 HttpContext.Session.SetInt32("UserId", justEnteredPerson.UserId);
 
 
-                return RedirectToAction("Success");
+                return RedirectToAction("Account", "Transaction", new { UserId = justEnteredPerson.UserId}); //change this line!
                 //add the new user to the database!
             }
             System.Console.WriteLine("Not Valid!");
@@ -72,7 +72,7 @@ namespace bank_accounts.Controllers
                 {
                     HttpContext.Session.SetString("FirstName", loggedUser.FirstName);
                     HttpContext.Session.SetInt32("UserId", loggedUser.UserId);
-                    return RedirectToAction("Success");
+                    return RedirectToAction("Account", "Transaction", new { UserId = loggedUser.UserId}); //change this line!
                 }
             }
             System.Console.WriteLine(loggedUser.Password);
@@ -86,7 +86,7 @@ namespace bank_accounts.Controllers
         [Route("success")]
         public IActionResult Success()
         {
-            ViewBag.User = HttpContext.Session.GetString("FirstName");
+            ViewBag.UserName = HttpContext.Session.GetString("FirstName");
             return View();
         }
     }
