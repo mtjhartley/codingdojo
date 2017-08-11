@@ -1,0 +1,28 @@
+@model wedding_planner.Models.Wedding 
+
+<h2>Add the details for a new wedding, @ViewBag.UserName!</h2>
+<form asp-controller="Wedding" asp-action="AddWedding" method='post'>
+    <div class='form-group'>
+        <label asp-for="SpouseOne"></label>
+        <input asp-for="SpouseOne">
+    </div>
+
+    <div class='form-group'>
+        <label asp-for="SpouseTwo"></label>
+        <input asp-for="SpouseTwo">
+    </div>
+
+    <div class='form-group'>
+        <label asp-for="Date"></label>
+        <input asp-for="Date" type="date">
+    </div>
+
+    <div class='form-group'>
+        <label asp-for="Address"></label>
+        <input asp-for="Address">
+    </div>
+
+    <button type='submit' class="btn btn-default">Create</button>
+
+</form>
+

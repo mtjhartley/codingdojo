@@ -1,0 +1,49 @@
+<h1>Welcome to the wedding dashboard, @ViewBag.UserName!</h1>
+
+<table class='table table-hover'>
+    <thead>
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guests</th>
+            <th>Action</th>
+            <th>Created By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var wedding in @ViewBag.Weddings)
+        {
+            <tr>
+                <td><a asp-controller="Wedding" asp-action="OneWedding" asp-route-WeddingId="@wedding.WeddingId">@wedding.SpouseOne & @wedding.SpouseTwo</a></td>
+                <td>@wedding.Date.ToString("dd MMM yyyy")</td>
+                <td>@wedding.Attendees.Count</td>
+                @{bool attending = false;}
+                <td>
+                @if (@wedding.UserId == @ViewBag.UserId)
+                {
+                    <a class='btn btn-default' asp-controller="Wedding" asp-action="DeleteWedding" asp-route-WeddingId="@wedding.WeddingId">Delete</a>
+                }
+                else {
+                    @foreach (var attendee in @wedding.Attendees)
+                    {
+                        if (@attendee.UserId == @ViewBag.UserId)
+                        {
+                            attending = true;
+                        }
+                    }
+                    @if (attending)
+                    {
+                    <a class='btn btn-default' asp-controller="Wedding" asp-action="UnRSVPWedding" asp-route-WeddingId="@wedding.WeddingId">UN-RSVP?</a>
+                    }
+                    else {
+                    <a class='btn btn-default' asp-controller="Wedding" asp-action="RSVPWedding" asp-route-WeddingId="@wedding.WeddingId">RSVP?</a>
+                    }
+                }
+                </td>
+                <td>@wedding.User.FirstName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Wedding" asp-action="NewWedding" class='btn btn-default'>Add a wedding!</a>
