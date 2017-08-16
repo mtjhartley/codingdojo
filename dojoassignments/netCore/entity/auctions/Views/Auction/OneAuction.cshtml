@@ -1,0 +1,35 @@
+<h3>Welcome to the page for one auction, @ViewBag.UserName!
+    You currently have @ViewBag.User.Wallet in your wallet
+</h3>
+
+<a href='/auctions'>Home</a>
+<a href="/logout">Logout</a>
+
+<h2>@ViewBag.Auction.ProductName Created by: @ViewBag.Auction.User.FirstName</h2>
+
+@{
+    TimeSpan span = @ViewBag.Auction.EndDate.Subtract(DateTime.Now);
+}
+<h3>Time Remaining: @ViewBag.TimeRemaining days</h3>
+
+<h4>Description</h4>
+<p>@ViewBag.Auction.Description</p>
+<p>Initial Asking Price: $@ViewBag.Auction.StartingBid</p>
+@if (@ViewBag.BiggestBid != null)
+{
+<p>Current Highest Bid: $@ViewBag.BiggestBid.Amount</p>
+<p>Bid By: @ViewBag.BiggestBid.User.FirstName</p> 
+}
+
+<h4>Placeholder for form to submit bid</h4>
+
+<form Asp-Controller="Auction" asp-action="MakeBid" method='post'>
+    <input name="AuctionId" type='hidden' value="@ViewBag.Auction.AuctionId">
+    <label for="yourBid">Bid Amount: </label>
+    <input type='number' name="yourBid" step=".01" min="@ViewBag.Auction.StartingBid" max="@ViewBag.User.Wallet">
+    <button type='submit' class='btn btn-default'>Bid!</button>
+</form>
+@foreach (var error in @ViewBag.Errors)
+{
+    <p style="color:red;">@error</p>
+}

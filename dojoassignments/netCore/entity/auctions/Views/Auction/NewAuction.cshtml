@@ -1,0 +1,37 @@
+@model auctions.Models.AuctionViewModel
+<h2>Hi @ViewBag.UserName!</h2>
+
+<a href='/auctions'>Home</a>
+<a href="/logout">Logout</a>
+
+<h3>Create a new auction</h3>
+
+<div class='col-md-6'>
+    <form asp-controller="Auction" asp-action="HandleNewAuction" method='post'>
+        <div class='form-group'>
+            <label asp-for="ProductName">Product Name:</label>
+            <input asp-for="ProductName" class='form-control'/>
+            <span asp-validation-for="ProductName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description">Description:</label>
+            <textarea asp-for="Description" class='form-control'></textarea>
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="StartingBid"></label>
+            <input asp-for="StartingBid" type='number' min='1' step='.01' class='form-control'/>
+            <span asp-validation-for="StartingBid"></span>
+        </div>
+        <div class='form-group'>
+            <label asp-for="EndDate"></label>
+            <input asp-for="EndDate" type="date">
+            <span asp-validation-for="EndDate"></span>
+            @foreach (var error in @ViewBag.Errors)
+            {
+                <p>@error</p>
+            }
+        </div>
+        <button class='btn btn-default' type="submit">Add Product</button>
+    </form>
+</div>  

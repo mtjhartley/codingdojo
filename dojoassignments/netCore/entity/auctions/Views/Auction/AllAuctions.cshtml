@@ -1,0 +1,42 @@
+<h3>These are all of the current auctions</h3>
+
+<h4>Hi @ViewBag.UserName!</h4>
+<a href="/logout">Logout</a>
+
+<table class='table table-hover'>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Seller</th>
+            <th>Top Bid</th>
+            <th>Time Remaining</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var auction in @ViewBag.Auctions)
+        {
+            <tr>
+                <td><a href="auction/@auction.AuctionId">@auction.ProductName</a></td>
+                <td>@auction.User.FirstName</td>
+                <td>@auction.HighestBid</td>
+                @{
+                    TimeSpan span = @auction.EndDate.Subtract(DateTime.Now);
+                    String timeRemaining = new DateTime(span.Ticks).ToString("dd:HH:mm");
+                }
+                <td>@timeRemaining days remaining...</td>
+                <td>
+                    @if (@ViewBag.UserId == @auction.User.UserId)
+                    {
+                        <form asp-controller="Auction" asp-action="DeleteAuction" method='post'>
+                            <input type='hidden' name="AuctionId" value="@auction.AuctionId">
+                            <button type='submit' class='btn btn-default'>Delete Auction?</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h4>Your current wallet: $@ViewBag.User.Wallet</h4>
+<a href="/new_auction" class='btn btn-default'>Add a new auction?</a>
