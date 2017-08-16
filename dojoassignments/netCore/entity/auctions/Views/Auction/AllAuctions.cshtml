@@ -19,12 +19,12 @@
             <tr>
                 <td><a href="auction/@auction.AuctionId">@auction.ProductName</a></td>
                 <td>@auction.User.FirstName</td>
-                <td>@auction.HighestBid</td>
+                <td>$@auction.HighestBid</td>
                 @{
                     TimeSpan span = @auction.EndDate.Subtract(DateTime.Now);
-                    String timeRemaining = new DateTime(span.Ticks).ToString("dd:HH:mm");
+                    String timeRemaining = new DateTime(span.Ticks).ToString("dd");
                 }
-                <td>@timeRemaining days remaining...</td>
+                <td>@timeRemaining days...</td>
                 <td>
                     @if (@ViewBag.UserId == @auction.User.UserId)
                     {

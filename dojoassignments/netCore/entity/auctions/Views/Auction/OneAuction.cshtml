@@ -5,7 +5,8 @@
 <a href='/auctions'>Home</a>
 <a href="/logout">Logout</a>
 
-<h2>@ViewBag.Auction.ProductName Created by: @ViewBag.Auction.User.FirstName</h2>
+<h2>@ViewBag.Auction.ProductName</h2> 
+<h3>Created by: @ViewBag.Auction.User.FirstName</h3>
 
 @{
     TimeSpan span = @ViewBag.Auction.EndDate.Subtract(DateTime.Now);
